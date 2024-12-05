@@ -660,23 +660,23 @@ InstructionQueue::insert(const DynInstPtr &new_inst)
 void
 InstructionQueue::processCountdownQueue()
 {
-    
+
     countdownQueue.tick();
 
- 
+
     auto readyInstructions = countdownQueue.fetchReadyInstructions();
 
 
     for (const auto &entry : readyInstructions) {
         const auto &readyInst = entry.inst;
 
-        
+
         if (readyInst->readyToIssue()) {
             DPRINTF(IQ, "CountdownQueue: Instruction PC %s [sn:%llu] is ready, "
                         "moving to Ready List.\n",
                     readyInst->pcState(), readyInst->seqNum);
 
-        
+
             addIfReady(readyInst);
         } else {
             // 操作数未准备好，需要重新计算倒计时
@@ -703,7 +703,7 @@ InstructionQueue::processCountdownQueue()
 int
 InstructionQueue::calculateNewCountdown(const DynInstPtr &inst)
 {
-   
+
     // std::vector<DynInstPtr> dependencies = this->dependGraph.getDependency(inst);
 
     // int minCountdown = std::numeric_limits<int>::max();
@@ -713,7 +713,7 @@ InstructionQueue::calculateNewCountdown(const DynInstPtr &inst)
     //         minCountdown = std::min(minCountdown, depCountdown);
     //     }
     // }
- 
+
     // return inst->getExecutionLatency() + minCountdown;
 
     // placeholder

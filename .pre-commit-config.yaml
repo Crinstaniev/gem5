@@ -50,36 +50,50 @@ exclude: |
     )$
 
 default_stages: [commit]
-
 repos:
     - repo: https://github.com/pre-commit/pre-commit-hooks
       rev: v4.5.0
       hooks:
           - id: trailing-whitespace
+            stages: []
           - id: end-of-file-fixer
+            stages: []
           - id: check-json
+            stages: []
           - id: check-yaml
+            stages: []
           - id: check-added-large-files
+            stages: []
           - id: mixed-line-ending
             args: [--fix=lf]
+            stages: []
           - id: check-ast
+            stages: []
           - id: check-case-conflict
+            stages: []
           - id: check-merge-conflict
+            stages: []
           - id: check-symlinks
+            stages: []
           - id: destroyed-symlinks
+            stages: []
           - id: requirements-txt-fixer
+            stages: []
     - repo: https://github.com/PyCQA/isort
       rev: 5.11.5
       hooks:
           - id: isort
+            stages: []
     - repo: https://github.com/jumanjihouse/pre-commit-hook-yamlfmt
       rev: 0.2.3
       hooks:
           - id: yamlfmt
+            stages: []
     - repo: https://github.com/psf/black
       rev: 23.9.1
       hooks:
           - id: black
+            stages: []
     - repo: https://github.com/asottile/pyupgrade
       rev: v3.14.0
       hooks:
@@ -87,6 +101,7 @@ repos:
             # Python 3.8 is the earliest version supported.
             # We therefore conform to the standards compatible with 3.8+.
             args: [--py38-plus]
+            stages: []
     - repo: local
       hooks:
           - id: gem5-style-checker
@@ -96,15 +111,16 @@ repos:
             exclude: .*
             language: system
             description: The gem5 style checker hook.
+            stages: []
           - id: gem5-commit-msg-checker
             name: gem5 commit msg checker
             entry: ext/git-commit-msg
             language: system
-            stages: [commit-msg]
+            stages: []
             description: The gem5 commit message checker hook.
           - id: gerrit-commit-msg-job
             name: gerrit commit message job
             entry: util/gerrit-commit-msg-hook
             language: system
-            stages: [commit-msg]
+            stages: []
             description: Adds Change-ID to the commit message. Needed by Gerrit.

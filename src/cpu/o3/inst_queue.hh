@@ -296,7 +296,7 @@ class InstructionQueue
     int calculateNewCountdown(const DynInstPtr &insts);
 
     void processCountdownQueue();
-    // END CYCLONE  
+    // END CYCLONE
 
   private:
     /** Does the actual squashing. */
