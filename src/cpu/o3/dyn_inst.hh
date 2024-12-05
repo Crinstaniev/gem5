@@ -63,6 +63,7 @@
 #include "cpu/static_inst.hh"
 #include "cpu/translation.hh"
 #include "debug/HtmCpu.hh"
+#include "cpu/o3/cyclone/timing_table.hh"
 
 namespace gem5
 {
@@ -155,7 +156,7 @@ class DynInst : public ExecContext, public RefCounted
         return operandLatency;
     }
 
-    void calculateOperandLatency(const TimingTable &timingTable) {
+    void calculateOperandLatency(const cyclone::TimingTable &timingTable) {
         operandLatency = 0;
         for (int i = 0; i < numSrcRegs(); i++) {
             int regReadyTime = timingTable.getReadyTime(renamedSrcIdx(i)->index());

@@ -60,6 +60,7 @@
 #include "cpu/timebuf.hh"
 #include "enums/SMTQueuePolicy.hh"
 #include "sim/eventq.hh"
+#include "cpu/o3/cyclone/timing_table.hh"
 
 // CYCLONE
 #include "cpu/o3/cyclone/countdown_queue.hh"
@@ -105,7 +106,7 @@ class IEW;
 class InstructionQueue
 {
   private:
-    std::vector<cyclone::CountdownQueue> countdownQueue;
+    cyclone::CountdownQueue countdownQueue;
 ///////////cyclone timing table/////////
     cyclone::TimingTable timingTable;
     ///////////////end cyclone timing table////////////////
@@ -289,6 +290,13 @@ class InstructionQueue
 
     /** Debug function to print all instructions. */
     void printInsts();
+
+    // CYCLONE
+    // currently place holder
+    int calculateNewCountdown(const DynInstPtr &insts);
+
+    void processCountdownQueue();
+    // END CYCLONE  
 
   private:
     /** Does the actual squashing. */

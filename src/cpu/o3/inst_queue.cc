@@ -58,6 +58,7 @@
 #include "sim/core.hh"
 #include "debug/Cyclone.hh"
 #include "cpu/o3/cyclone/utilities.hh"
+#include "inst_queue.hh"
 
 
 
@@ -104,20 +105,7 @@ InstructionQueue::InstructionQueue(CPU *cpu_ptr, IEW *iew_ptr,
       totalWidth(params.issueWidth),
       commitToIEWDelay(params.commitToIEWDelay),
       iqStats(cpu, totalWidth),
-      iqIOStats(cpu),
-
-      //////////initialize cyclone///
-      countdownQueue()
-
-      ///////end cyclone///
-
-
-
-
-
-
-
-
+      iqIOStats(cpu)
 {
     assert(fuPool);
 
@@ -132,6 +120,10 @@ InstructionQueue::InstructionQueue(CPU *cpu_ptr, IEW *iew_ptr,
                     params.numPhysVecPredRegs +
                     params.numPhysMatRegs +
                     params.numPhysCCRegs;
+
+    // CYCLONE - init timing table
+    this->timingTable = cyclone::TimingTable(numPhysRegs);
+    // END CYCLONE
 
     //Create an entry for each physical register within the
     //dependency graph.
@@ -182,14 +174,6 @@ InstructionQueue::InstructionQueue(CPU *cpu_ptr, IEW *iew_ptr,
     for (ThreadID tid = numThreads; tid < MaxThreads; tid++) {
         maxEntries[tid] = 0;
     }
-
-    // CYCLONE
-    // Initialize the countdown queue vector
-    for (ThreadID tid = 0; tid < MaxThreads; tid++) {
-        cyclone::CountdownQueue countdownQueue_payload;
-        countdownQueue.push_back(countdownQueue_payload);
-    }
-    // END CYCLONE
 }
 
 InstructionQueue::~InstructionQueue()
@@ -605,18 +589,18 @@ InstructionQueue::insert(const DynInstPtr &new_inst)
     DPRINTF(IQ, "Adding instruction [sn:%llu] PC %s to the IQ.\n",
             new_inst->seqNum, new_inst->pcState());
 
-/////////////////delete for cyclone//////////////
+    /////////////////delete for cyclone//////////////
     // assert(freeEntries != 0);
 
     // instList[new_inst->threadNumber].push_back(new_inst);
 
     // --freeEntries;
     ////////////////////////end delete///////////////
-   ///////////////insert to countdown cyclone///////////
-int countdown_value = calculateNewCountdown(readyInst);
-countdownQueue.addInstruction(new_inst, countdown_value);
-/////////////////////countdown_value???////////////////prescheduler///////
-///////////////////end insert/////////////////////////
+    ///////////////insert to countdown cyclone///////////
+    int countdown_value = calculateNewCountdown(new_inst);
+    this->countdownQueue.addInstruction(new_inst, countdown_value);
+    /////////////////////countdown_value???////////////////prescheduler///////
+    ///////////////////end insert/////////////////////////
 
     new_inst->setInIQ();
 
@@ -695,7 +679,8 @@ InstructionQueue::processCountdownQueue()
         
             addIfReady(readyInst);
         } else {
-            // 操作数未准备好，需要重新计算倒计时---暂时实现但或许应该在prescheduler实现
+            // 操作数未准备好，需要重新计算倒计时
+            //---暂时实现但或许应该在prescheduler实现
             int newCountdown = calculateNewCountdown(readyInst);
 
             DPRINTF(IQ, "CountdownQueue: Instruction PC %s [sn:%llu] operands not ready. "
@@ -703,7 +688,7 @@ InstructionQueue::processCountdownQueue()
                     readyInst->pcState(), readyInst->seqNum, newCountdown);
 
             // 将指令重新插入 Countdown Queue
-            countdownQueue.addInstruction(readyInst, newCountdown);
+            this->countdownQueue.addInstruction(readyInst, newCountdown);
         }
     }
 
@@ -714,22 +699,25 @@ InstructionQueue::processCountdownQueue()
         DPRINTF(IQ, "CountdownQueue: No instructions ready this cycle.\n");
     }
 }
+
 int
 InstructionQueue::calculateNewCountdown(const DynInstPtr &inst)
 {
    
-    std::vector<DynInstPtr> dependencies = this->dependGraph.getDependency(inst);
+    // std::vector<DynInstPtr> dependencies = this->dependGraph.getDependency(inst);
 
-    int minCountdown = std::numeric_limits<int>::max();
-    for (const auto &dep : dependencies) {
-        if (countdownQueue.inQueue(dep)) {
-            int depCountdown = countdownQueue.getCountdownValue(dep);
-            minCountdown = std::min(minCountdown, depCountdown);
-        }
-    }
-
+    // int minCountdown = std::numeric_limits<int>::max();
+    // for (const auto &dep : dependencies) {
+    //     if (countdownQueue.inQueue(dep)) {
+    //         int depCountdown = countdownQueue.getCountdownValue(dep);
+    //         minCountdown = std::min(minCountdown, depCountdown);
+    //     }
+    // }
  
-    return inst->getExecutionLatency() + minCountdown;
+    // return inst->getExecutionLatency() + minCountdown;
+
+    // placeholder
+    return 0;
 }
 
 
@@ -1334,8 +1322,15 @@ InstructionQueue::squash(ThreadID tid)
     memDepUnit[tid].squash(squashedSeqNum[tid], tid);
 }
 
-void
-InstructionQueue::doSquash(ThreadID tid)
+// CYCLONE
+// int InstructionQueue::calculateNewCountdown(std::vector<DynInstPtr> &insts)
+// {
+//   return 0;
+// }
+// END CYCLONE
+
+
+void InstructionQueue::doSquash(ThreadID tid)
 {
     // Start at the tail.
     ListIt squash_it = instList[tid].end();

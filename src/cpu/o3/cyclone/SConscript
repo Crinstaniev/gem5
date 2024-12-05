@@ -3,5 +3,6 @@ Import('*')
 # SimObject('CountdownQueue.py', sim_objects=[])
 
 Source('countdown_queue.cc')
+Source('timing_table.cc')
 
 DebugFlag('DCountdownQueue')
