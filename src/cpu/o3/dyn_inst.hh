@@ -75,6 +75,11 @@ namespace o3
 class DynInst : public ExecContext, public RefCounted
 {
   private:
+  ////////////////cyclone prescheduler/////////////
+  int operandLatency;//max operand latency
+   ////////////////end cyclone prescheduler/////////////
+
+
     DynInst(const StaticInstPtr &staticInst, const StaticInstPtr &macroop,
             InstSeqNum seq_num, CPU *cpu);
 
@@ -139,6 +144,32 @@ class DynInst : public ExecContext, public RefCounted
 
     /** InstRecord that tracks this instructions. */
     trace::InstRecord *traceData = nullptr;
+
+////////////////cyclone prescheduler/////////////
+
+    void setOperandLatency(int latency) {
+        operandLatency = latency;
+    }
+
+    int getOperandLatency() const {
+        return operandLatency;
+    }
+
+    void calculateOperandLatency(const TimingTable &timingTable) {
+        operandLatency = 0;
+        for (int i = 0; i < numSrcRegs(); i++) {
+            int regReadyTime = timingTable.getReadyTime(renamedSrcIdx(i)->index());
+            operandLatency = std::max(operandLatency, regReadyTime);
+        }
+    }
+
+
+////////////////end cyclone prescheduler/////////////
+
+
+
+
+
 
   protected:
     enum Status

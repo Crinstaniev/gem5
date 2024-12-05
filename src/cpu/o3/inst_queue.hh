@@ -65,6 +65,9 @@
 #include "cpu/o3/cyclone/countdown_queue.hh"
 // END CYCLONE
 
+
+
+
 namespace gem5
 {
 
@@ -103,6 +106,9 @@ class InstructionQueue
 {
   private:
     std::vector<cyclone::CountdownQueue> countdownQueue;
+///////////cyclone timing table/////////
+    cyclone::TimingTable timingTable;
+    ///////////////end cyclone timing table////////////////
 
   public:
     // Typedef of iterator through the list of instructions.
