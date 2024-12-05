@@ -59,6 +59,9 @@
 #include "debug/Cyclone.hh"
 #include "cpu/o3/cyclone/utilities.hh"
 
+
+
+
 // clang complains about std::set being overloaded with Packet::set if
 // we open up the entire namespace std
 using std::list;
@@ -101,7 +104,20 @@ InstructionQueue::InstructionQueue(CPU *cpu_ptr, IEW *iew_ptr,
       totalWidth(params.issueWidth),
       commitToIEWDelay(params.commitToIEWDelay),
       iqStats(cpu, totalWidth),
-      iqIOStats(cpu)
+      iqIOStats(cpu),
+
+      //////////initialize cyclone///
+      countdownQueue()
+
+      ///////end cyclone///
+
+
+
+
+
+
+
+
 {
     assert(fuPool);
 
@@ -589,11 +605,18 @@ InstructionQueue::insert(const DynInstPtr &new_inst)
     DPRINTF(IQ, "Adding instruction [sn:%llu] PC %s to the IQ.\n",
             new_inst->seqNum, new_inst->pcState());
 
-    assert(freeEntries != 0);
+/////////////////delete for cyclone//////////////
+    // assert(freeEntries != 0);
 
-    instList[new_inst->threadNumber].push_back(new_inst);
+    // instList[new_inst->threadNumber].push_back(new_inst);
 
-    --freeEntries;
+    // --freeEntries;
+    ////////////////////////end delete///////////////
+   ///////////////insert to countdown cyclone///////////
+int countdown_value = calculateNewCountdown(readyInst);
+countdownQueue.addInstruction(new_inst, countdown_value);
+/////////////////////countdown_value???////////////////prescheduler///////
+///////////////////end insert/////////////////////////
 
     new_inst->setInIQ();
 
@@ -649,6 +672,68 @@ InstructionQueue::insert(const DynInstPtr &new_inst)
 
     // END CYCLONE
 }
+//////////cyclone/////////
+void
+InstructionQueue::processCountdownQueue()
+{
+    
+    countdownQueue.tick();
+
+ 
+    auto readyInstructions = countdownQueue.fetchReadyInstructions();
+
+
+    for (const auto &entry : readyInstructions) {
+        const auto &readyInst = entry.inst;
+
+        
+        if (readyInst->readyToIssue()) {
+            DPRINTF(IQ, "CountdownQueue: Instruction PC %s [sn:%llu] is ready, "
+                        "moving to Ready List.\n",
+                    readyInst->pcState(), readyInst->seqNum);
+
+        
+            addIfReady(readyInst);
+        } else {
+            // 操作数未准备好，需要重新计算倒计时---暂时实现但或许应该在prescheduler实现
+            int newCountdown = calculateNewCountdown(readyInst);
+
+            DPRINTF(IQ, "CountdownQueue: Instruction PC %s [sn:%llu] operands not ready. "
+                        "Recomputing countdown: %d cycles.\n",
+                    readyInst->pcState(), readyInst->seqNum, newCountdown);
+
+            // 将指令重新插入 Countdown Queue
+            countdownQueue.addInstruction(readyInst, newCountdown);
+        }
+    }
+
+    if (!readyInstructions.empty()) {
+        DPRINTF(IQ, "CountdownQueue: Processed %lu ready instructions.\n",
+                readyInstructions.size());
+    } else {
+        DPRINTF(IQ, "CountdownQueue: No instructions ready this cycle.\n");
+    }
+}
+int
+InstructionQueue::calculateNewCountdown(const DynInstPtr &inst)
+{
+   
+    std::vector<DynInstPtr> dependencies = this->dependGraph.getDependency(inst);
+
+    int minCountdown = std::numeric_limits<int>::max();
+    for (const auto &dep : dependencies) {
+        if (countdownQueue.inQueue(dep)) {
+            int depCountdown = countdownQueue.getCountdownValue(dep);
+            minCountdown = std::min(minCountdown, depCountdown);
+        }
+    }
+
+ 
+    return inst->getExecutionLatency() + minCountdown;
+}
+
+
+///end cyclone////////////////////////
 
 void
 InstructionQueue::insertNonSpec(const DynInstPtr &new_inst)
@@ -678,6 +763,9 @@ InstructionQueue::insertNonSpec(const DynInstPtr &new_inst)
     --freeEntries;
 
     new_inst->setInIQ();
+
+
+
 
     // Have this instruction set itself as the producer of its destination
     // register(s).
@@ -811,7 +899,10 @@ InstructionQueue::scheduleReadyInsts()
             "the IQ.\n");
 
     IssueStruct *i2e_info = issueToExecuteQueue->access(0);
+///////////////added cyclone////////
+  processCountdownQueue();
 
+////////end added//////////////////
     DynInstPtr mem_inst;
     while ((mem_inst = getDeferredMemInstToExecute())) {
         addReadyMemInst(mem_inst);
@@ -954,6 +1045,12 @@ InstructionQueue::scheduleReadyInsts()
             listOrder.erase(order_it++);
             iqStats.statIssuedInstType[tid][op_class]++;
         } else {
+            //////////////cyclone question/////////
+            //function union忙碌时是直接等待还是replay？
+            /////////////end question//////////////
+
+
+
             iqStats.statFuBusy[op_class]++;
             iqStats.fuBusy[tid]++;
             ++order_it;
