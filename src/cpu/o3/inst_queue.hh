@@ -61,6 +61,10 @@
 #include "enums/SMTQueuePolicy.hh"
 #include "sim/eventq.hh"
 
+// CYCLONE
+#include "cpu/o3/cyclone/countdown_queue.hh"
+// END CYCLONE
+
 namespace gem5
 {
 
@@ -97,6 +101,9 @@ class IEW;
  */
 class InstructionQueue
 {
+  private:
+    std::vector<cyclone::CountdownQueue> countdownQueue;
+
   public:
     // Typedef of iterator through the list of instructions.
     typedef typename std::list<DynInstPtr>::iterator ListIt;

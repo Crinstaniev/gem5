@@ -42,6 +42,7 @@
 #define __CPU_O3_DEP_GRAPH_HH__
 
 #include "cpu/o3/comm.hh"
+#include "debug/Cyclone.hh"
 
 namespace gem5
 {
@@ -118,6 +119,56 @@ class DependencyGraph
     /** Debugging function to dump out the dependency graph.
      */
     void dump();
+
+    // CYCLONE
+    /**
+     * Get the producer of the register's value.
+     */
+    DynInstPtr getProducer(RegIndex idx) const {
+        return dependGraph[idx].inst;
+    }
+
+    bool hasDependency(const DynInstPtr &inst) {
+      // iterate through all source registers
+      int numSrcRegs = inst->numSrcRegs();
+      for (int i = 0; i < numSrcRegs; i++) {
+        auto src_reg = inst->renamedSrcIdx(i);
+        auto reg_idx = src_reg->flatIndex();
+        auto producer = this->getProducer(reg_idx);
+
+        if (producer) {
+          return true;
+        }
+      }
+
+      return false;
+    }
+
+    /**
+     * Return a list of instruction that the target instruction depends on,
+     * which is the producer of the source registers.
+     */
+    std::vector<DynInstPtr> getDependency(const DynInstPtr &inst) {
+      std::vector<DynInstPtr> dependencies;
+
+      // Iterate through all source registers
+      int numSrcRegs = inst->numSrcRegs();
+      for (int i = 0; i < numSrcRegs; i++) {
+        auto src_reg = inst->renamedSrcIdx(i);
+        auto reg_idx = src_reg->flatIndex();
+
+        // Check if there is a producer for this register
+        if (!this->empty(reg_idx)) {
+          auto producer = this->getProducer(reg_idx);
+          if (producer) {
+            dependencies.push_back(producer);
+          }
+        }
+      }
+
+      return dependencies;
+    }
+    // END CYCLONE
 
   private:
     /** Array of linked lists.  Each linked list is a list of all the

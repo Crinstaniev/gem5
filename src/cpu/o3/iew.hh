@@ -55,6 +55,10 @@
 #include "debug/IEW.hh"
 #include "sim/probe/probe.hh"
 
+// CYCLONE
+#include "cpu/o3/cyclone/countdown_queue.hh"
+// END CYCLONE
+
 namespace gem5
 {
 
@@ -124,6 +128,10 @@ class IEW
     ProbePointArg<DynInstPtr> *ppExecute;
     /** To probe when instruction execution is complete. */
     ProbePointArg<DynInstPtr> *ppToCommit;
+
+    // CYCLONE
+    cyclone::CountdownQueue countdownQueue;
+    // END CYCLONE
 
   public:
     /** Constructs a IEW with the given parameters. */

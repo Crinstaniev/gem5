@@ -1,0 +1,7 @@
+Import('*')
+
+# SimObject('CountdownQueue.py', sim_objects=[])
+
+Source('countdown_queue.cc')
+
+DebugFlag('DCountdownQueue')

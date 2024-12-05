@@ -1,0 +1,1303 @@
+scons: Reading SConscript files ...
+Mkdir("/cyclone/gem5/build/X86/gem5.build")
+Checking for linker -Wl,--as-needed support... (cached) yes
+Checking for compiler -gz support... (cached) yes
+Checking for linker -gz support... (cached) yes
+Info: Using Python config: python3-config
+Checking for C header file Python.h... (cached) yes
+Checking Python version... (cached) 3.12.3
+Checking for accept(0,0,0) in C++ library None... (cached) yes
+Checking for zlibVersion() in C++ library z... (cached) yes
+Checking for C library tcmalloc_minimal... (cached) yes
+Building in /cyclone/gem5/build/X86
+"build_tools/kconfig_base.py" "/cyclone/gem5/build/X86/gem5.build/Kconfig" "/cyclone/gem5/src/Kconfig"
+Checking for C header file linux/if_tun.h... (cached) yes
+Checking for backtrace_symbols_fd((void *)1, 0, 0) in C library None... (cached) yes
+Checking for C header file fenv.h... (cached) yes
+Checking for C header file png.h... (cached) yes
+Checking for clock_nanosleep(0,0,NULL,NULL) in C library None... (cached) yes
+Checking for C header file valgrind/valgrind.h... (cached) no
+Checking for pkg-config package hdf5-serial... (cached) yes
+Checking for H5Fcreate("", 0, 0, 0) in C library hdf5... (cached) yes
+Checking for H5::H5File("", 0) in C++ library hdf5_cpp... (cached) yes
+Checking for pkg-config package protobuf... (cached) yes
+Checking for C header file capstone/capstone.h... (cached) yes
+Checking for C header file linux/kvm.h... (cached) yes
+Checking for timer_create(CLOCK_MONOTONIC, NULL, NULL) in C library None... (cached) yes
+Checking for member exclude_host in struct perf_event_attr...(cached) yes
+Checking for shm_open("/test", 0, 0) in C library None... (cached) yes
+Checking size of struct kvm_xsave ... (cached) yes
+Checking whether __i386__ is declared... (cached) no
+Checking whether __x86_64__ is declared... (cached) yes
+Checking for compiler -Wno-self-assign-overloaded support... (cached) yes
+Checking for linker -Wno-free-nonheap-object support... (cached) yes
+scons: done reading SConscript files.
+scons: Building targets ...
+ [VER TAGS]  -> X86/sim/tags.cc
+ [     CXX] src/cpu/o3/commit.cc -> X86/cpu/o3/commit.o
+ [     CXX] src/cpu/o3/cpu.cc -> X86/cpu/o3/cpu.o
+ [     CXX] src/cpu/o3/fetch.cc -> X86/cpu/o3/fetch.o
+ [     CXX] src/cpu/o3/iew.cc -> X86/cpu/o3/iew.o
+ [     CXX] src/cpu/o3/lsq.cc -> X86/cpu/o3/lsq.o
+ [     CXX] src/cpu/o3/lsq_unit.cc -> X86/cpu/o3/lsq_unit.o
+ [     CXX] src/cpu/o3/rename.cc -> X86/cpu/o3/rename.o
+ [     CXX] src/cpu/o3/thread_context.cc -> X86/cpu/o3/thread_context.o
+ [     CXX] src/cpu/o3/thread_state.cc -> X86/cpu/o3/thread_state.o
+ [     CXX] src/cpu/o3/cyclone/countdown_queue.cc -> X86/cpu/o3/cyclone/countdown_queue.o
+In file included from src/cpu/o3/cyclone/countdown_queue.hh:7,
+                 from src/cpu/o3/iew.hh:60,
+                 from src/cpu/o3/commit.hh:51,
+                 from src/cpu/o3/cpu.hh:55,
+                 from src/cpu/o3/lsq_unit.hh:57,
+                 from src/cpu/o3/lsq_unit.cc:42:
+src/cpu/o3/dyn_inst.hh:351:23: error: invalid use of incomplete type ‘class gem5::o3::LSQUnit’
+  351 |     typename LSQUnit::LQIterator lqIt;
+      |                       ^~~~~~~~~~
+In file included from src/cpu/o3/iew.hh:52:
+src/cpu/o3/lsq.hh:73:7: note: forward declaration of ‘class gem5::o3::LSQUnit’
+   73 | class LSQUnit;
+      |       ^~~~~~~
+src/cpu/o3/dyn_inst.hh:355:23: error: invalid use of incomplete type ‘class gem5::o3::LSQUnit’
+  355 |     typename LSQUnit::SQIterator sqIt;
+      |                       ^~~~~~~~~~
+src/cpu/o3/lsq.hh:73:7: note: forward declaration of ‘class gem5::o3::LSQUnit’
+   73 | class LSQUnit;
+      |       ^~~~~~~
+src/cpu/o3/dyn_inst.hh: In member function ‘gem5::BaseCPU* gem5::o3::DynInst::getCpuPtr()’:
+src/cpu/o3/dyn_inst.hh:132:35: error: cannot convert ‘gem5::o3::CPU*’ to ‘gem5::BaseCPU*’ in return
+  132 |     BaseCPU *getCpuPtr() { return cpu; }
+      |                                   ^~~
+      |                                   |
+      |                                   gem5::o3::CPU*
+In file included from src/cpu/o3/inst_queue.hh:57,
+                 from src/cpu/o3/iew.hh:50:
+src/cpu/o3/mem_dep_unit.hh:76:7: note: class type ‘gem5::o3::CPU’ is incomplete
+   76 | class CPU;
+      |       ^~~
+src/cpu/o3/dyn_inst.hh: In member function ‘virtual void gem5::o3::DynInst::demapPage(gem5::Addr, uint64_t)’:
+src/cpu/o3/dyn_inst.hh:394:12: error: invalid use of incomplete type ‘class gem5::o3::CPU’
+  394 |         cpu->demapPage(vaddr, asn);
+      |            ^~
+src/cpu/o3/mem_dep_unit.hh:76:7: note: forward declaration of ‘class gem5::o3::CPU’
+   76 | class CPU;
+      |       ^~~
+src/cpu/o3/dyn_inst.hh: In member function ‘int gem5::o3::DynInst::cpuId() const’:
+src/cpu/o3/dyn_inst.hh:489:35: error: invalid use of incomplete type ‘class gem5::o3::CPU’
+  489 |     int cpuId() const { return cpu->cpuId(); }
+      |                                   ^~
+src/cpu/o3/mem_dep_unit.hh:76:7: note: forward declaration of ‘class gem5::o3::CPU’
+   76 | class CPU;
+      |       ^~~
+src/cpu/o3/dyn_inst.hh: In member function ‘uint32_t gem5::o3::DynInst::socketId() const’:
+src/cpu/o3/dyn_inst.hh:492:43: error: invalid use of incomplete type ‘class gem5::o3::CPU’
+  492 |     uint32_t socketId() const { return cpu->socketId(); }
+      |                                           ^~
+src/cpu/o3/mem_dep_unit.hh:76:7: note: forward declaration of ‘class gem5::o3::CPU’
+   76 | class CPU;
+      |       ^~~
+src/cpu/o3/dyn_inst.hh: In member function ‘gem5::RequestorID gem5::o3::DynInst::requestorId() const’:
+src/cpu/o3/dyn_inst.hh:495:49: error: invalid use of incomplete type ‘class gem5::o3::CPU’
+  495 |     RequestorID requestorId() const { return cpu->dataRequestorId(); }
+      |                                                 ^~
+src/cpu/o3/mem_dep_unit.hh:76:7: note: forward declaration of ‘class gem5::o3::CPU’
+   76 | class CPU;
+      |       ^~~
+src/cpu/o3/dyn_inst.hh: In member function ‘virtual gem5::ThreadContext* gem5::o3::DynInst::tcBase() const’:
+src/cpu/o3/dyn_inst.hh:924:67: error: ‘struct gem5::ThreadState’ has no member named ‘getTC’
+  924 |     gem5::ThreadContext *tcBase() const override { return thread->getTC(); }
+      |                                                                   ^~~~~
+src/cpu/o3/dyn_inst.hh: In member function ‘virtual void gem5::o3::DynInst::armMonitor(gem5::Addr)’:
+src/cpu/o3/dyn_inst.hh:962:12: error: invalid use of incomplete type ‘class gem5::o3::CPU’
+  962 |         cpu->armMonitor(threadNumber, address);
+      |            ^~
+src/cpu/o3/mem_dep_unit.hh:76:7: note: forward declaration of ‘class gem5::o3::CPU’
+   76 | class CPU;
+      |       ^~~
+src/cpu/o3/dyn_inst.hh: In member function ‘virtual bool gem5::o3::DynInst::mwait(gem5::PacketPtr)’:
+src/cpu/o3/dyn_inst.hh:967:19: error: invalid use of incomplete type ‘class gem5::o3::CPU’
+  967 |         return cpu->mwait(threadNumber, pkt);
+      |                   ^~
+src/cpu/o3/mem_dep_unit.hh:76:7: note: forward declaration of ‘class gem5::o3::CPU’
+   76 | class CPU;
+      |       ^~~
+src/cpu/o3/dyn_inst.hh: In member function ‘virtual void gem5::o3::DynInst::mwaitAtomic(gem5::ThreadContext*)’:
+src/cpu/o3/dyn_inst.hh:972:19: error: invalid use of incomplete type ‘class gem5::o3::CPU’
+  972 |         return cpu->mwaitAtomic(threadNumber, tc, cpu->mmu);
+      |                   ^~
+src/cpu/o3/mem_dep_unit.hh:76:7: note: forward declaration of ‘class gem5::o3::CPU’
+   76 | class CPU;
+      |       ^~~
+src/cpu/o3/dyn_inst.hh:972:54: error: invalid use of incomplete type ‘class gem5::o3::CPU’
+  972 |         return cpu->mwaitAtomic(threadNumber, tc, cpu->mmu);
+      |                                                      ^~
+src/cpu/o3/mem_dep_unit.hh:76:7: note: forward declaration of ‘class gem5::o3::CPU’
+   76 | class CPU;
+      |       ^~~
+src/cpu/o3/dyn_inst.hh: In member function ‘virtual gem5::AddressMonitor* gem5::o3::DynInst::getAddrMonitor()’:
+src/cpu/o3/dyn_inst.hh:977:19: error: invalid use of incomplete type ‘class gem5::o3::CPU’
+  977 |         return cpu->getCpuAddrMonitor(threadNumber);
+      |                   ^~
+src/cpu/o3/mem_dep_unit.hh:76:7: note: forward declaration of ‘class gem5::o3::CPU’
+   76 | class CPU;
+      |       ^~~
+src/cpu/o3/dyn_inst.hh: In member function ‘virtual gem5::RegVal gem5::o3::DynInst::readMiscReg(int)’:
+src/cpu/o3/dyn_inst.hh:1010:19: error: invalid use of incomplete type ‘class gem5::o3::CPU’
+ 1010 |         return cpu->readMiscReg(misc_reg, threadNumber);
+      |                   ^~
+src/cpu/o3/mem_dep_unit.hh:76:7: note: forward declaration of ‘class gem5::o3::CPU’
+   76 | class CPU;
+      |       ^~~
+src/cpu/o3/dyn_inst.hh: In member function ‘virtual gem5::RegVal gem5::o3::DynInst::readMiscRegOperand(const gem5::StaticInst*, int)’:
+src/cpu/o3/dyn_inst.hh:1042:19: error: invalid use of incomplete type ‘class gem5::o3::CPU’
+ 1042 |         return cpu->readMiscReg(reg.index(), threadNumber);
+      |                   ^~
+src/cpu/o3/mem_dep_unit.hh:76:7: note: forward declaration of ‘class gem5::o3::CPU’
+   76 | class CPU;
+      |       ^~~
+In file included from src/cpu/o3/cyclone/countdown_queue.hh:7,
+                 from src/cpu/o3/iew.hh:60,
+                 from src/cpu/o3/commit.hh:51,
+                 from src/cpu/o3/cpu.hh:55,
+                 from src/cpu/o3/fetch.cc:56:
+src/cpu/o3/dyn_inst.hh: In member function ‘gem5::BaseCPU* gem5::o3::DynInst::getCpuPtr()’:
+src/cpu/o3/dyn_inst.hh:132:35: error: cannot convert ‘gem5::o3::CPU*’ to ‘gem5::BaseCPU*’ in return
+  132 |     BaseCPU *getCpuPtr() { return cpu; }
+      |                                   ^~~
+      |                                   |
+      |                                   gem5::o3::CPU*
+In file included from src/cpu/o3/fetch.cc:42:
+src/cpu/o3/fetch.hh:68:7: note: class type ‘gem5::o3::CPU’ is incomplete
+   68 | class CPU;
+      |       ^~~
+src/cpu/o3/dyn_inst.hh: In member function ‘virtual void gem5::o3::DynInst::demapPage(gem5::Addr, uint64_t)’:
+src/cpu/o3/dyn_inst.hh:394:12: error: invalid use of incomplete type ‘class gem5::o3::CPU’
+  394 |         cpu->demapPage(vaddr, asn);
+      |            ^~
+src/cpu/o3/fetch.hh:68:7: note: forward declaration of ‘class gem5::o3::CPU’
+   68 | class CPU;
+      |       ^~~
+src/cpu/o3/dyn_inst.hh: In member function ‘int gem5::o3::DynInst::cpuId() const’:
+src/cpu/o3/dyn_inst.hh:489:35: error: invalid use of incomplete type ‘class gem5::o3::CPU’
+  489 |     int cpuId() const { return cpu->cpuId(); }
+      |                                   ^~
+src/cpu/o3/fetch.hh:68:7: note: forward declaration of ‘class gem5::o3::CPU’
+   68 | class CPU;
+      |       ^~~
+src/cpu/o3/dyn_inst.hh: In member function ‘uint32_t gem5::o3::DynInst::socketId() const’:
+src/cpu/o3/dyn_inst.hh:492:43: error: invalid use of incomplete type ‘class gem5::o3::CPU’
+  492 |     uint32_t socketId() const { return cpu->socketId(); }
+      |                                           ^~
+src/cpu/o3/fetch.hh:68:7: note: forward declaration of ‘class gem5::o3::CPU’
+   68 | class CPU;
+      |       ^~~
+src/cpu/o3/dyn_inst.hh: In member function ‘gem5::RequestorID gem5::o3::DynInst::requestorId() const’:
+src/cpu/o3/dyn_inst.hh:495:49: error: invalid use of incomplete type ‘class gem5::o3::CPU’
+  495 |     RequestorID requestorId() const { return cpu->dataRequestorId(); }
+      |                                                 ^~
+src/cpu/o3/fetch.hh:68:7: note: forward declaration of ‘class gem5::o3::CPU’
+   68 | class CPU;
+      |       ^~~
+In file included from src/cpu/o3/cyclone/countdown_queue.hh:7,
+                 from src/cpu/o3/iew.hh:60,
+                 from src/cpu/o3/commit.hh:51,
+                 from src/cpu/o3/cpu.hh:55,
+                 from src/cpu/o3/thread_state.cc:43:
+src/cpu/o3/dyn_inst.hh: In member function ‘gem5::BaseCPU* gem5::o3::DynInst::getCpuPtr()’:
+src/cpu/o3/dyn_inst.hh:132:35: error: cannot convert ‘gem5::o3::CPU*’ to ‘gem5::BaseCPU*’ in return
+  132 |     BaseCPU *getCpuPtr() { return cpu; }
+      |                                   ^~~
+      |                                   |
+      |                                   gem5::o3::CPU*
+src/cpu/o3/dyn_inst.hh: In member function ‘virtual gem5::ThreadContext* gem5::o3::DynInst::tcBase() const’:
+src/cpu/o3/dyn_inst.hh:924:67: error: ‘struct gem5::ThreadState’ has no member named ‘getTC’
+  924 |     gem5::ThreadContext *tcBase() const override { return thread->getTC(); }
+      |                                                                   ^~~~~
+In file included from src/cpu/o3/thread_state.cc:41:
+src/cpu/o3/thread_state.hh:57:7: note: class type ‘gem5::o3::CPU’ is incomplete
+   57 | class CPU;
+      |       ^~~
+src/cpu/o3/dyn_inst.hh: In member function ‘virtual void gem5::o3::DynInst::armMonitor(gem5::Addr)’:
+src/cpu/o3/dyn_inst.hh:962:12: error: invalid use of incomplete type ‘class gem5::o3::CPU’
+  962 |         cpu->armMonitor(threadNumber, address);
+      |            ^~
+src/cpu/o3/fetch.hh:68:7: note: forward declaration of ‘class gem5::o3::CPU’
+   68 | class CPU;
+      |       ^~~
+src/cpu/o3/dyn_inst.hh: In member function ‘virtual bool gem5::o3::DynInst::mwait(gem5::PacketPtr)’:
+src/cpu/o3/dyn_inst.hh:967:19: error: invalid use of incomplete type ‘class gem5::o3::CPU’
+  967 |         return cpu->mwait(threadNumber, pkt);
+      |                   ^~
+src/cpu/o3/fetch.hh:68:7: note: forward declaration of ‘class gem5::o3::CPU’
+   68 | class CPU;
+      |       ^~~
+src/cpu/o3/dyn_inst.hh: In member function ‘virtual void gem5::o3::DynInst::mwaitAtomic(gem5::ThreadContext*)’:
+src/cpu/o3/dyn_inst.hh:972:19: error: invalid use of incomplete type ‘class gem5::o3::CPU’
+  972 |         return cpu->mwaitAtomic(threadNumber, tc, cpu->mmu);
+      |                   ^~
+src/cpu/o3/fetch.hh:68:7: note: forward declaration of ‘class gem5::o3::CPU’
+   68 | class CPU;
+      |       ^~~
+src/cpu/o3/dyn_inst.hh:972:54: error: invalid use of incomplete type ‘class gem5::o3::CPU’
+  972 |         return cpu->mwaitAtomic(threadNumber, tc, cpu->mmu);
+      |                                                      ^~
+src/cpu/o3/fetch.hh:68:7: note: forward declaration of ‘class gem5::o3::CPU’
+   68 | class CPU;
+      |       ^~~
+src/cpu/o3/dyn_inst.hh: In member function ‘virtual gem5::AddressMonitor* gem5::o3::DynInst::getAddrMonitor()’:
+src/cpu/o3/dyn_inst.hh:977:19: error: invalid use of incomplete type ‘class gem5::o3::CPU’
+  977 |         return cpu->getCpuAddrMonitor(threadNumber);
+      |                   ^~
+src/cpu/o3/fetch.hh:68:7: note: forward declaration of ‘class gem5::o3::CPU’
+   68 | class CPU;
+      |       ^~~
+src/cpu/o3/dyn_inst.hh: In member function ‘virtual gem5::RegVal gem5::o3::DynInst::readMiscReg(int)’:
+src/cpu/o3/dyn_inst.hh:1010:19: error: invalid use of incomplete type ‘class gem5::o3::CPU’
+ 1010 |         return cpu->readMiscReg(misc_reg, threadNumber);
+      |                   ^~
+src/cpu/o3/fetch.hh:68:7: note: forward declaration of ‘class gem5::o3::CPU’
+   68 | class CPU;
+      |       ^~~
+src/cpu/o3/dyn_inst.hh: In member function ‘virtual gem5::RegVal gem5::o3::DynInst::readMiscRegOperand(const gem5::StaticInst*, int)’:
+src/cpu/o3/dyn_inst.hh:1042:19: error: invalid use of incomplete type ‘class gem5::o3::CPU’
+ 1042 |         return cpu->readMiscReg(reg.index(), threadNumber);
+      |                   ^~
+src/cpu/o3/fetch.hh:68:7: note: forward declaration of ‘class gem5::o3::CPU’
+   68 | class CPU;
+      |       ^~~
+src/cpu/o3/dyn_inst.hh: In member function ‘void gem5::o3::DynInst::updateMiscRegs()’:
+src/cpu/o3/dyn_inst.hh:1064:42: error: ‘struct gem5::ThreadState’ has no member named ‘noSquashFromTC’
+ 1064 |         bool no_squash_from_TC = thread->noSquashFromTC;
+      |                                          ^~~~~~~~~~~~~~
+src/cpu/o3/dyn_inst.hh:1065:17: error: ‘struct gem5::ThreadState’ has no member named ‘noSquashFromTC’
+ 1065 |         thread->noSquashFromTC = true;
+      |                 ^~~~~~~~~~~~~~
+src/cpu/o3/dyn_inst.hh:1068:16: error: invalid use of incomplete type ‘class gem5::o3::CPU’
+ 1068 |             cpu->setMiscReg(
+      |                ^~
+src/cpu/o3/fetch.hh:68:7: note: forward declaration of ‘class gem5::o3::CPU’
+   68 | class CPU;
+      |       ^~~
+src/cpu/o3/dyn_inst.hh:1071:17: error: ‘struct gem5::ThreadState’ has no member named ‘noSquashFromTC’
+ 1071 |         thread->noSquashFromTC = no_squash_from_TC;
+      |                 ^~~~~~~~~~~~~~
+src/cpu/o3/dyn_inst.hh: In member function ‘void gem5::o3::DynInst::forwardOldRegs()’:
+src/cpu/o3/dyn_inst.hh:1089:28: error: invalid use of incomplete type ‘class gem5::o3::CPU’
+ 1089 |                         cpu->getReg(prev_phys_reg, threadNumber));
+      |                            ^~
+src/cpu/o3/fetch.hh:68:7: note: forward declaration of ‘class gem5::o3::CPU’
+   68 | class CPU;
+      |       ^~~
+src/cpu/o3/dyn_inst.hh:1092:20: error: invalid use of incomplete type ‘class gem5::o3::CPU’
+ 1092 |                 cpu->getReg(prev_phys_reg, val, threadNumber);
+      |                    ^~
+src/cpu/o3/fetch.hh:68:7: note: forward declaration of ‘class gem5::o3::CPU’
+   68 | class CPU;
+      |       ^~~
+src/cpu/o3/dyn_inst.hh: In member function ‘virtual gem5::RegVal gem5::o3::DynInst::getRegOperand(const gem5::StaticInst*, int)’:
+src/cpu/o3/dyn_inst.hh:1119:19: error: invalid use of incomplete type ‘class gem5::o3::CPU’
+ 1119 |         return cpu->getReg(reg, threadNumber);
+      |                   ^~
+src/cpu/o3/fetch.hh:68:7: note: forward declaration of ‘class gem5::o3::CPU’
+   68 | class CPU;
+      |       ^~~
+src/cpu/o3/dyn_inst.hh: In member function ‘virtual void gem5::o3::DynInst::getRegOperand(const gem5::StaticInst*, int, void*)’:
+src/cpu/o3/dyn_inst.hh:1128:12: error: invalid use of incomplete type ‘class gem5::o3::CPU’
+ 1128 |         cpu->getReg(reg, val, threadNumber);
+      |            ^~
+src/cpu/o3/fetch.hh:68:7: note: forward declaration of ‘class gem5::o3::CPU’
+   68 | class CPU;
+      |       ^~~
+src/cpu/o3/dyn_inst.hh: In member function ‘virtual void* gem5::o3::DynInst::getWritableRegOperand(const gem5::StaticInst*, int)’:
+src/cpu/o3/dyn_inst.hh:1134:19: error: invalid use of incomplete type ‘class gem5::o3::CPU’
+ 1134 |         return cpu->getWritableReg(renamedDestIdx(idx), threadNumber);
+      |                   ^~
+src/cpu/o3/fetch.hh:68:7: note: forward declaration of ‘class gem5::o3::CPU’
+   68 | class CPU;
+      |       ^~~
+src/cpu/o3/dyn_inst.hh: In member function ‘virtual void gem5::o3::DynInst::setRegOperand(const gem5::StaticInst*, int, gem5::RegVal)’:
+src/cpu/o3/dyn_inst.hh:1146:12: error: invalid use of incomplete type ‘class gem5::o3::CPU’
+ 1146 |         cpu->setReg(reg, val, threadNumber);
+      |            ^~
+src/cpu/o3/fetch.hh:68:7: note: forward declaration of ‘class gem5::o3::CPU’
+   68 | class CPU;
+      |       ^~~
+src/cpu/o3/dyn_inst.hh: In member function ‘virtual void gem5::o3::DynInst::setRegOperand(const gem5::StaticInst*, int, const void*)’:
+src/cpu/o3/dyn_inst.hh:1156:12: error: invalid use of incomplete type ‘class gem5::o3::CPU’
+ 1156 |         cpu->setReg(reg, val, threadNumber);
+      |            ^~
+src/cpu/o3/fetch.hh:68:7: note: forward declaration of ‘class gem5::o3::CPU’
+   68 | class CPU;
+      |       ^~~
+In file included from src/cpu/o3/cyclone/countdown_queue.hh:7,
+                 from src/cpu/o3/iew.hh:60,
+                 from src/cpu/o3/commit.hh:51,
+                 from src/cpu/o3/cpu.hh:55,
+                 from src/cpu/o3/cpu.cc:43:
+src/cpu/o3/dyn_inst.hh: In member function ‘gem5::BaseCPU* gem5::o3::DynInst::getCpuPtr()’:
+src/cpu/o3/dyn_inst.hh:132:35: error: cannot convert ‘gem5::o3::CPU*’ to ‘gem5::BaseCPU*’ in return
+  132 |     BaseCPU *getCpuPtr() { return cpu; }
+      |                                   ^~~
+      |                                   |
+      |                                   gem5::o3::CPU*
+In file included from src/cpu/o3/inst_queue.hh:57,
+                 from src/cpu/o3/iew.hh:50:
+src/cpu/o3/mem_dep_unit.hh:76:7: note: class type ‘gem5::o3::CPU’ is incomplete
+   76 | class CPU;
+      |       ^~~
+src/cpu/o3/dyn_inst.hh: In member function ‘virtual void gem5::o3::DynInst::demapPage(gem5::Addr, uint64_t)’:
+src/cpu/o3/dyn_inst.hh:394:12: error: invalid use of incomplete type ‘class gem5::o3::CPU’
+  394 |         cpu->demapPage(vaddr, asn);
+      |            ^~
+src/cpu/o3/mem_dep_unit.hh:76:7: note: forward declaration of ‘class gem5::o3::CPU’
+   76 | class CPU;
+      |       ^~~
+src/cpu/o3/dyn_inst.hh: In member function ‘int gem5::o3::DynInst::cpuId() const’:
+src/cpu/o3/dyn_inst.hh:489:35: error: invalid use of incomplete type ‘class gem5::o3::CPU’
+  489 |     int cpuId() const { return cpu->cpuId(); }
+      |                                   ^~
+src/cpu/o3/mem_dep_unit.hh:76:7: note: forward declaration of ‘class gem5::o3::CPU’
+   76 | class CPU;
+      |       ^~~
+src/cpu/o3/dyn_inst.hh: In member function ‘uint32_t gem5::o3::DynInst::socketId() const’:
+src/cpu/o3/dyn_inst.hh:492:43: error: invalid use of incomplete type ‘class gem5::o3::CPU’
+  492 |     uint32_t socketId() const { return cpu->socketId(); }
+      |                                           ^~
+src/cpu/o3/mem_dep_unit.hh:76:7: note: forward declaration of ‘class gem5::o3::CPU’
+   76 | class CPU;
+      |       ^~~
+src/cpu/o3/dyn_inst.hh: In member function ‘gem5::RequestorID gem5::o3::DynInst::requestorId() const’:
+src/cpu/o3/dyn_inst.hh:495:49: error: invalid use of incomplete type ‘class gem5::o3::CPU’
+  495 |     RequestorID requestorId() const { return cpu->dataRequestorId(); }
+      |                                                 ^~
+src/cpu/o3/mem_dep_unit.hh:76:7: note: forward declaration of ‘class gem5::o3::CPU’
+   76 | class CPU;
+      |       ^~~
+src/cpu/o3/dyn_inst.hh: In member function ‘virtual gem5::ThreadContext* gem5::o3::DynInst::tcBase() const’:
+src/cpu/o3/dyn_inst.hh:924:67: error: ‘struct gem5::ThreadState’ has no member named ‘getTC’
+  924 |     gem5::ThreadContext *tcBase() const override { return thread->getTC(); }
+      |                                                                   ^~~~~
+src/cpu/o3/dyn_inst.hh: In member function ‘virtual void gem5::o3::DynInst::armMonitor(gem5::Addr)’:
+src/cpu/o3/dyn_inst.hh:962:12: error: invalid use of incomplete type ‘class gem5::o3::CPU’
+  962 |         cpu->armMonitor(threadNumber, address);
+      |            ^~
+src/cpu/o3/mem_dep_unit.hh:76:7: note: forward declaration of ‘class gem5::o3::CPU’
+   76 | class CPU;
+      |       ^~~
+src/cpu/o3/dyn_inst.hh: In member function ‘virtual bool gem5::o3::DynInst::mwait(gem5::PacketPtr)’:
+src/cpu/o3/dyn_inst.hh:967:19: error: invalid use of incomplete type ‘class gem5::o3::CPU’
+  967 |         return cpu->mwait(threadNumber, pkt);
+      |                   ^~
+src/cpu/o3/mem_dep_unit.hh:76:7: note: forward declaration of ‘class gem5::o3::CPU’
+   76 | class CPU;
+      |       ^~~
+src/cpu/o3/dyn_inst.hh: In member function ‘virtual void gem5::o3::DynInst::mwaitAtomic(gem5::ThreadContext*)’:
+src/cpu/o3/dyn_inst.hh:972:19: error: invalid use of incomplete type ‘class gem5::o3::CPU’
+  972 |         return cpu->mwaitAtomic(threadNumber, tc, cpu->mmu);
+      |                   ^~
+src/cpu/o3/mem_dep_unit.hh:76:7: note: forward declaration of ‘class gem5::o3::CPU’
+   76 | class CPU;
+      |       ^~~
+src/cpu/o3/dyn_inst.hh:972:54: error: invalid use of incomplete type ‘class gem5::o3::CPU’
+  972 |         return cpu->mwaitAtomic(threadNumber, tc, cpu->mmu);
+      |                                                      ^~
+src/cpu/o3/mem_dep_unit.hh:76:7: note: forward declaration of ‘class gem5::o3::CPU’
+   76 | class CPU;
+      |       ^~~
+src/cpu/o3/dyn_inst.hh: In member function ‘virtual gem5::AddressMonitor* gem5::o3::DynInst::getAddrMonitor()’:
+src/cpu/o3/dyn_inst.hh:977:19: error: invalid use of incomplete type ‘class gem5::o3::CPU’
+  977 |         return cpu->getCpuAddrMonitor(threadNumber);
+      |                   ^~
+src/cpu/o3/mem_dep_unit.hh:76:7: note: forward declaration of ‘class gem5::o3::CPU’
+   76 | class CPU;
+      |       ^~~
+src/cpu/o3/dyn_inst.hh: In member function ‘virtual gem5::RegVal gem5::o3::DynInst::readMiscReg(int)’:
+src/cpu/o3/dyn_inst.hh:1010:19: error: invalid use of incomplete type ‘class gem5::o3::CPU’
+ 1010 |         return cpu->readMiscReg(misc_reg, threadNumber);
+      |                   ^~
+src/cpu/o3/mem_dep_unit.hh:76:7: note: forward declaration of ‘class gem5::o3::CPU’
+   76 | class CPU;
+      |       ^~~
+src/cpu/o3/dyn_inst.hh: In member function ‘virtual gem5::RegVal gem5::o3::DynInst::readMiscRegOperand(const gem5::StaticInst*, int)’:
+src/cpu/o3/dyn_inst.hh:1042:19: error: invalid use of incomplete type ‘class gem5::o3::CPU’
+ 1042 |         return cpu->readMiscReg(reg.index(), threadNumber);
+      |                   ^~
+src/cpu/o3/mem_dep_unit.hh:76:7: note: forward declaration of ‘class gem5::o3::CPU’
+   76 | class CPU;
+      |       ^~~
+src/cpu/o3/dyn_inst.hh: In member function ‘void gem5::o3::DynInst::updateMiscRegs()’:
+src/cpu/o3/dyn_inst.hh:1064:42: error: ‘struct gem5::ThreadState’ has no member named ‘noSquashFromTC’
+ 1064 |         bool no_squash_from_TC = thread->noSquashFromTC;
+      |                                          ^~~~~~~~~~~~~~
+src/cpu/o3/dyn_inst.hh:1065:17: error: ‘struct gem5::ThreadState’ has no member named ‘noSquashFromTC’
+ 1065 |         thread->noSquashFromTC = true;
+      |                 ^~~~~~~~~~~~~~
+src/cpu/o3/dyn_inst.hh:1068:16: error: invalid use of incomplete type ‘class gem5::o3::CPU’
+ 1068 |             cpu->setMiscReg(
+      |                ^~
+src/cpu/o3/mem_dep_unit.hh:76:7: note: forward declaration of ‘class gem5::o3::CPU’
+   76 | class CPU;
+      |       ^~~
+src/cpu/o3/dyn_inst.hh:1071:17: error: ‘struct gem5::ThreadState’ has no member named ‘noSquashFromTC’
+ 1071 |         thread->noSquashFromTC = no_squash_from_TC;
+      |                 ^~~~~~~~~~~~~~
+src/cpu/o3/dyn_inst.hh: In member function ‘void gem5::o3::DynInst::forwardOldRegs()’:
+src/cpu/o3/dyn_inst.hh:1089:28: error: invalid use of incomplete type ‘class gem5::o3::CPU’
+ 1089 |                         cpu->getReg(prev_phys_reg, threadNumber));
+      |                            ^~
+src/cpu/o3/mem_dep_unit.hh:76:7: note: forward declaration of ‘class gem5::o3::CPU’
+   76 | class CPU;
+      |       ^~~
+src/cpu/o3/dyn_inst.hh:1092:20: error: invalid use of incomplete type ‘class gem5::o3::CPU’
+ 1092 |                 cpu->getReg(prev_phys_reg, val, threadNumber);
+      |                    ^~
+src/cpu/o3/mem_dep_unit.hh:76:7: note: forward declaration of ‘class gem5::o3::CPU’
+   76 | class CPU;
+      |       ^~~
+src/cpu/o3/dyn_inst.hh: In member function ‘virtual gem5::RegVal gem5::o3::DynInst::getRegOperand(const gem5::StaticInst*, int)’:
+src/cpu/o3/dyn_inst.hh:1119:19: error: invalid use of incomplete type ‘class gem5::o3::CPU’
+ 1119 |         return cpu->getReg(reg, threadNumber);
+      |                   ^~
+src/cpu/o3/mem_dep_unit.hh:76:7: note: forward declaration of ‘class gem5::o3::CPU’
+   76 | class CPU;
+      |       ^~~
+src/cpu/o3/dyn_inst.hh: In member function ‘virtual void gem5::o3::DynInst::getRegOperand(const gem5::StaticInst*, int, void*)’:
+src/cpu/o3/dyn_inst.hh:1128:12: error: invalid use of incomplete type ‘class gem5::o3::CPU’
+ 1128 |         cpu->getReg(reg, val, threadNumber);
+      |            ^~
+src/cpu/o3/mem_dep_unit.hh:76:7: note: forward declaration of ‘class gem5::o3::CPU’
+   76 | class CPU;
+      |       ^~~
+src/cpu/o3/dyn_inst.hh: In member function ‘virtual void* gem5::o3::DynInst::getWritableRegOperand(const gem5::StaticInst*, int)’:
+src/cpu/o3/dyn_inst.hh:1134:19: error: invalid use of incomplete type ‘class gem5::o3::CPU’
+ 1134 |         return cpu->getWritableReg(renamedDestIdx(idx), threadNumber);
+      |                   ^~
+src/cpu/o3/mem_dep_unit.hh:76:7: note: forward declaration of ‘class gem5::o3::CPU’
+   76 | class CPU;
+      |       ^~~
+src/cpu/o3/dyn_inst.hh: In member function ‘virtual void gem5::o3::DynInst::setRegOperand(const gem5::StaticInst*, int, gem5::RegVal)’:
+src/cpu/o3/dyn_inst.hh:1146:12: error: invalid use of incomplete type ‘class gem5::o3::CPU’
+ 1146 |         cpu->setReg(reg, val, threadNumber);
+      |            ^~
+src/cpu/o3/mem_dep_unit.hh:76:7: note: forward declaration of ‘class gem5::o3::CPU’
+   76 | class CPU;
+      |       ^~~
+src/cpu/o3/dyn_inst.hh: In member function ‘virtual void gem5::o3::DynInst::setRegOperand(const gem5::StaticInst*, int, const void*)’:
+src/cpu/o3/dyn_inst.hh:1156:12: error: invalid use of incomplete type ‘class gem5::o3::CPU’
+ 1156 |         cpu->setReg(reg, val, threadNumber);
+      |            ^~
+src/cpu/o3/mem_dep_unit.hh:76:7: note: forward declaration of ‘class gem5::o3::CPU’
+   76 | class CPU;
+      |       ^~~
+src/cpu/o3/dyn_inst.hh: In member function ‘void gem5::o3::DynInst::updateMiscRegs()’:
+src/cpu/o3/dyn_inst.hh:1064:42: error: ‘struct gem5::ThreadState’ has no member named ‘noSquashFromTC’
+ 1064 |         bool no_squash_from_TC = thread->noSquashFromTC;
+      |                                          ^~~~~~~~~~~~~~
+src/cpu/o3/dyn_inst.hh:1065:17: error: ‘struct gem5::ThreadState’ has no member named ‘noSquashFromTC’
+ 1065 |         thread->noSquashFromTC = true;
+      |                 ^~~~~~~~~~~~~~
+src/cpu/o3/dyn_inst.hh:1068:16: error: invalid use of incomplete type ‘class gem5::o3::CPU’
+ 1068 |             cpu->setMiscReg(
+      |                ^~
+src/cpu/o3/mem_dep_unit.hh:76:7: note: forward declaration of ‘class gem5::o3::CPU’
+   76 | class CPU;
+      |       ^~~
+src/cpu/o3/dyn_inst.hh:1071:17: error: ‘struct gem5::ThreadState’ has no member named ‘noSquashFromTC’
+ 1071 |         thread->noSquashFromTC = no_squash_from_TC;
+      |                 ^~~~~~~~~~~~~~
+src/cpu/o3/dyn_inst.hh: In member function ‘void gem5::o3::DynInst::forwardOldRegs()’:
+src/cpu/o3/dyn_inst.hh:1089:28: error: invalid use of incomplete type ‘class gem5::o3::CPU’
+ 1089 |                         cpu->getReg(prev_phys_reg, threadNumber));
+      |                            ^~
+src/cpu/o3/mem_dep_unit.hh:76:7: note: forward declaration of ‘class gem5::o3::CPU’
+   76 | class CPU;
+      |       ^~~
+src/cpu/o3/dyn_inst.hh:1092:20: error: invalid use of incomplete type ‘class gem5::o3::CPU’
+ 1092 |                 cpu->getReg(prev_phys_reg, val, threadNumber);
+      |                    ^~
+src/cpu/o3/mem_dep_unit.hh:76:7: note: forward declaration of ‘class gem5::o3::CPU’
+   76 | class CPU;
+      |       ^~~
+src/cpu/o3/dyn_inst.hh: In member function ‘virtual gem5::RegVal gem5::o3::DynInst::getRegOperand(const gem5::StaticInst*, int)’:
+src/cpu/o3/dyn_inst.hh:1119:19: error: invalid use of incomplete type ‘class gem5::o3::CPU’
+ 1119 |         return cpu->getReg(reg, threadNumber);
+      |                   ^~
+src/cpu/o3/mem_dep_unit.hh:76:7: note: forward declaration of ‘class gem5::o3::CPU’
+   76 | class CPU;
+      |       ^~~
+src/cpu/o3/dyn_inst.hh: In member function ‘virtual void gem5::o3::DynInst::getRegOperand(const gem5::StaticInst*, int, void*)’:
+src/cpu/o3/dyn_inst.hh:1128:12: error: invalid use of incomplete type ‘class gem5::o3::CPU’
+ 1128 |         cpu->getReg(reg, val, threadNumber);
+      |            ^~
+src/cpu/o3/mem_dep_unit.hh:76:7: note: forward declaration of ‘class gem5::o3::CPU’
+   76 | class CPU;
+      |       ^~~
+src/cpu/o3/dyn_inst.hh: In member function ‘virtual void* gem5::o3::DynInst::getWritableRegOperand(const gem5::StaticInst*, int)’:
+src/cpu/o3/dyn_inst.hh:1134:19: error: invalid use of incomplete type ‘class gem5::o3::CPU’
+ 1134 |         return cpu->getWritableReg(renamedDestIdx(idx), threadNumber);
+      |                   ^~
+src/cpu/o3/mem_dep_unit.hh:76:7: note: forward declaration of ‘class gem5::o3::CPU’
+   76 | class CPU;
+      |       ^~~
+src/cpu/o3/dyn_inst.hh: In member function ‘virtual void gem5::o3::DynInst::setRegOperand(const gem5::StaticInst*, int, gem5::RegVal)’:
+src/cpu/o3/dyn_inst.hh:1146:12: error: invalid use of incomplete type ‘class gem5::o3::CPU’
+ 1146 |         cpu->setReg(reg, val, threadNumber);
+      |            ^~
+src/cpu/o3/mem_dep_unit.hh:76:7: note: forward declaration of ‘class gem5::o3::CPU’
+   76 | class CPU;
+      |       ^~~
+src/cpu/o3/dyn_inst.hh: In member function ‘virtual void gem5::o3::DynInst::setRegOperand(const gem5::StaticInst*, int, const void*)’:
+src/cpu/o3/dyn_inst.hh:1156:12: error: invalid use of incomplete type ‘class gem5::o3::CPU’
+ 1156 |         cpu->setReg(reg, val, threadNumber);
+      |            ^~
+src/cpu/o3/mem_dep_unit.hh:76:7: note: forward declaration of ‘class gem5::o3::CPU’
+   76 | class CPU;
+      |       ^~~
+In file included from src/cpu/o3/dyn_inst.hh:58,
+                 from src/cpu/o3/cyclone/countdown_queue.hh:7,
+                 from src/cpu/o3/iew.hh:60,
+                 from src/cpu/o3/iew.cc:46:
+src/cpu/o3/cpu.hh:414:9: error: field ‘iew’ has incomplete type ‘gem5::o3::IEW’
+  414 |     IEW iew;
+      |         ^~~
+In file included from src/cpu/o3/iew.hh:50:
+src/cpu/o3/inst_queue.hh:79:7: note: forward declaration of ‘class gem5::o3::IEW’
+   79 | class IEW;
+      |       ^~~
+In file included from src/cpu/o3/cyclone/countdown_queue.hh:7,
+                 from src/cpu/o3/iew.hh:60,
+                 from src/cpu/o3/commit.hh:51,
+                 from src/cpu/o3/cpu.hh:55,
+                 from src/cpu/o3/lsq.cc:50:
+src/cpu/o3/dyn_inst.hh: In member function ‘gem5::BaseCPU* gem5::o3::DynInst::getCpuPtr()’:
+src/cpu/o3/dyn_inst.hh:132:35: error: cannot convert ‘gem5::o3::CPU*’ to ‘gem5::BaseCPU*’ in return
+  132 |     BaseCPU *getCpuPtr() { return cpu; }
+      |                                   ^~~
+      |                                   |
+      |                                   gem5::o3::CPU*
+In file included from src/cpu/o3/lsq.cc:42:
+src/cpu/o3/lsq.hh:71:7: note: class type ‘gem5::o3::CPU’ is incomplete
+   71 | class CPU;
+      |       ^~~
+src/cpu/o3/dyn_inst.hh: In member function ‘virtual void gem5::o3::DynInst::demapPage(gem5::Addr, uint64_t)’:
+src/cpu/o3/dyn_inst.hh:394:12: error: invalid use of incomplete type ‘class gem5::o3::CPU’
+  394 |         cpu->demapPage(vaddr, asn);
+      |            ^~
+src/cpu/o3/thread_state.hh:57:7: note: forward declaration of ‘class gem5::o3::CPU’
+   57 | class CPU;
+      |       ^~~
+src/cpu/o3/dyn_inst.hh: In member function ‘int gem5::o3::DynInst::cpuId() const’:
+src/cpu/o3/dyn_inst.hh:489:35: error: invalid use of incomplete type ‘class gem5::o3::CPU’
+  489 |     int cpuId() const { return cpu->cpuId(); }
+      |                                   ^~
+src/cpu/o3/thread_state.hh:57:7: note: forward declaration of ‘class gem5::o3::CPU’
+   57 | class CPU;
+      |       ^~~
+src/cpu/o3/dyn_inst.hh: In member function ‘uint32_t gem5::o3::DynInst::socketId() const’:
+src/cpu/o3/dyn_inst.hh:492:43: error: invalid use of incomplete type ‘class gem5::o3::CPU’
+  492 |     uint32_t socketId() const { return cpu->socketId(); }
+      |                                           ^~
+src/cpu/o3/thread_state.hh:57:7: note: forward declaration of ‘class gem5::o3::CPU’
+   57 | class CPU;
+      |       ^~~
+src/cpu/o3/dyn_inst.hh: In member function ‘gem5::RequestorID gem5::o3::DynInst::requestorId() const’:
+src/cpu/o3/dyn_inst.hh:495:49: error: invalid use of incomplete type ‘class gem5::o3::CPU’
+  495 |     RequestorID requestorId() const { return cpu->dataRequestorId(); }
+      |                                                 ^~
+src/cpu/o3/thread_state.hh:57:7: note: forward declaration of ‘class gem5::o3::CPU’
+   57 | class CPU;
+      |       ^~~
+src/cpu/o3/dyn_inst.hh: In member function ‘virtual void gem5::o3::DynInst::armMonitor(gem5::Addr)’:
+src/cpu/o3/dyn_inst.hh:962:12: error: invalid use of incomplete type ‘class gem5::o3::CPU’
+  962 |         cpu->armMonitor(threadNumber, address);
+      |            ^~
+src/cpu/o3/thread_state.hh:57:7: note: forward declaration of ‘class gem5::o3::CPU’
+   57 | class CPU;
+      |       ^~~
+src/cpu/o3/dyn_inst.hh: In member function ‘virtual bool gem5::o3::DynInst::mwait(gem5::PacketPtr)’:
+src/cpu/o3/dyn_inst.hh:967:19: error: invalid use of incomplete type ‘class gem5::o3::CPU’
+  967 |         return cpu->mwait(threadNumber, pkt);
+      |                   ^~
+src/cpu/o3/thread_state.hh:57:7: note: forward declaration of ‘class gem5::o3::CPU’
+   57 | class CPU;
+      |       ^~~
+src/cpu/o3/dyn_inst.hh: In member function ‘virtual void gem5::o3::DynInst::mwaitAtomic(gem5::ThreadContext*)’:
+src/cpu/o3/dyn_inst.hh:972:19: error: invalid use of incomplete type ‘class gem5::o3::CPU’
+  972 |         return cpu->mwaitAtomic(threadNumber, tc, cpu->mmu);
+      |                   ^~
+src/cpu/o3/thread_state.hh:57:7: note: forward declaration of ‘class gem5::o3::CPU’
+   57 | class CPU;
+      |       ^~~
+src/cpu/o3/dyn_inst.hh:972:54: error: invalid use of incomplete type ‘class gem5::o3::CPU’
+  972 |         return cpu->mwaitAtomic(threadNumber, tc, cpu->mmu);
+      |                                                      ^~
+src/cpu/o3/thread_state.hh:57:7: note: forward declaration of ‘class gem5::o3::CPU’
+   57 | class CPU;
+      |       ^~~
+src/cpu/o3/dyn_inst.hh: In member function ‘virtual gem5::AddressMonitor* gem5::o3::DynInst::getAddrMonitor()’:
+src/cpu/o3/dyn_inst.hh:977:19: error: invalid use of incomplete type ‘class gem5::o3::CPU’
+  977 |         return cpu->getCpuAddrMonitor(threadNumber);
+      |                   ^~
+src/cpu/o3/thread_state.hh:57:7: note: forward declaration of ‘class gem5::o3::CPU’
+   57 | class CPU;
+      |       ^~~
+src/cpu/o3/dyn_inst.hh: In member function ‘virtual gem5::RegVal gem5::o3::DynInst::readMiscReg(int)’:
+src/cpu/o3/dyn_inst.hh:1010:19: error: invalid use of incomplete type ‘class gem5::o3::CPU’
+ 1010 |         return cpu->readMiscReg(misc_reg, threadNumber);
+      |                   ^~
+src/cpu/o3/thread_state.hh:57:7: note: forward declaration of ‘class gem5::o3::CPU’
+   57 | class CPU;
+      |       ^~~
+src/cpu/o3/dyn_inst.hh: In member function ‘virtual gem5::RegVal gem5::o3::DynInst::readMiscRegOperand(const gem5::StaticInst*, int)’:
+src/cpu/o3/dyn_inst.hh:1042:19: error: invalid use of incomplete type ‘class gem5::o3::CPU’
+ 1042 |         return cpu->readMiscReg(reg.index(), threadNumber);
+      |                   ^~
+src/cpu/o3/thread_state.hh:57:7: note: forward declaration of ‘class gem5::o3::CPU’
+   57 | class CPU;
+      |       ^~~
+src/cpu/o3/dyn_inst.hh: In member function ‘void gem5::o3::DynInst::updateMiscRegs()’:
+src/cpu/o3/dyn_inst.hh:1068:16: error: invalid use of incomplete type ‘class gem5::o3::CPU’
+ 1068 |             cpu->setMiscReg(
+      |                ^~
+src/cpu/o3/thread_state.hh:57:7: note: forward declaration of ‘class gem5::o3::CPU’
+   57 | class CPU;
+      |       ^~~
+src/cpu/o3/dyn_inst.hh: In member function ‘void gem5::o3::DynInst::forwardOldRegs()’:
+src/cpu/o3/dyn_inst.hh:1089:28: error: invalid use of incomplete type ‘class gem5::o3::CPU’
+ 1089 |                         cpu->getReg(prev_phys_reg, threadNumber));
+      |                            ^~
+src/cpu/o3/thread_state.hh:57:7: note: forward declaration of ‘class gem5::o3::CPU’
+   57 | class CPU;
+      |       ^~~
+src/cpu/o3/dyn_inst.hh:1092:20: error: invalid use of incomplete type ‘class gem5::o3::CPU’
+ 1092 |                 cpu->getReg(prev_phys_reg, val, threadNumber);
+      |                    ^~
+src/cpu/o3/thread_state.hh:57:7: note: forward declaration of ‘class gem5::o3::CPU’
+   57 | class CPU;
+      |       ^~~
+src/cpu/o3/dyn_inst.hh: In member function ‘virtual gem5::RegVal gem5::o3::DynInst::getRegOperand(const gem5::StaticInst*, int)’:
+src/cpu/o3/dyn_inst.hh:1119:19: error: invalid use of incomplete type ‘class gem5::o3::CPU’
+ 1119 |         return cpu->getReg(reg, threadNumber);
+      |                   ^~
+src/cpu/o3/thread_state.hh:57:7: note: forward declaration of ‘class gem5::o3::CPU’
+   57 | class CPU;
+      |       ^~~
+src/cpu/o3/dyn_inst.hh: In member function ‘virtual void gem5::o3::DynInst::getRegOperand(const gem5::StaticInst*, int, void*)’:
+src/cpu/o3/dyn_inst.hh:1128:12: error: invalid use of incomplete type ‘class gem5::o3::CPU’
+ 1128 |         cpu->getReg(reg, val, threadNumber);
+      |            ^~
+src/cpu/o3/thread_state.hh:57:7: note: forward declaration of ‘class gem5::o3::CPU’
+   57 | class CPU;
+      |       ^~~
+src/cpu/o3/dyn_inst.hh: In member function ‘virtual void* gem5::o3::DynInst::getWritableRegOperand(const gem5::StaticInst*, int)’:
+src/cpu/o3/dyn_inst.hh:1134:19: error: invalid use of incomplete type ‘class gem5::o3::CPU’
+ 1134 |         return cpu->getWritableReg(renamedDestIdx(idx), threadNumber);
+      |                   ^~
+src/cpu/o3/thread_state.hh:57:7: note: forward declaration of ‘class gem5::o3::CPU’
+   57 | class CPU;
+      |       ^~~
+src/cpu/o3/dyn_inst.hh: In member function ‘virtual void gem5::o3::DynInst::setRegOperand(const gem5::StaticInst*, int, gem5::RegVal)’:
+src/cpu/o3/dyn_inst.hh:1146:12: error: invalid use of incomplete type ‘class gem5::o3::CPU’
+ 1146 |         cpu->setReg(reg, val, threadNumber);
+      |            ^~
+src/cpu/o3/thread_state.hh:57:7: note: forward declaration of ‘class gem5::o3::CPU’
+   57 | class CPU;
+      |       ^~~
+src/cpu/o3/dyn_inst.hh: In member function ‘virtual void gem5::o3::DynInst::setRegOperand(const gem5::StaticInst*, int, const void*)’:
+src/cpu/o3/dyn_inst.hh:1156:12: error: invalid use of incomplete type ‘class gem5::o3::CPU’
+ 1156 |         cpu->setReg(reg, val, threadNumber);
+      |            ^~
+src/cpu/o3/thread_state.hh:57:7: note: forward declaration of ‘class gem5::o3::CPU’
+   57 | class CPU;
+      |       ^~~
+src/cpu/o3/lsq_unit.cc: In member function ‘void gem5::o3::LSQUnit::completeDataAccess(gem5::PacketPtr)’:
+src/cpu/o3/lsq_unit.cc:182:55: error: cannot convert ‘int’ to ‘gem5::CircularQueue<gem5::o3::LSQUnit::SQEntry>::iterator’
+  182 |                 completeStore(request->instruction()->sqIt);
+      |                               ~~~~~~~~~~~~~~~~~~~~~~~~^~~~
+      |                                                       |
+      |                                                       int
+src/cpu/o3/lsq_unit.hh:376:54: note:   initializing argument 1 of ‘void gem5::o3::LSQUnit::completeStore(gem5::CircularQueue<SQEntry>::iterator)’
+  376 |     void completeStore(typename StoreQueue::iterator store_idx);
+      |                        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~
+src/cpu/o3/lsq_unit.cc:187:51: error: cannot convert ‘int’ to ‘gem5::CircularQueue<gem5::o3::LSQUnit::SQEntry>::iterator’
+  187 |             completeStore(request->instruction()->sqIt);
+      |                           ~~~~~~~~~~~~~~~~~~~~~~~~^~~~
+      |                                                   |
+      |                                                   int
+src/cpu/o3/lsq_unit.hh:376:54: note:   initializing argument 1 of ‘void gem5::o3::LSQUnit::completeStore(gem5::CircularQueue<SQEntry>::iterator)’
+  376 |     void completeStore(typename StoreQueue::iterator store_idx);
+      |                        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~
+src/cpu/o3/lsq_unit.cc: In member function ‘void gem5::o3::LSQUnit::insertLoad(const gem5::o3::DynInstPtr&)’:
+src/cpu/o3/lsq_unit.cc:330:37: error: cannot convert ‘gem5::CircularQueue<gem5::o3::LSQUnit::SQEntry>::iterator’ to ‘int’ in assignment
+  330 |     load_inst->sqIt = storeQueue.end();
+      |                       ~~~~~~~~~~~~~~^~
+      |                                     |
+      |                                     gem5::CircularQueue<gem5::o3::LSQUnit::SQEntry>::iterator
+src/cpu/o3/lsq_unit.cc:336:44: error: cannot convert ‘gem5::CircularQueue<gem5::o3::LSQUnit::LSQEntry>::iterator’ to ‘int’ in assignment
+  336 |     load_inst->lqIt = loadQueue.getIterator(load_inst->lqIdx);
+      |                       ~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~
+      |                                            |
+      |                                            gem5::CircularQueue<gem5::o3::LSQUnit::LSQEntry>::iterator
+src/cpu/o3/lsq_unit.cc: In member function ‘void gem5::o3::LSQUnit::insertStore(const gem5::o3::DynInstPtr&)’:
+src/cpu/o3/lsq_unit.cc:390:46: error: cannot convert ‘gem5::CircularQueue<gem5::o3::LSQUnit::SQEntry>::iterator’ to ‘int’ in assignment
+  390 |     store_inst->sqIt = storeQueue.getIterator(store_inst->sqIdx);
+      |                        ~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~
+      |                                              |
+      |                                              gem5::CircularQueue<gem5::o3::LSQUnit::SQEntry>::iterator
+src/cpu/o3/lsq_unit.cc:394:37: error: cannot convert ‘gem5::CircularQueue<gem5::o3::LSQUnit::LSQEntry>::iterator’ to ‘int’ in assignment
+  394 |     store_inst->lqIt = loadQueue.end();
+      |                        ~~~~~~~~~~~~~^~
+      |                                     |
+      |                                     gem5::CircularQueue<gem5::o3::LSQUnit::LSQEntry>::iterator
+src/cpu/o3/lsq_unit.cc: In member function ‘gem5::Fault gem5::o3::LSQUnit::executeLoad(const gem5::o3::DynInstPtr&)’:
+src/cpu/o3/lsq_unit.cc:649:40: error: cannot convert ‘int’ to ‘gem5::CircularQueue<gem5::o3::LSQUnit::LSQEntry>::iterator&’
+  649 |                 return checkViolations(it, inst);
+      |                                        ^~
+      |                                        |
+      |                                        int
+src/cpu/o3/lsq_unit.cc:510:56: note:   initializing argument 1 of ‘gem5::Fault gem5::o3::LSQUnit::checkViolations(gem5::CircularQueue<LSQEntry>::iterator&, const gem5::o3::DynInstPtr&)’
+  510 | LSQUnit::checkViolations(typename LoadQueue::iterator& loadIt,
+      |                          ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~
+src/cpu/o3/lsq_unit.cc: In member function ‘gem5::Fault gem5::o3::LSQUnit::executeStore(const gem5::o3::DynInstPtr&)’:
+src/cpu/o3/lsq_unit.cc:671:55: error: conversion from ‘int’ to non-scalar type ‘gem5::CircularQueue<gem5::o3::LSQUnit::LSQEntry>::iterator’ requested
+  671 |     typename LoadQueue::iterator loadIt = store_inst->lqIt;
+      |                                           ~~~~~~~~~~~~^~~~
+In file included from src/arch/generic/pcstate.hh:50,
+                 from src/cpu/static_inst.hh:52,
+                 from src/arch/generic/debugfaults.hh:45,
+                 from src/cpu/o3/lsq_unit.hh:51:
+src/cpu/o3/lsq_unit.cc: In member function ‘gem5::Fault gem5::o3::LSQUnit::read(LSQRequest*, ssize_t)’:
+src/cpu/o3/lsq_unit.cc:1355:43: error: request for member ‘_idx’ in ‘(& load_inst)->gem5::RefCountingPtr<gem5::o3::DynInst>::operator->()->gem5::o3::DynInst::sqIt’, which is of non-class type ‘int’
+ 1355 |             load_idx - 1, load_inst->sqIt._idx, storeQueue.head() - 1,
+      |                                           ^~~~
+src/base/trace.hh:213:44: note: in definition of macro ‘DPRINTF’
+  213 |             ::gem5::curTick(), name(), #x, __VA_ARGS__); \
+      |                                            ^~~~~~~~~~~
+In file included from /usr/include/c++/13/cassert:44,
+                 from src/cpu/regfile.hh:32,
+                 from src/cpu/simple_thread.hh:54,
+                 from src/cpu/checker/cpu.hh:55,
+                 from src/cpu/o3/dyn_inst.hh:53:
+src/cpu/o3/lsq_unit.cc:1387:22: error: no match for ‘operator>=’ (operand types are ‘int’ and ‘gem5::CircularQueue<gem5::o3::LSQUnit::SQEntry>::iterator’)
+ 1387 |     assert (store_it >= storeWBIt);
+      |             ~~~~~~~~ ^~ ~~~~~~~~~
+      |             |           |
+      |             int         gem5::CircularQueue<gem5::o3::LSQUnit::SQEntry>::iterator
+In file included from src/sim/sim_object.hh:56,
+                 from src/arch/generic/isa.hh:50,
+                 from src/cpu/thread_context.hh:49,
+                 from src/arch/generic/debugfaults.hh:46:
+src/sim/eventq.hh:553:1: note: candidate: ‘bool gem5::operator>=(const Event&, const Event&)’
+  553 | operator>=(const Event &l, const Event &r)
+      | ^~~~~~~~
+src/sim/eventq.hh:553:41: note:   no known conversion for argument 2 from ‘gem5::CircularQueue<gem5::o3::LSQUnit::SQEntry>::iterator’ to ‘const gem5::Event&’
+  553 | operator>=(const Event &l, const Event &r)
+      |                            ~~~~~~~~~~~~~^
+src/cpu/o3/lsq_unit.cc:1389:21: error: no match for ‘operator!=’ (operand types are ‘int’ and ‘gem5::CircularQueue<gem5::o3::LSQUnit::SQEntry>::iterator’)
+ 1389 |     while (store_it != storeWBIt && !load_inst->isDataPrefetch()) {
+      |            ~~~~~~~~ ^~ ~~~~~~~~~
+      |            |           |
+      |            int         gem5::CircularQueue<gem5::o3::LSQUnit::SQEntry>::iterator
+src/sim/eventq.hh:572:1: note: candidate: ‘bool gem5::operator!=(const Event&, const Event&)’
+  572 | operator!=(const Event &l, const Event &r)
+      | ^~~~~~~~
+src/sim/eventq.hh:572:41: note:   no known conversion for argument 2 from ‘gem5::CircularQueue<gem5::o3::LSQUnit::SQEntry>::iterator’ to ‘const gem5::Event&’
+  572 | operator!=(const Event &l, const Event &r)
+      |                            ~~~~~~~~~~~~~^
+In file included from src/cpu/static_inst_fwd.hh:32,
+                 from src/cpu/null_static_inst.hh:31,
+                 from src/arch/generic/debugfaults.hh:44:
+src/base/refcnt.hh:294:1: note: candidate: ‘template<class T> bool gem5::operator!=(const RefCountingPtr<T>&, const RefCountingPtr<T>&)’
+  294 | operator!=(const RefCountingPtr<T> &l, const RefCountingPtr<T> &r)
+      | ^~~~~~~~
+src/base/refcnt.hh:294:1: note:   template argument deduction/substitution failed:
+src/cpu/o3/lsq_unit.cc:1389:24: note:   mismatched types ‘const gem5::RefCountingPtr<T>’ and ‘int’
+ 1389 |     while (store_it != storeWBIt && !load_inst->isDataPrefetch()) {
+      |                        ^~~~~~~~~
+src/base/refcnt.hh:303:1: note: candidate: ‘template<class T> bool gem5::operator!=(const RefCountingPtr<T>&, const T*)’
+  303 | operator!=(const RefCountingPtr<T> &l, const T *r)
+      | ^~~~~~~~
+src/base/refcnt.hh:303:1: note:   template argument deduction/substitution failed:
+src/cpu/o3/lsq_unit.cc:1389:24: note:   mismatched types ‘const gem5::RefCountingPtr<T>’ and ‘int’
+ 1389 |     while (store_it != storeWBIt && !load_inst->isDataPrefetch()) {
+      |                        ^~~~~~~~~
+src/base/refcnt.hh:312:1: note: candidate: ‘template<class T> bool gem5::operator!=(const T*, const RefCountingPtr<T>&)’
+  312 | operator!=(const T *l, const RefCountingPtr<T> &r)
+      | ^~~~~~~~
+src/base/refcnt.hh:312:1: note:   template argument deduction/substitution failed:
+src/cpu/o3/lsq_unit.cc:1389:24: note:   mismatched types ‘const T*’ and ‘int’
+ 1389 |     while (store_it != storeWBIt && !load_inst->isDataPrefetch()) {
+      |                        ^~~~~~~~~
+src/arch/generic/pcstate.hh:169:1: note: candidate: ‘bool gem5::operator!=(const PCStateBase&, const PCStateBase&)’
+  169 | operator!=(const PCStateBase &a, const PCStateBase &b)
+      | ^~~~~~~~
+src/arch/generic/pcstate.hh:169:31: note:   no known conversion for argument 1 from ‘int’ to ‘const gem5::PCStateBase&’
+  169 | operator!=(const PCStateBase &a, const PCStateBase &b)
+      |            ~~~~~~~~~~~~~~~~~~~^
+src/cpu/o3/lsq_unit.cc:1392:24: error: base operand of ‘->’ is not a pointer
+ 1392 |         assert(store_it->valid());
+      |                        ^~
+src/cpu/o3/lsq_unit.cc:1393:24: error: base operand of ‘->’ is not a pointer
+ 1393 |         assert(store_it->instruction()->seqNum < load_inst->seqNum);
+      |                        ^~
+src/cpu/o3/lsq_unit.cc:1394:34: error: base operand of ‘->’ is not a pointer
+ 1394 |         int store_size = store_it->size();
+      |                                  ^~
+src/cpu/o3/lsq_unit.cc:1399:41: error: base operand of ‘->’ is not a pointer
+ 1399 |         if (store_size != 0 && !store_it->instruction()->strictlyOrdered() &&
+      |                                         ^~
+src/cpu/o3/lsq_unit.cc:1400:23: error: base operand of ‘->’ is not a pointer
+ 1400 |             !(store_it->request()->mainReq() &&
+      |                       ^~
+src/cpu/o3/lsq_unit.cc:1401:23: error: base operand of ‘->’ is not a pointer
+ 1401 |               store_it->request()->mainReq()->isCacheMaintenance())) {
+      |                       ^~
+src/cpu/o3/lsq_unit.cc:1402:28: error: base operand of ‘->’ is not a pointer
+ 1402 |             assert(store_it->instruction()->effAddrValid());
+      |                            ^~
+src/cpu/o3/lsq_unit.cc:1408:33: error: base operand of ‘->’ is not a pointer
+ 1408 |             auto st_s = store_it->instruction()->effAddr;
+      |                                 ^~
+src/cpu/o3/lsq_unit.cc:1422:26: error: base operand of ‘->’ is not a pointer
+ 1422 |             if (!store_it->instruction()->isAtomic() &&
+      |                          ^~
+src/cpu/o3/lsq_unit.cc:1426:49: error: base operand of ‘->’ is not a pointer
+ 1426 |                 const auto& store_req = store_it->request()->mainReq();
+      |                                                 ^~
+src/cpu/o3/lsq_unit.cc:1444:26: error: base operand of ‘->’ is not a pointer
+ 1444 |                 (store_it->instruction()->isAtomic() &&
+      |                          ^~
+src/cpu/o3/lsq_unit.cc:1454:29: error: base operand of ‘->’ is not a pointer
+ 1454 |                     store_it->instruction()->effAddr;
+      |                             ^~
+src/cpu/o3/lsq_unit.cc:1461:29: error: base operand of ‘->’ is not a pointer
+ 1461 |                 if (store_it->isAllZeros())
+      |                             ^~
+src/cpu/o3/lsq_unit.cc:1466:33: error: base operand of ‘->’ is not a pointer
+ 1466 |                         store_it->data() + shift_amt,
+      |                                 ^~
+src/cpu/o3/lsq_unit.cc:1470:48: error: request for member ‘_idx’ in ‘store_it’, which is of non-class type ‘int’
+ 1470 |                         "addr %#x\n", store_it._idx,
+      |                                                ^~~~
+src/base/trace.hh:213:44: note: in definition of macro ‘DPRINTF’
+  213 |             ::gem5::curTick(), name(), #x, __VA_ARGS__); \
+      |                                            ^~~~~~~~~~~
+src/cpu/o3/lsq_unit.cc:1486:50: error: request for member ‘_idx’ in ‘store_it’, which is of non-class type ‘int’
+ 1486 |                     assert (!storeQueue[store_it._idx].completed());
+      |                                                  ^~~~
+src/cpu/o3/lsq_unit.cc:1488:45: error: request for member ‘_idx’ in ‘store_it’, which is of non-class type ‘int’
+ 1488 |                         storeQueue[store_it._idx].instruction()->
+      |                                             ^~~~
+src/cpu/o3/lsq_unit.cc:1492:45: error: request for member ‘_idx’ in ‘store_it’, which is of non-class type ‘int’
+ 1492 |                         storeQueue[store_it._idx].instruction()->
+      |                                             ^~~~
+src/cpu/o3/lsq_unit.cc:1533:29: error: base operand of ‘->’ is not a pointer
+ 1533 |                 if (store_it->completed()) {
+      |                             ^~
+src/cpu/o3/lsq_unit.cc:1545:48: error: base operand of ‘->’ is not a pointer
+ 1545 |                     stallingStoreIsn = store_it->instruction()->seqNum;
+      |                                                ^~
+src/cpu/o3/lsq_unit.cc:1560:34: error: request for member ‘_idx’ in ‘store_it’, which is of non-class type ‘int’
+ 1560 |                         store_it._idx, request->mainReq()->getVaddr());
+      |                                  ^~~~
+src/base/trace.hh:213:44: note: in definition of macro ‘DPRINTF’
+  213 |             ::gem5::curTick(), name(), #x, __VA_ARGS__); \
+      |                                            ^~~~~~~~~~~
+In file included from src/cpu/o3/dyn_inst.hh:58,
+                 from src/cpu/o3/cyclone/countdown_queue.hh:7,
+                 from src/cpu/o3/iew.hh:60,
+                 from src/cpu/o3/commit.hh:51,
+                 from src/cpu/o3/rename.hh:50,
+                 from src/cpu/o3/rename.cc:42:
+src/cpu/o3/cpu.hh:114:27: error: invalid use of incomplete type ‘class gem5::o3::UnifiedRenameMap’
+  114 |         UnifiedRenameMap::PerThreadUnifiedRenameMap;
+      |                           ^~~~~~~~~~~~~~~~~~~~~~~~~
+In file included from src/cpu/o3/cpu.hh:59:
+src/cpu/o3/free_list.hh:62:7: note: forward declaration of ‘class gem5::o3::UnifiedRenameMap’
+   62 | class UnifiedRenameMap;
+      |       ^~~~~~~~~~~~~~~~
+src/cpu/o3/cpu.hh:411:5: error: ‘Rename’ does not name a type
+  411 |     Rename rename;
+      |     ^~~~~~
+src/cpu/o3/cpu.hh:414:9: error: field ‘iew’ has incomplete type ‘gem5::o3::IEW’
+  414 |     IEW iew;
+      |         ^~~
+In file included from src/cpu/o3/iew.hh:50:
+src/cpu/o3/inst_queue.hh:79:7: note: forward declaration of ‘class gem5::o3::IEW’
+   79 | class IEW;
+      |       ^~~
+src/cpu/o3/cpu.hh:417:5: error: ‘Commit’ does not name a type
+  417 |     Commit commit;
+      |     ^~~~~~
+src/cpu/o3/cpu.hh:426:5: error: ‘PerThreadUnifiedRenameMap’ does not name a type; did you mean ‘UnifiedRenameMap’?
+  426 |     PerThreadUnifiedRenameMap renameMap;
+      |     ^~~~~~~~~~~~~~~~~~~~~~~~~
+      |     UnifiedRenameMap
+src/cpu/o3/cpu.hh:429:5: error: ‘PerThreadUnifiedRenameMap’ does not name a type; did you mean ‘UnifiedRenameMap’?
+  429 |     PerThreadUnifiedRenameMap commitRenameMap;
+      |     ^~~~~~~~~~~~~~~~~~~~~~~~~
+      |     UnifiedRenameMap
+src/cpu/o3/dyn_inst.hh: In member function ‘virtual void gem5::o3::DynInst::demapPage(gem5::Addr, uint64_t)’:
+src/cpu/o3/dyn_inst.hh:394:12: error: invalid use of incomplete type ‘class gem5::o3::CPU’
+  394 |         cpu->demapPage(vaddr, asn);
+      |            ^~
+src/cpu/o3/lsq.hh:71:7: note: forward declaration of ‘class gem5::o3::CPU’
+   71 | class CPU;
+      |       ^~~
+src/cpu/o3/dyn_inst.hh: In member function ‘int gem5::o3::DynInst::cpuId() const’:
+src/cpu/o3/dyn_inst.hh:489:35: error: invalid use of incomplete type ‘class gem5::o3::CPU’
+  489 |     int cpuId() const { return cpu->cpuId(); }
+      |                                   ^~
+src/cpu/o3/lsq.hh:71:7: note: forward declaration of ‘class gem5::o3::CPU’
+   71 | class CPU;
+      |       ^~~
+src/cpu/o3/dyn_inst.hh: In member function ‘uint32_t gem5::o3::DynInst::socketId() const’:
+src/cpu/o3/dyn_inst.hh:492:43: error: invalid use of incomplete type ‘class gem5::o3::CPU’
+  492 |     uint32_t socketId() const { return cpu->socketId(); }
+      |                                           ^~
+src/cpu/o3/lsq.hh:71:7: note: forward declaration of ‘class gem5::o3::CPU’
+   71 | class CPU;
+      |       ^~~
+src/cpu/o3/dyn_inst.hh: In member function ‘gem5::RequestorID gem5::o3::DynInst::requestorId() const’:
+src/cpu/o3/dyn_inst.hh:495:49: error: invalid use of incomplete type ‘class gem5::o3::CPU’
+  495 |     RequestorID requestorId() const { return cpu->dataRequestorId(); }
+      |                                                 ^~
+src/cpu/o3/lsq.hh:71:7: note: forward declaration of ‘class gem5::o3::CPU’
+   71 | class CPU;
+      |       ^~~
+src/cpu/o3/dyn_inst.hh: In member function ‘virtual gem5::ThreadContext* gem5::o3::DynInst::tcBase() const’:
+src/cpu/o3/dyn_inst.hh:924:67: error: ‘struct gem5::ThreadState’ has no member named ‘getTC’
+  924 |     gem5::ThreadContext *tcBase() const override { return thread->getTC(); }
+      |                                                                   ^~~~~
+src/cpu/o3/dyn_inst.hh: In member function ‘virtual void gem5::o3::DynInst::armMonitor(gem5::Addr)’:
+src/cpu/o3/dyn_inst.hh:962:12: error: invalid use of incomplete type ‘class gem5::o3::CPU’
+  962 |         cpu->armMonitor(threadNumber, address);
+      |            ^~
+src/cpu/o3/lsq.hh:71:7: note: forward declaration of ‘class gem5::o3::CPU’
+   71 | class CPU;
+      |       ^~~
+src/cpu/o3/dyn_inst.hh: In member function ‘virtual bool gem5::o3::DynInst::mwait(gem5::PacketPtr)’:
+src/cpu/o3/dyn_inst.hh:967:19: error: invalid use of incomplete type ‘class gem5::o3::CPU’
+  967 |         return cpu->mwait(threadNumber, pkt);
+      |                   ^~
+src/cpu/o3/lsq.hh:71:7: note: forward declaration of ‘class gem5::o3::CPU’
+   71 | class CPU;
+      |       ^~~
+src/cpu/o3/dyn_inst.hh: In member function ‘virtual void gem5::o3::DynInst::mwaitAtomic(gem5::ThreadContext*)’:
+src/cpu/o3/dyn_inst.hh:972:19: error: invalid use of incomplete type ‘class gem5::o3::CPU’
+  972 |         return cpu->mwaitAtomic(threadNumber, tc, cpu->mmu);
+      |                   ^~
+src/cpu/o3/lsq.hh:71:7: note: forward declaration of ‘class gem5::o3::CPU’
+   71 | class CPU;
+      |       ^~~
+src/cpu/o3/dyn_inst.hh:972:54: error: invalid use of incomplete type ‘class gem5::o3::CPU’
+  972 |         return cpu->mwaitAtomic(threadNumber, tc, cpu->mmu);
+      |                                                      ^~
+src/cpu/o3/lsq.hh:71:7: note: forward declaration of ‘class gem5::o3::CPU’
+   71 | class CPU;
+      |       ^~~
+src/cpu/o3/dyn_inst.hh: In member function ‘virtual gem5::AddressMonitor* gem5::o3::DynInst::getAddrMonitor()’:
+src/cpu/o3/dyn_inst.hh:977:19: error: invalid use of incomplete type ‘class gem5::o3::CPU’
+  977 |         return cpu->getCpuAddrMonitor(threadNumber);
+      |                   ^~
+src/cpu/o3/lsq.hh:71:7: note: forward declaration of ‘class gem5::o3::CPU’
+   71 | class CPU;
+      |       ^~~
+src/cpu/o3/dyn_inst.hh: In member function ‘virtual gem5::RegVal gem5::o3::DynInst::readMiscReg(int)’:
+src/cpu/o3/dyn_inst.hh:1010:19: error: invalid use of incomplete type ‘class gem5::o3::CPU’
+ 1010 |         return cpu->readMiscReg(misc_reg, threadNumber);
+      |                   ^~
+src/cpu/o3/lsq.hh:71:7: note: forward declaration of ‘class gem5::o3::CPU’
+   71 | class CPU;
+      |       ^~~
+src/cpu/o3/dyn_inst.hh: In member function ‘virtual gem5::RegVal gem5::o3::DynInst::readMiscRegOperand(const gem5::StaticInst*, int)’:
+src/cpu/o3/dyn_inst.hh:1042:19: error: invalid use of incomplete type ‘class gem5::o3::CPU’
+ 1042 |         return cpu->readMiscReg(reg.index(), threadNumber);
+      |                   ^~
+src/cpu/o3/lsq.hh:71:7: note: forward declaration of ‘class gem5::o3::CPU’
+   71 | class CPU;
+      |       ^~~
+src/cpu/o3/dyn_inst.hh: In member function ‘void gem5::o3::DynInst::updateMiscRegs()’:
+src/cpu/o3/dyn_inst.hh:1064:42: error: ‘struct gem5::ThreadState’ has no member named ‘noSquashFromTC’
+ 1064 |         bool no_squash_from_TC = thread->noSquashFromTC;
+      |                                          ^~~~~~~~~~~~~~
+src/cpu/o3/dyn_inst.hh:1065:17: error: ‘struct gem5::ThreadState’ has no member named ‘noSquashFromTC’
+ 1065 |         thread->noSquashFromTC = true;
+      |                 ^~~~~~~~~~~~~~
+src/cpu/o3/dyn_inst.hh:1068:16: error: invalid use of incomplete type ‘class gem5::o3::CPU’
+ 1068 |             cpu->setMiscReg(
+      |                ^~
+src/cpu/o3/lsq.hh:71:7: note: forward declaration of ‘class gem5::o3::CPU’
+   71 | class CPU;
+      |       ^~~
+src/cpu/o3/dyn_inst.hh:1071:17: error: ‘struct gem5::ThreadState’ has no member named ‘noSquashFromTC’
+ 1071 |         thread->noSquashFromTC = no_squash_from_TC;
+      |                 ^~~~~~~~~~~~~~
+src/cpu/o3/dyn_inst.hh: In member function ‘void gem5::o3::DynInst::forwardOldRegs()’:
+src/cpu/o3/dyn_inst.hh:1089:28: error: invalid use of incomplete type ‘class gem5::o3::CPU’
+ 1089 |                         cpu->getReg(prev_phys_reg, threadNumber));
+      |                            ^~
+src/cpu/o3/lsq.hh:71:7: note: forward declaration of ‘class gem5::o3::CPU’
+   71 | class CPU;
+      |       ^~~
+src/cpu/o3/dyn_inst.hh:1092:20: error: invalid use of incomplete type ‘class gem5::o3::CPU’
+ 1092 |                 cpu->getReg(prev_phys_reg, val, threadNumber);
+      |                    ^~
+src/cpu/o3/lsq.hh:71:7: note: forward declaration of ‘class gem5::o3::CPU’
+   71 | class CPU;
+      |       ^~~
+src/cpu/o3/dyn_inst.hh: In member function ‘virtual gem5::RegVal gem5::o3::DynInst::getRegOperand(const gem5::StaticInst*, int)’:
+src/cpu/o3/dyn_inst.hh:1119:19: error: invalid use of incomplete type ‘class gem5::o3::CPU’
+ 1119 |         return cpu->getReg(reg, threadNumber);
+      |                   ^~
+src/cpu/o3/lsq.hh:71:7: note: forward declaration of ‘class gem5::o3::CPU’
+   71 | class CPU;
+      |       ^~~
+src/cpu/o3/dyn_inst.hh: In member function ‘virtual void gem5::o3::DynInst::getRegOperand(const gem5::StaticInst*, int, void*)’:
+src/cpu/o3/dyn_inst.hh:1128:12: error: invalid use of incomplete type ‘class gem5::o3::CPU’
+ 1128 |         cpu->getReg(reg, val, threadNumber);
+      |            ^~
+src/cpu/o3/lsq.hh:71:7: note: forward declaration of ‘class gem5::o3::CPU’
+   71 | class CPU;
+      |       ^~~
+src/cpu/o3/dyn_inst.hh: In member function ‘virtual void* gem5::o3::DynInst::getWritableRegOperand(const gem5::StaticInst*, int)’:
+src/cpu/o3/dyn_inst.hh:1134:19: error: invalid use of incomplete type ‘class gem5::o3::CPU’
+ 1134 |         return cpu->getWritableReg(renamedDestIdx(idx), threadNumber);
+      |                   ^~
+src/cpu/o3/lsq.hh:71:7: note: forward declaration of ‘class gem5::o3::CPU’
+   71 | class CPU;
+      |       ^~~
+src/cpu/o3/dyn_inst.hh: In member function ‘virtual void gem5::o3::DynInst::setRegOperand(const gem5::StaticInst*, int, gem5::RegVal)’:
+src/cpu/o3/dyn_inst.hh:1146:12: error: invalid use of incomplete type ‘class gem5::o3::CPU’
+ 1146 |         cpu->setReg(reg, val, threadNumber);
+      |            ^~
+src/cpu/o3/lsq.hh:71:7: note: forward declaration of ‘class gem5::o3::CPU’
+   71 | class CPU;
+      |       ^~~
+src/cpu/o3/dyn_inst.hh: In member function ‘virtual void gem5::o3::DynInst::setRegOperand(const gem5::StaticInst*, int, const void*)’:
+src/cpu/o3/dyn_inst.hh:1156:12: error: invalid use of incomplete type ‘class gem5::o3::CPU’
+ 1156 |         cpu->setReg(reg, val, threadNumber);
+      |            ^~
+src/cpu/o3/lsq.hh:71:7: note: forward declaration of ‘class gem5::o3::CPU’
+   71 | class CPU;
+      |       ^~~
+src/cpu/o3/lsq.cc: In member function ‘void gem5::o3::LSQ::LSQRequest::sendFragmentToTranslation(int)’:
+src/cpu/o3/lsq.cc:1154:63: error: ‘struct gem5::ThreadState’ has no member named ‘getTC’
+ 1154 |     _port.getMMUPtr()->translateTiming(req(i), _inst->thread->getTC(),
+      |                                                               ^~~~~
+In file included from src/cpu/o3/cyclone/countdown_queue.hh:7,
+                 from src/cpu/o3/iew.hh:60,
+                 from src/cpu/o3/commit.hh:51,
+                 from src/cpu/o3/cpu.hh:55,
+                 from src/cpu/o3/thread_context.hh:45,
+                 from src/cpu/o3/thread_context.cc:42:
+src/cpu/o3/dyn_inst.hh: In member function ‘gem5::BaseCPU* gem5::o3::DynInst::getCpuPtr()’:
+src/cpu/o3/dyn_inst.hh:132:35: error: cannot convert ‘gem5::o3::CPU*’ to ‘gem5::BaseCPU*’ in return
+  132 |     BaseCPU *getCpuPtr() { return cpu; }
+      |                                   ^~~
+      |                                   |
+      |                                   gem5::o3::CPU*
+In file included from src/cpu/o3/inst_queue.hh:57,
+                 from src/cpu/o3/iew.hh:50:
+src/cpu/o3/mem_dep_unit.hh:76:7: note: class type ‘gem5::o3::CPU’ is incomplete
+   76 | class CPU;
+      |       ^~~
+src/cpu/o3/dyn_inst.hh: In member function ‘virtual void gem5::o3::DynInst::demapPage(gem5::Addr, uint64_t)’:
+src/cpu/o3/dyn_inst.hh:394:12: error: invalid use of incomplete type ‘class gem5::o3::CPU’
+  394 |         cpu->demapPage(vaddr, asn);
+      |            ^~
+src/cpu/o3/mem_dep_unit.hh:76:7: note: forward declaration of ‘class gem5::o3::CPU’
+   76 | class CPU;
+      |       ^~~
+src/cpu/o3/dyn_inst.hh: In member function ‘int gem5::o3::DynInst::cpuId() const’:
+src/cpu/o3/dyn_inst.hh:489:35: error: invalid use of incomplete type ‘class gem5::o3::CPU’
+  489 |     int cpuId() const { return cpu->cpuId(); }
+      |                                   ^~
+src/cpu/o3/mem_dep_unit.hh:76:7: note: forward declaration of ‘class gem5::o3::CPU’
+   76 | class CPU;
+      |       ^~~
+src/cpu/o3/dyn_inst.hh: In member function ‘uint32_t gem5::o3::DynInst::socketId() const’:
+src/cpu/o3/dyn_inst.hh:492:43: error: invalid use of incomplete type ‘class gem5::o3::CPU’
+  492 |     uint32_t socketId() const { return cpu->socketId(); }
+      |                                           ^~
+src/cpu/o3/mem_dep_unit.hh:76:7: note: forward declaration of ‘class gem5::o3::CPU’
+   76 | class CPU;
+      |       ^~~
+src/cpu/o3/dyn_inst.hh: In member function ‘gem5::RequestorID gem5::o3::DynInst::requestorId() const’:
+src/cpu/o3/dyn_inst.hh:495:49: error: invalid use of incomplete type ‘class gem5::o3::CPU’
+  495 |     RequestorID requestorId() const { return cpu->dataRequestorId(); }
+      |                                                 ^~
+src/cpu/o3/mem_dep_unit.hh:76:7: note: forward declaration of ‘class gem5::o3::CPU’
+   76 | class CPU;
+      |       ^~~
+src/cpu/o3/dyn_inst.hh: In member function ‘virtual gem5::ThreadContext* gem5::o3::DynInst::tcBase() const’:
+src/cpu/o3/dyn_inst.hh:924:67: error: ‘struct gem5::ThreadState’ has no member named ‘getTC’
+  924 |     gem5::ThreadContext *tcBase() const override { return thread->getTC(); }
+      |                                                                   ^~~~~
+src/cpu/o3/dyn_inst.hh: In member function ‘virtual void gem5::o3::DynInst::armMonitor(gem5::Addr)’:
+src/cpu/o3/dyn_inst.hh:962:12: error: invalid use of incomplete type ‘class gem5::o3::CPU’
+  962 |         cpu->armMonitor(threadNumber, address);
+      |            ^~
+src/cpu/o3/mem_dep_unit.hh:76:7: note: forward declaration of ‘class gem5::o3::CPU’
+   76 | class CPU;
+      |       ^~~
+src/cpu/o3/dyn_inst.hh: In member function ‘virtual bool gem5::o3::DynInst::mwait(gem5::PacketPtr)’:
+src/cpu/o3/dyn_inst.hh:967:19: error: invalid use of incomplete type ‘class gem5::o3::CPU’
+  967 |         return cpu->mwait(threadNumber, pkt);
+      |                   ^~
+src/cpu/o3/mem_dep_unit.hh:76:7: note: forward declaration of ‘class gem5::o3::CPU’
+   76 | class CPU;
+      |       ^~~
+src/cpu/o3/dyn_inst.hh: In member function ‘virtual void gem5::o3::DynInst::mwaitAtomic(gem5::ThreadContext*)’:
+src/cpu/o3/dyn_inst.hh:972:19: error: invalid use of incomplete type ‘class gem5::o3::CPU’
+  972 |         return cpu->mwaitAtomic(threadNumber, tc, cpu->mmu);
+      |                   ^~
+src/cpu/o3/mem_dep_unit.hh:76:7: note: forward declaration of ‘class gem5::o3::CPU’
+   76 | class CPU;
+      |       ^~~
+src/cpu/o3/dyn_inst.hh:972:54: error: invalid use of incomplete type ‘class gem5::o3::CPU’
+  972 |         return cpu->mwaitAtomic(threadNumber, tc, cpu->mmu);
+      |                                                      ^~
+src/cpu/o3/mem_dep_unit.hh:76:7: note: forward declaration of ‘class gem5::o3::CPU’
+   76 | class CPU;
+      |       ^~~
+src/cpu/o3/dyn_inst.hh: In member function ‘virtual gem5::AddressMonitor* gem5::o3::DynInst::getAddrMonitor()’:
+src/cpu/o3/dyn_inst.hh:977:19: error: invalid use of incomplete type ‘class gem5::o3::CPU’
+  977 |         return cpu->getCpuAddrMonitor(threadNumber);
+      |                   ^~
+src/cpu/o3/mem_dep_unit.hh:76:7: note: forward declaration of ‘class gem5::o3::CPU’
+   76 | class CPU;
+      |       ^~~
+src/cpu/o3/dyn_inst.hh: In member function ‘virtual gem5::RegVal gem5::o3::DynInst::readMiscReg(int)’:
+src/cpu/o3/dyn_inst.hh:1010:19: error: invalid use of incomplete type ‘class gem5::o3::CPU’
+ 1010 |         return cpu->readMiscReg(misc_reg, threadNumber);
+      |                   ^~
+src/cpu/o3/mem_dep_unit.hh:76:7: note: forward declaration of ‘class gem5::o3::CPU’
+   76 | class CPU;
+      |       ^~~
+src/cpu/o3/dyn_inst.hh: In member function ‘virtual gem5::RegVal gem5::o3::DynInst::readMiscRegOperand(const gem5::StaticInst*, int)’:
+src/cpu/o3/dyn_inst.hh:1042:19: error: invalid use of incomplete type ‘class gem5::o3::CPU’
+ 1042 |         return cpu->readMiscReg(reg.index(), threadNumber);
+      |                   ^~
+src/cpu/o3/mem_dep_unit.hh:76:7: note: forward declaration of ‘class gem5::o3::CPU’
+   76 | class CPU;
+      |       ^~~
+src/cpu/o3/dyn_inst.hh: In member function ‘void gem5::o3::DynInst::updateMiscRegs()’:
+src/cpu/o3/dyn_inst.hh:1064:42: error: ‘struct gem5::ThreadState’ has no member named ‘noSquashFromTC’
+ 1064 |         bool no_squash_from_TC = thread->noSquashFromTC;
+      |                                          ^~~~~~~~~~~~~~
+src/cpu/o3/dyn_inst.hh:1065:17: error: ‘struct gem5::ThreadState’ has no member named ‘noSquashFromTC’
+ 1065 |         thread->noSquashFromTC = true;
+      |                 ^~~~~~~~~~~~~~
+src/cpu/o3/dyn_inst.hh:1068:16: error: invalid use of incomplete type ‘class gem5::o3::CPU’
+ 1068 |             cpu->setMiscReg(
+      |                ^~
+src/cpu/o3/mem_dep_unit.hh:76:7: note: forward declaration of ‘class gem5::o3::CPU’
+   76 | class CPU;
+      |       ^~~
+src/cpu/o3/dyn_inst.hh:1071:17: error: ‘struct gem5::ThreadState’ has no member named ‘noSquashFromTC’
+ 1071 |         thread->noSquashFromTC = no_squash_from_TC;
+      |                 ^~~~~~~~~~~~~~
+src/cpu/o3/dyn_inst.hh: In member function ‘void gem5::o3::DynInst::forwardOldRegs()’:
+src/cpu/o3/dyn_inst.hh:1089:28: error: invalid use of incomplete type ‘class gem5::o3::CPU’
+ 1089 |                         cpu->getReg(prev_phys_reg, threadNumber));
+      |                            ^~
+src/cpu/o3/mem_dep_unit.hh:76:7: note: forward declaration of ‘class gem5::o3::CPU’
+   76 | class CPU;
+      |       ^~~
+src/cpu/o3/dyn_inst.hh:1092:20: error: invalid use of incomplete type ‘class gem5::o3::CPU’
+ 1092 |                 cpu->getReg(prev_phys_reg, val, threadNumber);
+      |                    ^~
+src/cpu/o3/mem_dep_unit.hh:76:7: note: forward declaration of ‘class gem5::o3::CPU’
+   76 | class CPU;
+      |       ^~~
+src/cpu/o3/dyn_inst.hh: In member function ‘virtual gem5::RegVal gem5::o3::DynInst::getRegOperand(const gem5::StaticInst*, int)’:
+src/cpu/o3/dyn_inst.hh:1119:19: error: invalid use of incomplete type ‘class gem5::o3::CPU’
+ 1119 |         return cpu->getReg(reg, threadNumber);
+      |                   ^~
+src/cpu/o3/mem_dep_unit.hh:76:7: note: forward declaration of ‘class gem5::o3::CPU’
+   76 | class CPU;
+      |       ^~~
+src/cpu/o3/dyn_inst.hh: In member function ‘virtual void gem5::o3::DynInst::getRegOperand(const gem5::StaticInst*, int, void*)’:
+src/cpu/o3/dyn_inst.hh:1128:12: error: invalid use of incomplete type ‘class gem5::o3::CPU’
+ 1128 |         cpu->getReg(reg, val, threadNumber);
+      |            ^~
+src/cpu/o3/mem_dep_unit.hh:76:7: note: forward declaration of ‘class gem5::o3::CPU’
+   76 | class CPU;
+      |       ^~~
+src/cpu/o3/dyn_inst.hh: In member function ‘virtual void* gem5::o3::DynInst::getWritableRegOperand(const gem5::StaticInst*, int)’:
+src/cpu/o3/dyn_inst.hh:1134:19: error: invalid use of incomplete type ‘class gem5::o3::CPU’
+ 1134 |         return cpu->getWritableReg(renamedDestIdx(idx), threadNumber);
+      |                   ^~
+src/cpu/o3/mem_dep_unit.hh:76:7: note: forward declaration of ‘class gem5::o3::CPU’
+   76 | class CPU;
+      |       ^~~
+src/cpu/o3/dyn_inst.hh: In member function ‘virtual void gem5::o3::DynInst::setRegOperand(const gem5::StaticInst*, int, gem5::RegVal)’:
+src/cpu/o3/dyn_inst.hh:1146:12: error: invalid use of incomplete type ‘class gem5::o3::CPU’
+ 1146 |         cpu->setReg(reg, val, threadNumber);
+      |            ^~
+src/cpu/o3/mem_dep_unit.hh:76:7: note: forward declaration of ‘class gem5::o3::CPU’
+   76 | class CPU;
+      |       ^~~
+src/cpu/o3/dyn_inst.hh: In member function ‘virtual void gem5::o3::DynInst::setRegOperand(const gem5::StaticInst*, int, const void*)’:
+src/cpu/o3/dyn_inst.hh:1156:12: error: invalid use of incomplete type ‘class gem5::o3::CPU’
+ 1156 |         cpu->setReg(reg, val, threadNumber);
+      |            ^~
+src/cpu/o3/mem_dep_unit.hh:76:7: note: forward declaration of ‘class gem5::o3::CPU’
+   76 | class CPU;
+      |       ^~~
+In file included from src/cpu/o3/cpu.hh:62,
+                 from src/cpu/o3/dyn_inst.hh:58,
+                 from src/cpu/o3/cyclone/countdown_queue.hh:7,
+                 from src/cpu/o3/iew.hh:60,
+                 from src/cpu/o3/commit.hh:51,
+                 from src/cpu/o3/commit.cc:42:
+src/cpu/o3/rename.hh:150:20: error: ‘Commit’ has not been declared
+  150 |     setCommitStage(Commit *commit_stage)
+      |                    ^~~~~~
+src/cpu/o3/rename.hh:160:5: error: ‘Commit’ does not name a type
+  160 |     Commit *commit_ptr;
+      |     ^~~~~~
+src/cpu/o3/rename.hh:173:23: error: ‘gem5::o3::UnifiedRenameMap::PerThreadUnifiedRenameMap’ has not been declared
+  173 |     void setRenameMap(UnifiedRenameMap::PerThreadUnifiedRenameMap& rm_ptr);
+      |                       ^~~~~~~~~~~~~~~~
+src/cpu/o3/rename.hh: In member function ‘void gem5::o3::Rename::setCommitStage(int*)’:
+src/cpu/o3/rename.hh:152:9: error: ‘commit_ptr’ was not declared in this scope; did you mean ‘commit_stage’?
+  152 |         commit_ptr = commit_stage;
+      |         ^~~~~~~~~~
+      |         commit_stage
+src/cpu/o3/cpu.hh: At global scope:
+src/cpu/o3/cpu.hh:114:27: error: invalid use of incomplete type ‘class gem5::o3::UnifiedRenameMap’
+  114 |         UnifiedRenameMap::PerThreadUnifiedRenameMap;
+      |                           ^~~~~~~~~~~~~~~~~~~~~~~~~
+In file included from src/cpu/o3/cpu.hh:59:
+src/cpu/o3/free_list.hh:62:7: note: forward declaration of ‘class gem5::o3::UnifiedRenameMap’
+   62 | class UnifiedRenameMap;
+      |       ^~~~~~~~~~~~~~~~
+src/cpu/o3/cpu.hh:414:9: error: field ‘iew’ has incomplete type ‘gem5::o3::IEW’
+  414 |     IEW iew;
+      |         ^~~
+In file included from src/cpu/o3/iew.hh:50:
+src/cpu/o3/inst_queue.hh:79:7: note: forward declaration of ‘class gem5::o3::IEW’
+   79 | class IEW;
+      |       ^~~
+src/cpu/o3/cpu.hh:417:5: error: ‘Commit’ does not name a type
+  417 |     Commit commit;
+      |     ^~~~~~
+src/cpu/o3/cpu.hh:426:5: error: ‘PerThreadUnifiedRenameMap’ does not name a type; did you mean ‘UnifiedRenameMap’?
+  426 |     PerThreadUnifiedRenameMap renameMap;
+      |     ^~~~~~~~~~~~~~~~~~~~~~~~~
+      |     UnifiedRenameMap
+src/cpu/o3/cpu.hh:429:5: error: ‘PerThreadUnifiedRenameMap’ does not name a type; did you mean ‘UnifiedRenameMap’?
+  429 |     PerThreadUnifiedRenameMap commitRenameMap;
+      |     ^~~~~~~~~~~~~~~~~~~~~~~~~
+      |     UnifiedRenameMap
+scons: *** [build/X86/cpu/o3/fetch.o] Error 1
+scons: *** [build/X86/cpu/o3/iew.o] Error 1
+scons: *** [build/X86/cpu/o3/lsq_unit.o] Error 1
+scons: *** [build/X86/cpu/o3/thread_state.o] Error 1
+scons: *** [build/X86/cpu/o3/rename.o] Error 1
+scons: *** [build/X86/cpu/o3/cpu.o] Error 1
+scons: *** [build/X86/cpu/o3/thread_context.o] Error 1
+scons: *** [build/X86/cpu/o3/lsq.o] Error 1
+scons: *** [build/X86/cpu/o3/commit.o] Error 1
+scons: building terminated because of errors.

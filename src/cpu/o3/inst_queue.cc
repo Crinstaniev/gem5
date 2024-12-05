@@ -43,6 +43,10 @@
 
 #include <limits>
 #include <vector>
+#include <stack>
+#include <unordered_map>
+#include <utility>
+#include <unordered_set>
 
 #include "base/logging.hh"
 #include "cpu/o3/dyn_inst.hh"
@@ -52,6 +56,8 @@
 #include "enums/OpClass.hh"
 #include "params/BaseO3CPU.hh"
 #include "sim/core.hh"
+#include "debug/Cyclone.hh"
+#include "cpu/o3/cyclone/utilities.hh"
 
 // clang complains about std::set being overloaded with Packet::set if
 // we open up the entire namespace std
@@ -160,6 +166,14 @@ InstructionQueue::InstructionQueue(CPU *cpu_ptr, IEW *iew_ptr,
     for (ThreadID tid = numThreads; tid < MaxThreads; tid++) {
         maxEntries[tid] = 0;
     }
+
+    // CYCLONE
+    // Initialize the countdown queue vector
+    for (ThreadID tid = 0; tid < MaxThreads; tid++) {
+        cyclone::CountdownQueue countdownQueue_payload;
+        countdownQueue.push_back(countdownQueue_payload);
+    }
+    // END CYCLONE
 }
 
 InstructionQueue::~InstructionQueue()
@@ -602,6 +616,38 @@ InstructionQueue::insert(const DynInstPtr &new_inst)
     count[new_inst->threadNumber]++;
 
     assert(freeEntries == (numEntries - countInsts()));
+
+    // CYCLONE
+
+    // DPRINTF(Cyclone, "New Instruction Received through IQ::insert: %s, PC: %s\n", cyclone::getInstName(new_inst), new_inst->pcState());
+
+    /**
+     * New instruction received
+     * + check all dependency
+     *   + if no dependency:
+     *     + countdown = execution latency
+     *     + add to countdown queue
+     *   + if has dependency:
+     *     + countdown = execution latency + min(dependency countdown)
+     */
+    // push instruction to countdown queue
+
+    bool has_dependency = this->dependGraph.hasDependency(new_inst);
+    if (has_dependency) {
+      DPRINTF(Cyclone, "Instruction has dependency: %s, PC: %s\n",
+              cyclone::getInstName(new_inst), new_inst->pcState());
+      std::vector<DynInstPtr> dependencies =
+          this->dependGraph.getDependency(new_inst);
+
+      // iterate through all dependencies
+      for (auto dep : dependencies) {
+        // print the dependency
+        DPRINTF(Cyclone, "Dependency: %s, PC: %s\n", cyclone::getInstName(dep),
+                dep->pcState());
+      }
+    }
+
+    // END CYCLONE
 }
 
 void
@@ -648,6 +694,12 @@ InstructionQueue::insertNonSpec(const DynInstPtr &new_inst)
     count[new_inst->threadNumber]++;
 
     assert(freeEntries == (numEntries - countInsts()));
+
+    // CYCLONE
+    // DPRINTF(Cyclone, "New Instruction Received through IQ::insertNonSpec: %s, PC: %s\n", cyclone::getInstName(new_inst), new_inst->pcState());
+
+
+    // END CYCLONE
 }
 
 void
@@ -656,6 +708,10 @@ InstructionQueue::insertBarrier(const DynInstPtr &barr_inst)
     memDepUnit[barr_inst->threadNumber].insertBarrier(barr_inst);
 
     insertNonSpec(barr_inst);
+
+    // CYCLONE
+    // DPRINTF(Cyclone, "New Instruction Received through IQ::insertBarrier: %s, PC: %s\n", cyclone::getInstName(barr_inst), barr_inst->pcState());
+    // END CYCLONE
 }
 
 DynInstPtr

@@ -58,6 +58,14 @@
 #include "debug/O3PipeView.hh"
 #include "params/BaseO3CPU.hh"
 
+/*****************
+ * CYCLONE START *
+ *****************/
+#include "debug/Cyclone.hh"
+/***************
+ * CYCLONE END *
+ ***************/
+
 namespace gem5
 {
 
@@ -79,7 +87,10 @@ IEW::IEW(CPU *_cpu, const BaseO3CPUParams &params)
       wbCycle(0),
       wbWidth(params.wbWidth),
       numThreads(params.numThreads),
-      iewStats(cpu)
+      iewStats(cpu),
+      // CYCLONE
+      countdownQueue()
+      // END CYCLONE
 {
     if (dispatchWidth > MaxWidth)
         fatal("dispatchWidth (%d) is larger than compiled limit (%d),\n"
@@ -1392,6 +1403,10 @@ IEW::writebackInsts()
 void
 IEW::tick()
 {
+    // CYCLONE
+    // DPRINTF(Cyclone, "IEW: Tick, current tick %d\n", curTick());
+    // END CYCLONE
+
     wbNumInst = 0;
     wbCycle = 0;
 

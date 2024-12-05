@@ -80,3 +80,6 @@ if env['CONF']['BUILD_ISA']:
     # For backwards compatibility
     SimObject('O3CPU.py', sim_objects=[])
     SimObject('O3Checker.py', sim_objects=[])
+
+    # modifications for cyclone project
+    DebugFlag('Cyclone')
