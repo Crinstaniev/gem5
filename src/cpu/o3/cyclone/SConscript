@@ -6,5 +6,3 @@ Source('timing_table.cc')
 Source('utilities.cc')
 
 DebugFlag('DCountdownQueue')
-
-Change-Id: I

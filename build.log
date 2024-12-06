@@ -1,0 +1,2089 @@
+scons: Reading SConscript files ...
+Mkdir("/cyclone/gem5/build/X86/gem5.build")
+Checking for linker -Wl,--as-needed support... (cached) yes
+Checking for compiler -gz support... (cached) yes
+Checking for linker -gz support... (cached) yes
+Info: Using Python config: python3-config
+Checking for C header file Python.h... (cached) yes
+Checking Python version... (cached) 3.12.3
+Checking for accept(0,0,0) in C++ library None... (cached) yes
+Checking for zlibVersion() in C++ library z... (cached) yes
+Checking for C library tcmalloc_minimal... (cached) yes
+Building in /cyclone/gem5/build/X86
+"build_tools/kconfig_base.py" "/cyclone/gem5/build/X86/gem5.build/Kconfig" "/cyclone/gem5/src/Kconfig"
+Checking for C header file linux/if_tun.h... (cached) yes
+Checking for backtrace_symbols_fd((void *)1, 0, 0) in C library None... (cached) yes
+Checking for C header file fenv.h... (cached) yes
+Checking for C header file png.h... (cached) yes
+Checking for clock_nanosleep(0,0,NULL,NULL) in C library None... (cached) yes
+Checking for C header file valgrind/valgrind.h... (cached) no
+Checking for pkg-config package hdf5-serial... (cached) yes
+Checking for H5Fcreate("", 0, 0, 0) in C library hdf5... (cached) yes
+Checking for H5::H5File("", 0) in C++ library hdf5_cpp... (cached) yes
+Checking for pkg-config package protobuf... (cached) yes
+Checking for C header file capstone/capstone.h... (cached) yes
+Checking for C header file linux/kvm.h... (cached) yes
+Checking for timer_create(CLOCK_MONOTONIC, NULL, NULL) in C library None... (cached) yes
+Checking for member exclude_host in struct perf_event_attr...(cached) yes
+Checking for shm_open("/test", 0, 0) in C library None... (cached) yes
+Checking size of struct kvm_xsave ... (cached) yes
+Checking whether __i386__ is declared... (cached) no
+Checking whether __x86_64__ is declared... (cached) yes
+Checking for compiler -Wno-self-assign-overloaded support... (cached) yes
+Checking for linker -Wno-free-nonheap-object support... (cached) yes
+scons: done reading SConscript files.
+scons: Building targets ...
+ [VER TAGS]  -> X86/sim/tags.cc
+ [     CXX] X86/python/_m5/param_BaseO3CPU.cc -> .o
+ [     CXX] src/cpu/o3/commit.cc -> X86/cpu/o3/commit.o
+ [     CXX] src/cpu/o3/cpu.cc -> X86/cpu/o3/cpu.o
+ [     CXX] src/cpu/o3/decode.cc -> X86/cpu/o3/decode.o
+ [     CXX] src/cpu/o3/dyn_inst.cc -> X86/cpu/o3/dyn_inst.o
+ [     CXX] src/cpu/o3/fetch.cc -> X86/cpu/o3/fetch.o
+ [     CXX] src/cpu/o3/iew.cc -> X86/cpu/o3/iew.o
+ [     CXX] src/cpu/o3/inst_queue.cc -> X86/cpu/o3/inst_queue.o
+ [     CXX] src/cpu/o3/lsq.cc -> X86/cpu/o3/lsq.o
+ [     CXX] src/cpu/o3/lsq_unit.cc -> X86/cpu/o3/lsq_unit.o
+ [     CXX] src/cpu/o3/mem_dep_unit.cc -> X86/cpu/o3/mem_dep_unit.o
+ [     CXX] src/cpu/o3/rename.cc -> X86/cpu/o3/rename.o
+ [     CXX] src/cpu/o3/rename_map.cc -> X86/cpu/o3/rename_map.o
+ [     CXX] src/cpu/o3/rob.cc -> X86/cpu/o3/rob.o
+ [     CXX] src/cpu/o3/thread_context.cc -> X86/cpu/o3/thread_context.o
+ [     CXX] src/cpu/o3/thread_state.cc -> X86/cpu/o3/thread_state.o
+ [     CXX] X86/python/_m5/param_BaseO3Checker.cc -> .o
+ [     CXX] src/cpu/o3/checker.cc -> X86/cpu/o3/checker.o
+ [     CXX] src/cpu/o3/probe/simple_trace.cc -> X86/cpu/o3/probe/simple_trace.o
+ [     CXX] src/cpu/o3/probe/elastic_trace.cc -> X86/cpu/o3/probe/elastic_trace.o
+In file included from src/cpu/o3/inst_queue.cc:42:
+src/cpu/o3/inst_queue.hh:85:5: error: ‘cyclone’ does not name a type
+   85 |     cyclone::CountdownQueue countdownQueue;
+      |     ^~~~~~~
+src/cpu/o3/inst_queue.hh:87:5: error: ‘cyclone’ does not name a type
+   87 |     cyclone::TimingTable timingTable;
+      |     ^~~~~~~
+src/cpu/o3/inst_queue.hh:92:27: error: ‘list’ in namespace ‘std’ does not name a template type
+   92 |     typedef typename std::list<DynInstPtr>::iterator ListIt;
+      |                           ^~~~
+src/cpu/o3/inst_queue.hh:1:1: note: ‘std::list’ is defined in header ‘<list>’; did you forget to ‘#include <list>’?
+  +++ |+#include <list>
+    1 | /*
+src/cpu/o3/inst_queue.hh:92:31: error: expected unqualified-id before ‘<’ token
+   92 |     typedef typename std::list<DynInstPtr>::iterator ListIt;
+      |                               ^
+src/cpu/o3/inst_queue.hh:96:5: error: expected class-name before ‘{’ token
+   96 |     {
+      |     ^
+src/cpu/o3/inst_queue.hh:99:9: error: ‘DynInstPtr’ does not name a type
+   99 |         DynInstPtr inst;
+      |         ^~~~~~~~~~
+src/cpu/o3/inst_queue.hh:114:28: error: ‘DynInstPtr’ does not name a type
+  114 |         FUCompletion(const DynInstPtr &_inst, int fu_idx,
+      |                            ^~~~~~~~~~
+src/cpu/o3/inst_queue.hh:130:10: error: ‘string’ in namespace ‘std’ does not name a type
+  130 |     std::string name() const;
+      |          ^~~~~~
+src/cpu/o3/inst_queue.hh:1:1: note: ‘std::string’ is defined in header ‘<string>’; did you forget to ‘#include <string>’?
+  +++ |+#include <string>
+    1 | /*
+src/cpu/o3/inst_queue.hh:136:27: error: ‘std::list’ has not been declared
+  136 |     void setActiveThreads(std::list<ThreadID> *at_ptr);
+      |                           ^~~
+src/cpu/o3/inst_queue.hh:136:36: error: expected ‘,’ or ‘...’ before ‘<’ token
+  136 |     void setActiveThreads(std::list<ThreadID> *at_ptr);
+      |                                    ^
+src/cpu/o3/inst_queue.hh:139:33: error: ‘TimeBuffer’ has not been declared
+  139 |     void setIssueToExecuteQueue(TimeBuffer<IssueStruct> *i2eQueue);
+      |                                 ^~~~~~~~~~
+src/cpu/o3/inst_queue.hh:139:43: error: expected ‘,’ or ‘...’ before ‘<’ token
+  139 |     void setIssueToExecuteQueue(TimeBuffer<IssueStruct> *i2eQueue);
+      |                                           ^
+src/cpu/o3/inst_queue.hh:142:24: error: ‘TimeBuffer’ has not been declared
+  142 |     void setTimeBuffer(TimeBuffer<TimeStruct> *tb_ptr);
+      |                        ^~~~~~~~~~
+src/cpu/o3/inst_queue.hh:142:34: error: expected ‘,’ or ‘...’ before ‘<’ token
+  142 |     void setTimeBuffer(TimeBuffer<TimeStruct> *tb_ptr);
+      |                                  ^
+src/cpu/o3/inst_queue.hh:154:21: error: ‘ThreadID’ has not been declared
+  154 |     int entryAmount(ThreadID num_threads);
+      |                     ^~~~~~~~
+src/cpu/o3/inst_queue.hh:163:29: error: ‘ThreadID’ has not been declared
+  163 |     unsigned numFreeEntries(ThreadID tid);
+      |                             ^~~~~~~~
+src/cpu/o3/inst_queue.hh:169:17: error: ‘ThreadID’ has not been declared
+  169 |     bool isFull(ThreadID tid);
+      |                 ^~~~~~~~
+src/cpu/o3/inst_queue.hh:175:23: error: ‘DynInstPtr’ does not name a type
+  175 |     void insert(const DynInstPtr &new_inst);
+      |                       ^~~~~~~~~~
+src/cpu/o3/inst_queue.hh:178:30: error: ‘DynInstPtr’ does not name a type
+  178 |     void insertNonSpec(const DynInstPtr &new_inst);
+      |                              ^~~~~~~~~~
+src/cpu/o3/inst_queue.hh:183:30: error: ‘DynInstPtr’ does not name a type
+  183 |     void insertBarrier(const DynInstPtr &barr_inst);
+      |                              ^~~~~~~~~~
+src/cpu/o3/inst_queue.hh:188:5: error: ‘DynInstPtr’ does not name a type
+  188 |     DynInstPtr getInstToExecute();
+      |     ^~~~~~~~~~
+src/cpu/o3/inst_queue.hh:193:5: error: ‘DynInstPtr’ does not name a type
+  193 |     DynInstPtr getDeferredMemInstToExecute();
+      |     ^~~~~~~~~~
+src/cpu/o3/inst_queue.hh:198:5: error: ‘DynInstPtr’ does not name a type
+  198 |     DynInstPtr getBlockedMemInstToExecute();
+      |     ^~~~~~~~~~
+src/cpu/o3/inst_queue.hh:205:26: error: ‘DynInstPtr’ does not name a type
+  205 |     recordProducer(const DynInstPtr &inst)
+      |                          ^~~~~~~~~~
+src/cpu/o3/inst_queue.hh:211:36: error: ‘DynInstPtr’ does not name a type
+  211 |     void processFUCompletion(const DynInstPtr &inst, int fu_idx);
+      |                                    ^~~~~~~~~~
+src/cpu/o3/inst_queue.hh:220:32: error: ‘InstSeqNum’ does not name a type
+  220 |     void scheduleNonSpec(const InstSeqNum &inst);
+      |                                ^~~~~~~~~~
+src/cpu/o3/inst_queue.hh:226:23: error: ‘InstSeqNum’ does not name a type
+  226 |     void commit(const InstSeqNum &inst, ThreadID tid = 0);
+      |                       ^~~~~~~~~~
+src/cpu/o3/inst_queue.hh:226:41: error: ‘ThreadID’ has not been declared
+  226 |     void commit(const InstSeqNum &inst, ThreadID tid = 0);
+      |                                         ^~~~~~~~
+src/cpu/o3/inst_queue.hh:229:30: error: ‘DynInstPtr’ does not name a type
+  229 |     int wakeDependents(const DynInstPtr &completed_inst);
+      |                              ^~~~~~~~~~
+src/cpu/o3/inst_queue.hh:232:32: error: ‘DynInstPtr’ does not name a type
+  232 |     void addReadyMemInst(const DynInstPtr &ready_inst);
+      |                                ^~~~~~~~~~
+src/cpu/o3/inst_queue.hh:238:34: error: ‘DynInstPtr’ does not name a type
+  238 |     void rescheduleMemInst(const DynInstPtr &resched_inst);
+      |                                  ^~~~~~~~~~
+src/cpu/o3/inst_queue.hh:241:30: error: ‘DynInstPtr’ does not name a type
+  241 |     void replayMemInst(const DynInstPtr &replay_inst);
+      |                              ^~~~~~~~~~
+src/cpu/o3/inst_queue.hh:247:29: error: ‘DynInstPtr’ does not name a type
+  247 |     void deferMemInst(const DynInstPtr &deferred_inst);
+      |                             ^~~~~~~~~~
+src/cpu/o3/inst_queue.hh:250:29: error: ‘DynInstPtr’ does not name a type
+  250 |     void blockMemInst(const DynInstPtr &blocked_inst);
+      |                             ^~~~~~~~~~
+src/cpu/o3/inst_queue.hh:256:26: error: ‘DynInstPtr’ does not name a type
+  256 |     void violation(const DynInstPtr &store, const DynInstPtr &faulting_load);
+      |                          ^~~~~~~~~~
+src/cpu/o3/inst_queue.hh:256:51: error: ‘DynInstPtr’ does not name a type
+  256 |     void violation(const DynInstPtr &store, const DynInstPtr &faulting_load);
+      |                                                   ^~~~~~~~~~
+src/cpu/o3/inst_queue.hh:262:17: error: ‘ThreadID’ has not been declared
+  262 |     void squash(ThreadID tid);
+      |                 ^~~~~~~~
+src/cpu/o3/inst_queue.hh:265:23: error: ‘ThreadID’ has not been declared
+  265 |     unsigned getCount(ThreadID tid) { return count[tid]; };
+      |                       ^~~~~~~~
+src/cpu/o3/inst_queue.hh:272:37: error: ‘DynInstPtr’ does not name a type
+  272 |     int calculateNewCountdown(const DynInstPtr &insts);
+      |                                     ^~~~~~~~~~
+src/cpu/o3/inst_queue.hh:279:19: error: ‘ThreadID’ has not been declared
+  279 |     void doSquash(ThreadID tid);
+      |                   ^~~~~~~~
+src/cpu/o3/inst_queue.hh:297:5: error: ‘MemDepUnit’ does not name a type
+  297 |     MemDepUnit memDepUnit[MaxThreads];
+      |     ^~~~~~~~~~
+src/cpu/o3/inst_queue.hh:302:5: error: ‘TimeBuffer’ does not name a type
+  302 |     TimeBuffer<IssueStruct> *issueToExecuteQueue;
+      |     ^~~~~~~~~~
+src/cpu/o3/inst_queue.hh:305:5: error: ‘TimeBuffer’ does not name a type
+  305 |     TimeBuffer<TimeStruct> *timeBuffer;
+      |     ^~~~~~~~~~
+src/cpu/o3/inst_queue.hh:308:14: error: expected nested-name-specifier before ‘TimeBuffer’
+  308 |     typename TimeBuffer<TimeStruct>::wire fromCommit;
+      |              ^~~~~~~~~~
+src/cpu/o3/inst_queue.hh:308:14: error: expected ‘;’ at end of member declaration
+  308 |     typename TimeBuffer<TimeStruct>::wire fromCommit;
+      |              ^~~~~~~~~~
+      |                        ;
+src/cpu/o3/inst_queue.hh:308:24: error: expected unqualified-id before ‘<’ token
+  308 |     typename TimeBuffer<TimeStruct>::wire fromCommit;
+      |                        ^
+src/cpu/o3/inst_queue.hh:318:10: error: ‘list’ in namespace ‘std’ does not name a template type
+  318 |     std::list<DynInstPtr> instList[MaxThreads];
+      |          ^~~~
+src/cpu/o3/inst_queue.hh:318:5: note: ‘std::list’ is defined in header ‘<list>’; did you forget to ‘#include <list>’?
+  318 |     std::list<DynInstPtr> instList[MaxThreads];
+      |     ^~~
+src/cpu/o3/inst_queue.hh:321:10: error: ‘list’ in namespace ‘std’ does not name a template type
+  321 |     std::list<DynInstPtr> instsToExecute;
+      |          ^~~~
+src/cpu/o3/inst_queue.hh:321:5: note: ‘std::list’ is defined in header ‘<list>’; did you forget to ‘#include <list>’?
+  321 |     std::list<DynInstPtr> instsToExecute;
+      |     ^~~
+src/cpu/o3/inst_queue.hh:326:10: error: ‘list’ in namespace ‘std’ does not name a template type
+  326 |     std::list<DynInstPtr> deferredMemInsts;
+      |          ^~~~
+src/cpu/o3/inst_queue.hh:326:5: note: ‘std::list’ is defined in header ‘<list>’; did you forget to ‘#include <list>’?
+  326 |     std::list<DynInstPtr> deferredMemInsts;
+      |     ^~~
+src/cpu/o3/inst_queue.hh:329:10: error: ‘list’ in namespace ‘std’ does not name a template type
+  329 |     std::list<DynInstPtr> blockedMemInsts;
+      |          ^~~~
+src/cpu/o3/inst_queue.hh:329:5: note: ‘std::list’ is defined in header ‘<list>’; did you forget to ‘#include <list>’?
+  329 |     std::list<DynInstPtr> blockedMemInsts;
+      |     ^~~
+src/cpu/o3/inst_queue.hh:334:10: error: ‘list’ in namespace ‘std’ does not name a template type
+  334 |     std::list<DynInstPtr> retryMemInsts;
+      |          ^~~~
+src/cpu/o3/inst_queue.hh:334:5: note: ‘std::list’ is defined in header ‘<list>’; did you forget to ‘#include <list>’?
+  334 |     std::list<DynInstPtr> retryMemInsts;
+      |     ^~~
+src/cpu/o3/inst_queue.hh:345:31: error: ‘DynInstPtr’ does not name a type
+  345 |         bool operator()(const DynInstPtr &lhs, const DynInstPtr &rhs) const;
+      |                               ^~~~~~~~~~
+src/cpu/o3/inst_queue.hh:345:54: error: ‘DynInstPtr’ does not name a type
+  345 |         bool operator()(const DynInstPtr &lhs, const DynInstPtr &rhs) const;
+      |                                                      ^~~~~~~~~~
+src/cpu/o3/inst_queue.hh:348:18: error: ‘priority_queue’ in namespace ‘std’ does not name a template type
+  348 |     typedef std::priority_queue<
+      |                  ^~~~~~~~~~~~~~
+src/cpu/o3/inst_queue.hh:1:1: note: ‘std::priority_queue’ is defined in header ‘<queue>’; did you forget to ‘#include <queue>’?
+  +++ |+#include <queue>
+    1 | /*
+src/cpu/o3/inst_queue.hh:354:5: error: ‘ReadyInstQueue’ does not name a type
+  354 |     ReadyInstQueue readyInsts[Num_OpClasses];
+      |     ^~~~~~~~~~~~~~
+src/cpu/o3/inst_queue.hh:363:10: error: ‘map’ in namespace ‘std’ does not name a template type
+  363 |     std::map<InstSeqNum, DynInstPtr> nonSpecInsts;
+      |          ^~~
+src/cpu/o3/inst_queue.hh:1:1: note: ‘std::map’ is defined in header ‘<map>’; did you forget to ‘#include <map>’?
+  +++ |+#include <map>
+    1 | /*
+src/cpu/o3/inst_queue.hh:365:18: error: ‘map’ in namespace ‘std’ does not name a template type
+  365 |     typedef std::map<InstSeqNum, DynInstPtr>::iterator NonSpecMapIt;
+      |                  ^~~
+src/cpu/o3/inst_queue.hh:365:13: note: ‘std::map’ is defined in header ‘<map>’; did you forget to ‘#include <map>’?
+  365 |     typedef std::map<InstSeqNum, DynInstPtr>::iterator NonSpecMapIt;
+      |             ^~~
+src/cpu/o3/inst_queue.hh:370:9: error: ‘OpClass’ does not name a type; did you mean ‘class’?
+  370 |         OpClass queueType;
+      |         ^~~~~~~
+      |         class
+src/cpu/o3/inst_queue.hh:371:9: error: ‘InstSeqNum’ does not name a type
+  371 |         InstSeqNum oldestInst;
+      |         ^~~~~~~~~~
+src/cpu/o3/inst_queue.hh:381:10: error: ‘list’ in namespace ‘std’ does not name a template type
+  381 |     std::list<ListOrderEntry> listOrder;
+      |          ^~~~
+src/cpu/o3/inst_queue.hh:381:5: note: ‘std::list’ is defined in header ‘<list>’; did you forget to ‘#include <list>’?
+  381 |     std::list<ListOrderEntry> listOrder;
+      |     ^~~
+src/cpu/o3/inst_queue.hh:383:27: error: ‘list’ in namespace ‘std’ does not name a template type
+  383 |     typedef typename std::list<ListOrderEntry>::iterator ListOrderIt;
+      |                           ^~~~
+src/cpu/o3/inst_queue.hh:383:27: note: ‘std::list’ is defined in header ‘<list>’; did you forget to ‘#include <list>’?
+src/cpu/o3/inst_queue.hh:383:31: error: expected unqualified-id before ‘<’ token
+  383 |     typedef typename std::list<ListOrderEntry>::iterator ListOrderIt;
+      |                               ^
+src/cpu/o3/inst_queue.hh:386:22: error: ‘Num_OpClasses’ was not declared in this scope
+  386 |     bool queueOnList[Num_OpClasses];
+      |                      ^~~~~~~~~~~~~
+src/cpu/o3/inst_queue.hh:391:5: error: ‘ListOrderIt’ does not name a type; did you mean ‘ListOrderEntry’?
+  391 |     ListOrderIt readyIt[Num_OpClasses];
+      |     ^~~~~~~~~~~
+      |     ListOrderEntry
+src/cpu/o3/inst_queue.hh:394:25: error: ‘OpClass’ has not been declared
+  394 |     void addToOrderList(OpClass op_class);
+      |                         ^~~~~~~
+src/cpu/o3/inst_queue.hh:400:28: error: ‘ListOrderIt’ has not been declared
+  400 |     void moveToYoungerInst(ListOrderIt age_order_it);
+      |                            ^~~~~~~~~~~
+src/cpu/o3/inst_queue.hh:402:5: error: ‘DependencyGraph’ does not name a type
+  402 |     DependencyGraph<DynInstPtr> dependGraph;
+      |     ^~~~~~~~~~~~~~~
+src/cpu/o3/inst_queue.hh:409:5: error: ‘SMTQueuePolicy’ does not name a type
+  409 |     SMTQueuePolicy iqPolicy;
+      |     ^~~~~~~~~~~~~~
+src/cpu/o3/inst_queue.hh:412:5: error: ‘ThreadID’ does not name a type
+  412 |     ThreadID numThreads;
+      |     ^~~~~~~~
+src/cpu/o3/inst_queue.hh:415:10: error: ‘list’ in namespace ‘std’ does not name a template type
+  415 |     std::list<ThreadID> *activeThreads;
+      |          ^~~~
+src/cpu/o3/inst_queue.hh:415:5: note: ‘std::list’ is defined in header ‘<list>’; did you forget to ‘#include <list>’?
+  415 |     std::list<ThreadID> *activeThreads;
+      |     ^~~
+src/cpu/o3/inst_queue.hh:418:20: error: ‘MaxThreads’ was not declared in this scope
+  418 |     unsigned count[MaxThreads];
+      |                    ^~~~~~~~~~
+src/cpu/o3/inst_queue.hh:421:25: error: ‘MaxThreads’ was not declared in this scope
+  421 |     unsigned maxEntries[MaxThreads];
+      |                         ^~~~~~~~~~
+src/cpu/o3/inst_queue.hh:441:5: error: ‘Cycles’ does not name a type
+  441 |     Cycles commitToIEWDelay;
+      |     ^~~~~~
+src/cpu/o3/inst_queue.hh:444:5: error: ‘InstSeqNum’ does not name a type
+  444 |     InstSeqNum squashedSeqNum[MaxThreads];
+      |     ^~~~~~~~~~
+src/cpu/o3/inst_queue.hh:452:10: error: ‘vector’ in namespace ‘std’ does not name a template type
+  452 |     std::vector<bool> regScoreboard;
+      |          ^~~~~~
+src/cpu/o3/inst_queue.hh:1:1: note: ‘std::vector’ is defined in header ‘<vector>’; did you forget to ‘#include <vector>’?
+  +++ |+#include <vector>
+    1 | /*
+src/cpu/o3/inst_queue.hh:455:32: error: ‘DynInstPtr’ does not name a type
+  455 |     bool addToDependents(const DynInstPtr &new_inst);
+      |                                ^~~~~~~~~~
+src/cpu/o3/inst_queue.hh:458:31: error: ‘DynInstPtr’ does not name a type
+  458 |     void addToProducers(const DynInstPtr &new_inst);
+      |                               ^~~~~~~~~~
+src/cpu/o3/inst_queue.hh:461:27: error: ‘DynInstPtr’ does not name a type
+  461 |     void addIfReady(const DynInstPtr &inst);
+      |                           ^~~~~~~~~~
+src/cpu/o3/inst_queue.hh:480:29: error: ‘statistics’ has not been declared
+  480 |     struct IQStats : public statistics::Group
+      |                             ^~~~~~~~~~
+src/cpu/o3/inst_queue.hh:480:41: error: expected ‘{’ before ‘Group’
+  480 |     struct IQStats : public statistics::Group
+      |                                         ^~~~~
+src/cpu/o3/inst_queue.hh:541:5: error: expected ‘;’ at end of member declaration
+  541 |     } iqStats;
+      |     ^
+      |      ;
+src/cpu/o3/inst_queue.hh:541:7: error: ‘iqStats’ does not name a type; did you mean ‘IQStats’?
+  541 |     } iqStats;
+      |       ^~~~~~~
+      |       IQStats
+src/cpu/o3/inst_queue.hh:544:31: error: ‘statistics’ has not been declared
+  544 |     struct IQIOStats : public statistics::Group
+      |                               ^~~~~~~~~~
+src/cpu/o3/inst_queue.hh:544:43: error: expected ‘{’ before ‘Group’
+  544 |     struct IQIOStats : public statistics::Group
+      |                                           ^~~~~
+src/cpu/o3/inst_queue.hh:560:5: error: expected ‘;’ at end of member declaration
+  560 |     } iqIOStats;
+      |     ^
+      |      ;
+src/cpu/o3/inst_queue.hh:560:5: error: redeclaration of ‘int gem5::o3::InstructionQueue::Group’
+src/cpu/o3/inst_queue.hh:480:41: note: previous declaration ‘int gem5::o3::InstructionQueue::Group’
+  480 |     struct IQStats : public statistics::Group
+      |                                         ^~~~~
+src/cpu/o3/inst_queue.hh:560:7: error: ‘iqIOStats’ does not name a type; did you mean ‘IQIOStats’?
+  560 |     } iqIOStats;
+      |       ^~~~~~~~~
+      |       IQIOStats
+src/cpu/o3/inst_queue.hh:482:54: error: invalid use of incomplete type ‘struct gem5::o3::InstructionQueue::IQStats’
+  482 |         IQStats(CPU *cpu, const unsigned &total_width);
+      |                                                      ^
+src/cpu/o3/inst_queue.hh:480:12: note: forward declaration of ‘struct gem5::o3::InstructionQueue::IQStats’
+  480 |     struct IQStats : public statistics::Group
+      |            ^~~~~~~
+src/cpu/o3/inst_queue.hh:482:16: error: expected primary-expression before ‘(’ token
+  482 |         IQStats(CPU *cpu, const unsigned &total_width);
+      |                ^
+src/cpu/o3/inst_queue.hh:482:21: error: expected primary-expression before ‘*’ token
+  482 |         IQStats(CPU *cpu, const unsigned &total_width);
+      |                     ^
+src/cpu/o3/inst_queue.hh:482:27: error: expected primary-expression before ‘const’
+  482 |         IQStats(CPU *cpu, const unsigned &total_width);
+      |                           ^~~~~
+src/cpu/o3/inst_queue.hh:482:55: error: expected ‘}’ before ‘;’ token
+  482 |         IQStats(CPU *cpu, const unsigned &total_width);
+      |                                                       ^
+src/cpu/o3/inst_queue.hh:481:5: note: to match this ‘{’
+  481 |     {
+      |     ^
+src/cpu/o3/inst_queue.hh:482:55: error: cannot convert ‘<brace-enclosed initializer list>’ to ‘int’ in initialization
+  482 |         IQStats(CPU *cpu, const unsigned &total_width);
+      |                                                       ^
+src/cpu/o3/inst_queue.hh:482:55: error: expected ‘;’ before ‘;’ token
+src/cpu/o3/inst_queue.hh:546:19: error: ‘statistics’ was not declared in this scope; did you mean ‘static’?
+  546 |         IQIOStats(statistics::Group *parent);
+      |                   ^~~~~~~~~~
+      |                   static
+src/cpu/o3/inst_queue.hh:546:44: error: invalid use of incomplete type ‘struct gem5::o3::InstructionQueue::IQIOStats’
+  546 |         IQIOStats(statistics::Group *parent);
+      |                                            ^
+src/cpu/o3/inst_queue.hh:544:12: note: forward declaration of ‘struct gem5::o3::InstructionQueue::IQIOStats’
+  544 |     struct IQIOStats : public statistics::Group
+      |            ^~~~~~~~~
+src/cpu/o3/inst_queue.hh:546:45: error: expected ‘}’ before ‘;’ token
+  546 |         IQIOStats(statistics::Group *parent);
+      |                                             ^
+src/cpu/o3/inst_queue.hh:545:5: note: to match this ‘{’
+  545 |     {
+      |     ^
+src/cpu/o3/inst_queue.hh:546:45: error: cannot convert ‘<brace-enclosed initializer list>’ to ‘int’ in initialization
+  546 |         IQIOStats(statistics::Group *parent);
+      |                                             ^
+src/cpu/o3/inst_queue.hh:546:45: error: expected ‘;’ before ‘;’ token
+src/cpu/o3/inst_queue.hh: In member function ‘unsigned int gem5::o3::InstructionQueue::getCount(int)’:
+src/cpu/o3/inst_queue.hh:265:46: error: ‘count’ was not declared in this scope
+  265 |     unsigned getCount(ThreadID tid) { return count[tid]; };
+      |                                              ^~~~~
+In file included from src/cpu/o3/iew.hh:50,
+                 from src/cpu/o3/iew.cc:46:
+src/cpu/o3/inst_queue.hh:85:5: error: ‘cyclone’ does not name a type
+   85 |     cyclone::CountdownQueue countdownQueue;
+      |     ^~~~~~~
+src/cpu/o3/inst_queue.hh:87:5: error: ‘cyclone’ does not name a type
+   87 |     cyclone::TimingTable timingTable;
+      |     ^~~~~~~
+src/cpu/o3/inst_queue.hh:96:5: error: expected class-name before ‘{’ token
+   96 |     {
+      |     ^
+src/cpu/o3/inst_queue.hh:139:33: error: ‘TimeBuffer’ has not been declared
+  139 |     void setIssueToExecuteQueue(TimeBuffer<IssueStruct> *i2eQueue);
+      |                                 ^~~~~~~~~~
+src/cpu/o3/inst_queue.hh:139:43: error: expected ‘,’ or ‘...’ before ‘<’ token
+  139 |     void setIssueToExecuteQueue(TimeBuffer<IssueStruct> *i2eQueue);
+      |                                           ^
+src/cpu/o3/inst_queue.hh:142:24: error: ‘TimeBuffer’ has not been declared
+  142 |     void setTimeBuffer(TimeBuffer<TimeStruct> *tb_ptr);
+      |                        ^~~~~~~~~~
+src/cpu/o3/inst_queue.hh:142:34: error: expected ‘,’ or ‘...’ before ‘<’ token
+  142 |     void setTimeBuffer(TimeBuffer<TimeStruct> *tb_ptr);
+      |                                  ^
+src/cpu/o3/inst_queue.hh:297:5: error: ‘MemDepUnit’ does not name a type
+  297 |     MemDepUnit memDepUnit[MaxThreads];
+      |     ^~~~~~~~~~
+src/cpu/o3/inst_queue.hh:302:5: error: ‘TimeBuffer’ does not name a type
+  302 |     TimeBuffer<IssueStruct> *issueToExecuteQueue;
+      |     ^~~~~~~~~~
+src/cpu/o3/inst_queue.hh:305:5: error: ‘TimeBuffer’ does not name a type
+  305 |     TimeBuffer<TimeStruct> *timeBuffer;
+      |     ^~~~~~~~~~
+src/cpu/o3/inst_queue.hh:308:14: error: expected nested-name-specifier before ‘TimeBuffer’
+  308 |     typename TimeBuffer<TimeStruct>::wire fromCommit;
+      |              ^~~~~~~~~~
+src/cpu/o3/inst_queue.hh:308:14: error: expected ‘;’ at end of member declaration
+  308 |     typename TimeBuffer<TimeStruct>::wire fromCommit;
+      |              ^~~~~~~~~~
+      |                        ;
+src/cpu/o3/inst_queue.hh:308:24: error: expected unqualified-id before ‘<’ token
+  308 |     typename TimeBuffer<TimeStruct>::wire fromCommit;
+      |                        ^
+src/cpu/o3/inst_queue.hh:354:31: error: ‘Num_OpClasses’ was not declared in this scope
+  354 |     ReadyInstQueue readyInsts[Num_OpClasses];
+      |                               ^~~~~~~~~~~~~
+src/cpu/o3/inst_queue.hh:370:9: error: ‘OpClass’ does not name a type; did you mean ‘class’?
+  370 |         OpClass queueType;
+      |         ^~~~~~~
+      |         class
+src/cpu/o3/inst_queue.hh:386:22: error: ‘Num_OpClasses’ was not declared in this scope
+  386 |     bool queueOnList[Num_OpClasses];
+      |                      ^~~~~~~~~~~~~
+src/cpu/o3/inst_queue.hh:391:25: error: ‘Num_OpClasses’ was not declared in this scope
+  391 |     ListOrderIt readyIt[Num_OpClasses];
+      |                         ^~~~~~~~~~~~~
+src/cpu/o3/inst_queue.hh:394:25: error: ‘OpClass’ has not been declared
+  394 |     void addToOrderList(OpClass op_class);
+      |                         ^~~~~~~
+src/cpu/o3/inst_queue.hh:402:5: error: ‘DependencyGraph’ does not name a type
+  402 |     DependencyGraph<DynInstPtr> dependGraph;
+      |     ^~~~~~~~~~~~~~~
+src/cpu/o3/inst_queue.hh:409:5: error: ‘SMTQueuePolicy’ does not name a type
+  409 |     SMTQueuePolicy iqPolicy;
+      |     ^~~~~~~~~~~~~~
+In file included from src/cpu/o3/iew.hh:50,
+                 from src/cpu/o3/commit.hh:51,
+                 from src/cpu/o3/commit.cc:42:
+src/cpu/o3/inst_queue.hh:85:5: error: ‘cyclone’ does not name a type
+   85 |     cyclone::CountdownQueue countdownQueue;
+      |     ^~~~~~~
+src/cpu/o3/inst_queue.hh:87:5: error: ‘cyclone’ does not name a type
+   87 |     cyclone::TimingTable timingTable;
+      |     ^~~~~~~
+src/cpu/o3/inst_queue.hh:139:33: error: ‘TimeBuffer’ has not been declared
+  139 |     void setIssueToExecuteQueue(TimeBuffer<IssueStruct> *i2eQueue);
+      |                                 ^~~~~~~~~~
+src/cpu/o3/inst_queue.hh:139:43: error: expected ‘,’ or ‘...’ before ‘<’ token
+  139 |     void setIssueToExecuteQueue(TimeBuffer<IssueStruct> *i2eQueue);
+      |                                           ^
+src/cpu/o3/inst_queue.hh:142:24: error: ‘TimeBuffer’ has not been declared
+  142 |     void setTimeBuffer(TimeBuffer<TimeStruct> *tb_ptr);
+      |                        ^~~~~~~~~~
+src/cpu/o3/inst_queue.hh:142:34: error: expected ‘,’ or ‘...’ before ‘<’ token
+  142 |     void setTimeBuffer(TimeBuffer<TimeStruct> *tb_ptr);
+      |                                  ^
+src/cpu/o3/inst_queue.hh:297:5: error: ‘MemDepUnit’ does not name a type
+  297 |     MemDepUnit memDepUnit[MaxThreads];
+      |     ^~~~~~~~~~
+src/cpu/o3/inst_queue.hh:302:5: error: ‘TimeBuffer’ does not name a type
+  302 |     TimeBuffer<IssueStruct> *issueToExecuteQueue;
+      |     ^~~~~~~~~~
+src/cpu/o3/inst_queue.hh:305:5: error: ‘TimeBuffer’ does not name a type
+  305 |     TimeBuffer<TimeStruct> *timeBuffer;
+      |     ^~~~~~~~~~
+src/cpu/o3/inst_queue.hh:308:14: error: expected nested-name-specifier before ‘TimeBuffer’
+  308 |     typename TimeBuffer<TimeStruct>::wire fromCommit;
+      |              ^~~~~~~~~~
+src/cpu/o3/inst_queue.hh:308:14: error: expected ‘;’ at end of member declaration
+  308 |     typename TimeBuffer<TimeStruct>::wire fromCommit;
+      |              ^~~~~~~~~~
+      |                        ;
+src/cpu/o3/inst_queue.hh:308:24: error: expected unqualified-id before ‘<’ token
+  308 |     typename TimeBuffer<TimeStruct>::wire fromCommit;
+      |                        ^
+src/cpu/o3/inst_queue.hh:402:5: error: ‘DependencyGraph’ does not name a type
+  402 |     DependencyGraph<DynInstPtr> dependGraph;
+      |     ^~~~~~~~~~~~~~~
+src/cpu/o3/inst_queue.hh:409:5: error: ‘SMTQueuePolicy’ does not name a type
+  409 |     SMTQueuePolicy iqPolicy;
+      |     ^~~~~~~~~~~~~~
+In file included from src/cpu/o3/iew.hh:50,
+                 from src/cpu/o3/commit.hh:51,
+                 from src/cpu/o3/rename.hh:50,
+                 from src/cpu/o3/rename.cc:42:
+src/cpu/o3/inst_queue.hh:85:5: error: ‘cyclone’ does not name a type
+   85 |     cyclone::CountdownQueue countdownQueue;
+      |     ^~~~~~~
+src/cpu/o3/inst_queue.hh:87:5: error: ‘cyclone’ does not name a type
+   87 |     cyclone::TimingTable timingTable;
+      |     ^~~~~~~
+src/cpu/o3/inst_queue.hh:139:33: error: ‘TimeBuffer’ has not been declared
+  139 |     void setIssueToExecuteQueue(TimeBuffer<IssueStruct> *i2eQueue);
+      |                                 ^~~~~~~~~~
+src/cpu/o3/inst_queue.hh:139:43: error: expected ‘,’ or ‘...’ before ‘<’ token
+  139 |     void setIssueToExecuteQueue(TimeBuffer<IssueStruct> *i2eQueue);
+      |                                           ^
+src/cpu/o3/inst_queue.hh:142:24: error: ‘TimeBuffer’ has not been declared
+  142 |     void setTimeBuffer(TimeBuffer<TimeStruct> *tb_ptr);
+      |                        ^~~~~~~~~~
+src/cpu/o3/inst_queue.hh:142:34: error: expected ‘,’ or ‘...’ before ‘<’ token
+  142 |     void setTimeBuffer(TimeBuffer<TimeStruct> *tb_ptr);
+      |                                  ^
+src/cpu/o3/inst_queue.hh:297:5: error: ‘MemDepUnit’ does not name a type
+  297 |     MemDepUnit memDepUnit[MaxThreads];
+      |     ^~~~~~~~~~
+src/cpu/o3/inst_queue.hh:302:5: error: ‘TimeBuffer’ does not name a type
+  302 |     TimeBuffer<IssueStruct> *issueToExecuteQueue;
+      |     ^~~~~~~~~~
+src/cpu/o3/inst_queue.hh:305:5: error: ‘TimeBuffer’ does not name a type
+  305 |     TimeBuffer<TimeStruct> *timeBuffer;
+      |     ^~~~~~~~~~
+src/cpu/o3/inst_queue.hh:308:14: error: expected nested-name-specifier before ‘TimeBuffer’
+  308 |     typename TimeBuffer<TimeStruct>::wire fromCommit;
+      |              ^~~~~~~~~~
+src/cpu/o3/inst_queue.hh:308:14: error: expected ‘;’ at end of member declaration
+  308 |     typename TimeBuffer<TimeStruct>::wire fromCommit;
+      |              ^~~~~~~~~~
+      |                        ;
+src/cpu/o3/inst_queue.hh:308:24: error: expected unqualified-id before ‘<’ token
+  308 |     typename TimeBuffer<TimeStruct>::wire fromCommit;
+      |                        ^
+src/cpu/o3/inst_queue.hh:402:5: error: ‘DependencyGraph’ does not name a type
+  402 |     DependencyGraph<DynInstPtr> dependGraph;
+      |     ^~~~~~~~~~~~~~~
+src/cpu/o3/inst_queue.hh:409:5: error: ‘SMTQueuePolicy’ does not name a type
+  409 |     SMTQueuePolicy iqPolicy;
+      |     ^~~~~~~~~~~~~~
+In file included from src/cpu/o3/iew.hh:50,
+                 from src/cpu/o3/commit.hh:51,
+                 from src/cpu/o3/cpu.hh:55,
+                 from src/cpu/o3/cpu.cc:43:
+src/cpu/o3/inst_queue.hh:85:5: error: ‘cyclone’ does not name a type
+   85 |     cyclone::CountdownQueue countdownQueue;
+      |     ^~~~~~~
+src/cpu/o3/inst_queue.hh:87:5: error: ‘cyclone’ does not name a type
+   87 |     cyclone::TimingTable timingTable;
+      |     ^~~~~~~
+src/cpu/o3/inst_queue.hh:139:33: error: ‘TimeBuffer’ has not been declared
+  139 |     void setIssueToExecuteQueue(TimeBuffer<IssueStruct> *i2eQueue);
+      |                                 ^~~~~~~~~~
+src/cpu/o3/inst_queue.hh:139:43: error: expected ‘,’ or ‘...’ before ‘<’ token
+  139 |     void setIssueToExecuteQueue(TimeBuffer<IssueStruct> *i2eQueue);
+      |                                           ^
+src/cpu/o3/inst_queue.hh:142:24: error: ‘TimeBuffer’ has not been declared
+  142 |     void setTimeBuffer(TimeBuffer<TimeStruct> *tb_ptr);
+      |                        ^~~~~~~~~~
+src/cpu/o3/inst_queue.hh:142:34: error: expected ‘,’ or ‘...’ before ‘<’ token
+  142 |     void setTimeBuffer(TimeBuffer<TimeStruct> *tb_ptr);
+      |                                  ^
+src/cpu/o3/inst_queue.hh:297:5: error: ‘MemDepUnit’ does not name a type
+  297 |     MemDepUnit memDepUnit[MaxThreads];
+      |     ^~~~~~~~~~
+src/cpu/o3/inst_queue.hh:302:5: error: ‘TimeBuffer’ does not name a type
+  302 |     TimeBuffer<IssueStruct> *issueToExecuteQueue;
+      |     ^~~~~~~~~~
+src/cpu/o3/inst_queue.hh:305:5: error: ‘TimeBuffer’ does not name a type
+  305 |     TimeBuffer<TimeStruct> *timeBuffer;
+      |     ^~~~~~~~~~
+src/cpu/o3/inst_queue.hh:308:14: error: expected nested-name-specifier before ‘TimeBuffer’
+  308 |     typename TimeBuffer<TimeStruct>::wire fromCommit;
+      |              ^~~~~~~~~~
+src/cpu/o3/inst_queue.hh:308:14: error: expected ‘;’ at end of member declaration
+  308 |     typename TimeBuffer<TimeStruct>::wire fromCommit;
+      |              ^~~~~~~~~~
+      |                        ;
+src/cpu/o3/inst_queue.hh:308:24: error: expected unqualified-id before ‘<’ token
+  308 |     typename TimeBuffer<TimeStruct>::wire fromCommit;
+      |                        ^
+In file included from src/cpu/o3/iew.hh:50,
+                 from src/cpu/o3/commit.hh:51,
+                 from src/cpu/o3/cpu.hh:55,
+                 from src/cpu/o3/lsq.cc:50:
+src/cpu/o3/inst_queue.hh:85:5: error: ‘cyclone’ does not name a type
+   85 |     cyclone::CountdownQueue countdownQueue;
+      |     ^~~~~~~
+src/cpu/o3/inst_queue.hh:87:5: error: ‘cyclone’ does not name a type
+   87 |     cyclone::TimingTable timingTable;
+      |     ^~~~~~~
+In file included from src/cpu/o3/iew.hh:50,
+                 from src/cpu/o3/commit.hh:51,
+                 from src/cpu/o3/cpu.hh:55,
+                 from src/cpu/o3/thread_context.hh:45,
+                 from src/cpu/o3/thread_context.cc:42:
+src/cpu/o3/inst_queue.hh:85:5: error: ‘cyclone’ does not name a type
+   85 |     cyclone::CountdownQueue countdownQueue;
+      |     ^~~~~~~
+src/cpu/o3/inst_queue.hh:402:5: error: ‘DependencyGraph’ does not name a type
+  402 |     DependencyGraph<DynInstPtr> dependGraph;
+      |     ^~~~~~~~~~~~~~~
+src/cpu/o3/inst_queue.hh:87:5: error: ‘cyclone’ does not name a type
+   87 |     cyclone::TimingTable timingTable;
+      |     ^~~~~~~
+src/cpu/o3/inst_queue.hh:139:33: error: ‘TimeBuffer’ has not been declared
+  139 |     void setIssueToExecuteQueue(TimeBuffer<IssueStruct> *i2eQueue);
+      |                                 ^~~~~~~~~~
+src/cpu/o3/inst_queue.hh:139:43: error: expected ‘,’ or ‘...’ before ‘<’ token
+  139 |     void setIssueToExecuteQueue(TimeBuffer<IssueStruct> *i2eQueue);
+      |                                           ^
+src/cpu/o3/inst_queue.hh:142:24: error: ‘TimeBuffer’ has not been declared
+  142 |     void setTimeBuffer(TimeBuffer<TimeStruct> *tb_ptr);
+      |                        ^~~~~~~~~~
+src/cpu/o3/inst_queue.hh:142:34: error: expected ‘,’ or ‘...’ before ‘<’ token
+  142 |     void setTimeBuffer(TimeBuffer<TimeStruct> *tb_ptr);
+      |                                  ^
+src/cpu/o3/inst_queue.hh:409:5: error: ‘SMTQueuePolicy’ does not name a type
+  409 |     SMTQueuePolicy iqPolicy;
+      |     ^~~~~~~~~~~~~~
+src/cpu/o3/inst_queue.hh:139:33: error: ‘TimeBuffer’ has not been declared
+  139 |     void setIssueToExecuteQueue(TimeBuffer<IssueStruct> *i2eQueue);
+      |                                 ^~~~~~~~~~
+src/cpu/o3/inst_queue.hh:297:5: error: ‘MemDepUnit’ does not name a type
+  297 |     MemDepUnit memDepUnit[MaxThreads];
+      |     ^~~~~~~~~~
+src/cpu/o3/inst_queue.hh:139:43: error: expected ‘,’ or ‘...’ before ‘<’ token
+  139 |     void setIssueToExecuteQueue(TimeBuffer<IssueStruct> *i2eQueue);
+      |                                           ^
+src/cpu/o3/inst_queue.hh:142:24: error: ‘TimeBuffer’ has not been declared
+  142 |     void setTimeBuffer(TimeBuffer<TimeStruct> *tb_ptr);
+      |                        ^~~~~~~~~~
+src/cpu/o3/inst_queue.hh:142:34: error: expected ‘,’ or ‘...’ before ‘<’ token
+  142 |     void setTimeBuffer(TimeBuffer<TimeStruct> *tb_ptr);
+      |                                  ^
+src/cpu/o3/inst_queue.hh:302:5: error: ‘TimeBuffer’ does not name a type
+  302 |     TimeBuffer<IssueStruct> *issueToExecuteQueue;
+      |     ^~~~~~~~~~
+src/cpu/o3/inst_queue.hh:297:5: error: ‘MemDepUnit’ does not name a type
+  297 |     MemDepUnit memDepUnit[MaxThreads];
+      |     ^~~~~~~~~~
+src/cpu/o3/inst_queue.hh:305:5: error: ‘TimeBuffer’ does not name a type
+  305 |     TimeBuffer<TimeStruct> *timeBuffer;
+      |     ^~~~~~~~~~
+src/cpu/o3/inst_queue.hh:308:14: error: expected nested-name-specifier before ‘TimeBuffer’
+  308 |     typename TimeBuffer<TimeStruct>::wire fromCommit;
+      |              ^~~~~~~~~~
+src/cpu/o3/inst_queue.hh:308:14: error: expected ‘;’ at end of member declaration
+  308 |     typename TimeBuffer<TimeStruct>::wire fromCommit;
+      |              ^~~~~~~~~~
+      |                        ;
+src/cpu/o3/inst_queue.hh:308:24: error: expected unqualified-id before ‘<’ token
+  308 |     typename TimeBuffer<TimeStruct>::wire fromCommit;
+      |                        ^
+src/cpu/o3/inst_queue.hh:302:5: error: ‘TimeBuffer’ does not name a type
+  302 |     TimeBuffer<IssueStruct> *issueToExecuteQueue;
+      |     ^~~~~~~~~~
+src/cpu/o3/inst_queue.hh:305:5: error: ‘TimeBuffer’ does not name a type
+  305 |     TimeBuffer<TimeStruct> *timeBuffer;
+      |     ^~~~~~~~~~
+src/cpu/o3/inst_queue.hh:308:14: error: expected nested-name-specifier before ‘TimeBuffer’
+  308 |     typename TimeBuffer<TimeStruct>::wire fromCommit;
+      |              ^~~~~~~~~~
+src/cpu/o3/inst_queue.hh:308:14: error: expected ‘;’ at end of member declaration
+  308 |     typename TimeBuffer<TimeStruct>::wire fromCommit;
+      |              ^~~~~~~~~~
+      |                        ;
+src/cpu/o3/inst_queue.hh:308:24: error: expected unqualified-id before ‘<’ token
+  308 |     typename TimeBuffer<TimeStruct>::wire fromCommit;
+      |                        ^
+src/cpu/o3/inst_queue.hh:402:5: error: ‘DependencyGraph’ does not name a type
+  402 |     DependencyGraph<DynInstPtr> dependGraph;
+      |     ^~~~~~~~~~~~~~~
+src/cpu/o3/inst_queue.hh:402:5: error: ‘DependencyGraph’ does not name a type
+  402 |     DependencyGraph<DynInstPtr> dependGraph;
+      |     ^~~~~~~~~~~~~~~
+src/cpu/o3/inst_queue.hh:409:5: error: ‘SMTQueuePolicy’ does not name a type
+  409 |     SMTQueuePolicy iqPolicy;
+      |     ^~~~~~~~~~~~~~
+In file included from src/cpu/o3/iew.hh:50,
+                 from src/cpu/o3/commit.hh:51,
+                 from src/cpu/o3/cpu.hh:55,
+                 from src/cpu/o3/dyn_inst.hh:58,
+                 from src/cpu/o3/decode.cc:46:
+src/cpu/o3/inst_queue.hh:85:5: error: ‘cyclone’ does not name a type
+   85 |     cyclone::CountdownQueue countdownQueue;
+      |     ^~~~~~~
+src/cpu/o3/inst_queue.hh:87:5: error: ‘cyclone’ does not name a type
+   87 |     cyclone::TimingTable timingTable;
+      |     ^~~~~~~
+src/cpu/o3/inst_queue.hh:297:5: error: ‘MemDepUnit’ does not name a type
+  297 |     MemDepUnit memDepUnit[MaxThreads];
+      |     ^~~~~~~~~~
+src/cpu/o3/inst_queue.hh:402:5: error: ‘DependencyGraph’ does not name a type
+  402 |     DependencyGraph<DynInstPtr> dependGraph;
+      |     ^~~~~~~~~~~~~~~
+src/cpu/o3/inst_queue.hh:409:5: error: ‘SMTQueuePolicy’ does not name a type
+  409 |     SMTQueuePolicy iqPolicy;
+      |     ^~~~~~~~~~~~~~
+In file included from src/cpu/o3/iew.hh:50,
+                 from src/cpu/o3/commit.hh:51,
+                 from src/cpu/o3/cpu.hh:55,
+                 from src/cpu/o3/dyn_inst.hh:58,
+                 from src/cpu/o3/checker.hh:45,
+                 from src/cpu/o3/checker.cc:41:
+src/cpu/o3/inst_queue.hh:85:5: error: ‘cyclone’ does not name a type
+   85 |     cyclone::CountdownQueue countdownQueue;
+      |     ^~~~~~~
+src/cpu/o3/inst_queue.hh:87:5: error: ‘cyclone’ does not name a type
+   87 |     cyclone::TimingTable timingTable;
+      |     ^~~~~~~
+src/cpu/o3/inst_queue.hh:139:33: error: ‘TimeBuffer’ has not been declared
+  139 |     void setIssueToExecuteQueue(TimeBuffer<IssueStruct> *i2eQueue);
+      |                                 ^~~~~~~~~~
+src/cpu/o3/inst_queue.hh:139:43: error: expected ‘,’ or ‘...’ before ‘<’ token
+  139 |     void setIssueToExecuteQueue(TimeBuffer<IssueStruct> *i2eQueue);
+      |                                           ^
+src/cpu/o3/inst_queue.hh:142:24: error: ‘TimeBuffer’ has not been declared
+  142 |     void setTimeBuffer(TimeBuffer<TimeStruct> *tb_ptr);
+      |                        ^~~~~~~~~~
+src/cpu/o3/inst_queue.hh:142:34: error: expected ‘,’ or ‘...’ before ‘<’ token
+  142 |     void setTimeBuffer(TimeBuffer<TimeStruct> *tb_ptr);
+      |                                  ^
+src/cpu/o3/inst_queue.hh:297:5: error: ‘MemDepUnit’ does not name a type
+  297 |     MemDepUnit memDepUnit[MaxThreads];
+      |     ^~~~~~~~~~
+src/cpu/o3/inst_queue.hh:302:5: error: ‘TimeBuffer’ does not name a type
+  302 |     TimeBuffer<IssueStruct> *issueToExecuteQueue;
+      |     ^~~~~~~~~~
+src/cpu/o3/inst_queue.hh:305:5: error: ‘TimeBuffer’ does not name a type
+  305 |     TimeBuffer<TimeStruct> *timeBuffer;
+      |     ^~~~~~~~~~
+src/cpu/o3/inst_queue.hh:308:14: error: expected nested-name-specifier before ‘TimeBuffer’
+  308 |     typename TimeBuffer<TimeStruct>::wire fromCommit;
+      |              ^~~~~~~~~~
+src/cpu/o3/inst_queue.hh:308:14: error: expected ‘;’ at end of member declaration
+  308 |     typename TimeBuffer<TimeStruct>::wire fromCommit;
+      |              ^~~~~~~~~~
+      |                        ;
+src/cpu/o3/inst_queue.hh:308:24: error: expected unqualified-id before ‘<’ token
+  308 |     typename TimeBuffer<TimeStruct>::wire fromCommit;
+      |                        ^
+In file included from src/cpu/o3/iew.hh:50,
+                 from src/cpu/o3/commit.hh:51,
+                 from src/cpu/o3/cpu.hh:55,
+                 from src/cpu/o3/fetch.cc:56:
+src/cpu/o3/inst_queue.hh:85:5: error: ‘cyclone’ does not name a type
+   85 |     cyclone::CountdownQueue countdownQueue;
+      |     ^~~~~~~
+src/cpu/o3/inst_queue.hh:87:5: error: ‘cyclone’ does not name a type
+   87 |     cyclone::TimingTable timingTable;
+      |     ^~~~~~~
+src/cpu/o3/inst_queue.hh:297:5: error: ‘MemDepUnit’ does not name a type
+  297 |     MemDepUnit memDepUnit[MaxThreads];
+      |     ^~~~~~~~~~
+src/cpu/o3/inst_queue.hh:402:5: error: ‘DependencyGraph’ does not name a type
+  402 |     DependencyGraph<DynInstPtr> dependGraph;
+      |     ^~~~~~~~~~~~~~~
+src/cpu/o3/inst_queue.hh:409:5: error: ‘SMTQueuePolicy’ does not name a type
+  409 |     SMTQueuePolicy iqPolicy;
+      |     ^~~~~~~~~~~~~~
+src/cpu/o3/inst_queue.hh:402:5: error: ‘DependencyGraph’ does not name a type
+  402 |     DependencyGraph<DynInstPtr> dependGraph;
+      |     ^~~~~~~~~~~~~~~
+src/cpu/o3/inst_queue.hh:409:5: error: ‘SMTQueuePolicy’ does not name a type
+  409 |     SMTQueuePolicy iqPolicy;
+      |     ^~~~~~~~~~~~~~
+In file included from src/cpu/o3/iew.hh:50,
+                 from src/cpu/o3/commit.hh:51,
+                 from src/cpu/o3/cpu.hh:55,
+                 from src/cpu/o3/dyn_inst.hh:58,
+                 from src/cpu/o3/dyn_inst.cc:41:
+src/cpu/o3/inst_queue.hh:85:5: error: ‘cyclone’ does not name a type
+   85 |     cyclone::CountdownQueue countdownQueue;
+      |     ^~~~~~~
+src/cpu/o3/inst_queue.hh:87:5: error: ‘cyclone’ does not name a type
+   87 |     cyclone::TimingTable timingTable;
+      |     ^~~~~~~
+src/cpu/o3/inst_queue.hh:139:33: error: ‘TimeBuffer’ has not been declared
+  139 |     void setIssueToExecuteQueue(TimeBuffer<IssueStruct> *i2eQueue);
+      |                                 ^~~~~~~~~~
+src/cpu/o3/inst_queue.hh:139:43: error: expected ‘,’ or ‘...’ before ‘<’ token
+  139 |     void setIssueToExecuteQueue(TimeBuffer<IssueStruct> *i2eQueue);
+      |                                           ^
+src/cpu/o3/inst_queue.hh:142:24: error: ‘TimeBuffer’ has not been declared
+  142 |     void setTimeBuffer(TimeBuffer<TimeStruct> *tb_ptr);
+      |                        ^~~~~~~~~~
+src/cpu/o3/inst_queue.hh:142:34: error: expected ‘,’ or ‘...’ before ‘<’ token
+  142 |     void setTimeBuffer(TimeBuffer<TimeStruct> *tb_ptr);
+      |                                  ^
+src/cpu/o3/inst_queue.hh:297:5: error: ‘MemDepUnit’ does not name a type
+  297 |     MemDepUnit memDepUnit[MaxThreads];
+      |     ^~~~~~~~~~
+src/cpu/o3/inst_queue.hh:302:5: error: ‘TimeBuffer’ does not name a type
+  302 |     TimeBuffer<IssueStruct> *issueToExecuteQueue;
+      |     ^~~~~~~~~~
+src/cpu/o3/inst_queue.hh:305:5: error: ‘TimeBuffer’ does not name a type
+  305 |     TimeBuffer<TimeStruct> *timeBuffer;
+      |     ^~~~~~~~~~
+src/cpu/o3/inst_queue.hh:308:14: error: expected nested-name-specifier before ‘TimeBuffer’
+  308 |     typename TimeBuffer<TimeStruct>::wire fromCommit;
+      |              ^~~~~~~~~~
+src/cpu/o3/inst_queue.hh:308:14: error: expected ‘;’ at end of member declaration
+  308 |     typename TimeBuffer<TimeStruct>::wire fromCommit;
+      |              ^~~~~~~~~~
+      |                        ;
+src/cpu/o3/inst_queue.hh:308:24: error: expected unqualified-id before ‘<’ token
+  308 |     typename TimeBuffer<TimeStruct>::wire fromCommit;
+      |                        ^
+src/cpu/o3/inst_queue.hh:402:5: error: ‘DependencyGraph’ does not name a type
+  402 |     DependencyGraph<DynInstPtr> dependGraph;
+      |     ^~~~~~~~~~~~~~~
+src/cpu/o3/inst_queue.hh:409:5: error: ‘SMTQueuePolicy’ does not name a type
+  409 |     SMTQueuePolicy iqPolicy;
+      |     ^~~~~~~~~~~~~~
+In file included from src/cpu/o3/iew.hh:50,
+                 from src/cpu/o3/commit.hh:51,
+                 from src/cpu/o3/cpu.hh:55,
+                 from src/cpu/o3/dyn_inst.hh:58,
+                 from src/cpu/o3/rename_map.cc:46:
+src/cpu/o3/inst_queue.hh:85:5: error: ‘cyclone’ does not name a type
+   85 |     cyclone::CountdownQueue countdownQueue;
+      |     ^~~~~~~
+src/cpu/o3/inst_queue.hh:87:5: error: ‘cyclone’ does not name a type
+   87 |     cyclone::TimingTable timingTable;
+      |     ^~~~~~~
+src/cpu/o3/inst_queue.hh:139:33: error: ‘TimeBuffer’ has not been declared
+  139 |     void setIssueToExecuteQueue(TimeBuffer<IssueStruct> *i2eQueue);
+      |                                 ^~~~~~~~~~
+src/cpu/o3/inst_queue.hh:139:43: error: expected ‘,’ or ‘...’ before ‘<’ token
+  139 |     void setIssueToExecuteQueue(TimeBuffer<IssueStruct> *i2eQueue);
+      |                                           ^
+src/cpu/o3/inst_queue.hh:142:24: error: ‘TimeBuffer’ has not been declared
+  142 |     void setTimeBuffer(TimeBuffer<TimeStruct> *tb_ptr);
+      |                        ^~~~~~~~~~
+src/cpu/o3/inst_queue.hh:142:34: error: expected ‘,’ or ‘...’ before ‘<’ token
+  142 |     void setTimeBuffer(TimeBuffer<TimeStruct> *tb_ptr);
+      |                                  ^
+src/cpu/o3/inst_queue.hh:297:5: error: ‘MemDepUnit’ does not name a type
+  297 |     MemDepUnit memDepUnit[MaxThreads];
+      |     ^~~~~~~~~~
+src/cpu/o3/inst_queue.hh:302:5: error: ‘TimeBuffer’ does not name a type
+  302 |     TimeBuffer<IssueStruct> *issueToExecuteQueue;
+      |     ^~~~~~~~~~
+src/cpu/o3/inst_queue.hh:305:5: error: ‘TimeBuffer’ does not name a type
+  305 |     TimeBuffer<TimeStruct> *timeBuffer;
+      |     ^~~~~~~~~~
+src/cpu/o3/inst_queue.hh:308:14: error: expected nested-name-specifier before ‘TimeBuffer’
+  308 |     typename TimeBuffer<TimeStruct>::wire fromCommit;
+      |              ^~~~~~~~~~
+src/cpu/o3/inst_queue.hh:308:14: error: expected ‘;’ at end of member declaration
+  308 |     typename TimeBuffer<TimeStruct>::wire fromCommit;
+      |              ^~~~~~~~~~
+      |                        ;
+src/cpu/o3/inst_queue.hh:308:24: error: expected unqualified-id before ‘<’ token
+  308 |     typename TimeBuffer<TimeStruct>::wire fromCommit;
+      |                        ^
+In file included from src/cpu/o3/iew.hh:50,
+                 from src/cpu/o3/commit.hh:51,
+                 from src/cpu/o3/cpu.hh:55,
+                 from src/cpu/o3/thread_state.cc:43:
+src/cpu/o3/inst_queue.hh:85:5: error: ‘cyclone’ does not name a type
+   85 |     cyclone::CountdownQueue countdownQueue;
+      |     ^~~~~~~
+src/cpu/o3/inst_queue.hh:87:5: error: ‘cyclone’ does not name a type
+   87 |     cyclone::TimingTable timingTable;
+      |     ^~~~~~~
+src/cpu/o3/inst_queue.hh:402:5: error: ‘DependencyGraph’ does not name a type
+  402 |     DependencyGraph<DynInstPtr> dependGraph;
+      |     ^~~~~~~~~~~~~~~
+src/cpu/o3/inst_queue.hh:139:33: error: ‘TimeBuffer’ has not been declared
+  139 |     void setIssueToExecuteQueue(TimeBuffer<IssueStruct> *i2eQueue);
+      |                                 ^~~~~~~~~~
+src/cpu/o3/inst_queue.hh:139:43: error: expected ‘,’ or ‘...’ before ‘<’ token
+  139 |     void setIssueToExecuteQueue(TimeBuffer<IssueStruct> *i2eQueue);
+      |                                           ^
+src/cpu/o3/inst_queue.hh:142:24: error: ‘TimeBuffer’ has not been declared
+  142 |     void setTimeBuffer(TimeBuffer<TimeStruct> *tb_ptr);
+      |                        ^~~~~~~~~~
+src/cpu/o3/inst_queue.hh:142:34: error: expected ‘,’ or ‘...’ before ‘<’ token
+  142 |     void setTimeBuffer(TimeBuffer<TimeStruct> *tb_ptr);
+      |                                  ^
+src/cpu/o3/inst_queue.hh:409:5: error: ‘SMTQueuePolicy’ does not name a type
+  409 |     SMTQueuePolicy iqPolicy;
+      |     ^~~~~~~~~~~~~~
+src/cpu/o3/inst_queue.hh:297:5: error: ‘MemDepUnit’ does not name a type
+  297 |     MemDepUnit memDepUnit[MaxThreads];
+      |     ^~~~~~~~~~
+src/cpu/o3/inst_queue.hh:302:5: error: ‘TimeBuffer’ does not name a type
+  302 |     TimeBuffer<IssueStruct> *issueToExecuteQueue;
+      |     ^~~~~~~~~~
+src/cpu/o3/inst_queue.hh:305:5: error: ‘TimeBuffer’ does not name a type
+  305 |     TimeBuffer<TimeStruct> *timeBuffer;
+      |     ^~~~~~~~~~
+src/cpu/o3/inst_queue.hh:308:14: error: expected nested-name-specifier before ‘TimeBuffer’
+  308 |     typename TimeBuffer<TimeStruct>::wire fromCommit;
+      |              ^~~~~~~~~~
+src/cpu/o3/inst_queue.hh:308:14: error: expected ‘;’ at end of member declaration
+  308 |     typename TimeBuffer<TimeStruct>::wire fromCommit;
+      |              ^~~~~~~~~~
+      |                        ;
+src/cpu/o3/inst_queue.hh:308:24: error: expected unqualified-id before ‘<’ token
+  308 |     typename TimeBuffer<TimeStruct>::wire fromCommit;
+      |                        ^
+In file included from src/cpu/o3/iew.hh:50,
+                 from src/cpu/o3/commit.hh:51,
+                 from src/cpu/o3/cpu.hh:55,
+                 from src/cpu/o3/lsq_unit.hh:57,
+                 from src/cpu/o3/lsq_unit.cc:42:
+src/cpu/o3/inst_queue.hh:85:5: error: ‘cyclone’ does not name a type
+   85 |     cyclone::CountdownQueue countdownQueue;
+      |     ^~~~~~~
+src/cpu/o3/inst_queue.hh:87:5: error: ‘cyclone’ does not name a type
+   87 |     cyclone::TimingTable timingTable;
+      |     ^~~~~~~
+src/cpu/o3/inst_queue.hh:139:33: error: ‘TimeBuffer’ has not been declared
+  139 |     void setIssueToExecuteQueue(TimeBuffer<IssueStruct> *i2eQueue);
+      |                                 ^~~~~~~~~~
+src/cpu/o3/inst_queue.hh:139:43: error: expected ‘,’ or ‘...’ before ‘<’ token
+  139 |     void setIssueToExecuteQueue(TimeBuffer<IssueStruct> *i2eQueue);
+      |                                           ^
+src/cpu/o3/inst_queue.hh:142:24: error: ‘TimeBuffer’ has not been declared
+  142 |     void setTimeBuffer(TimeBuffer<TimeStruct> *tb_ptr);
+      |                        ^~~~~~~~~~
+src/cpu/o3/inst_queue.hh:142:34: error: expected ‘,’ or ‘...’ before ‘<’ token
+  142 |     void setTimeBuffer(TimeBuffer<TimeStruct> *tb_ptr);
+      |                                  ^
+src/cpu/o3/inst_queue.hh:297:5: error: ‘MemDepUnit’ does not name a type
+  297 |     MemDepUnit memDepUnit[MaxThreads];
+      |     ^~~~~~~~~~
+src/cpu/o3/inst_queue.hh:402:5: error: ‘DependencyGraph’ does not name a type
+  402 |     DependencyGraph<DynInstPtr> dependGraph;
+      |     ^~~~~~~~~~~~~~~
+src/cpu/o3/inst_queue.hh:302:5: error: ‘TimeBuffer’ does not name a type
+  302 |     TimeBuffer<IssueStruct> *issueToExecuteQueue;
+      |     ^~~~~~~~~~
+src/cpu/o3/inst_queue.hh:305:5: error: ‘TimeBuffer’ does not name a type
+  305 |     TimeBuffer<TimeStruct> *timeBuffer;
+      |     ^~~~~~~~~~
+src/cpu/o3/inst_queue.hh:409:5: error: ‘SMTQueuePolicy’ does not name a type
+  409 |     SMTQueuePolicy iqPolicy;
+      |     ^~~~~~~~~~~~~~
+src/cpu/o3/inst_queue.hh:308:14: error: expected nested-name-specifier before ‘TimeBuffer’
+  308 |     typename TimeBuffer<TimeStruct>::wire fromCommit;
+      |              ^~~~~~~~~~
+src/cpu/o3/inst_queue.hh:308:14: error: expected ‘;’ at end of member declaration
+  308 |     typename TimeBuffer<TimeStruct>::wire fromCommit;
+      |              ^~~~~~~~~~
+      |                        ;
+src/cpu/o3/inst_queue.hh:308:24: error: expected unqualified-id before ‘<’ token
+  308 |     typename TimeBuffer<TimeStruct>::wire fromCommit;
+      |                        ^
+src/cpu/o3/inst_queue.hh:402:5: error: ‘DependencyGraph’ does not name a type
+  402 |     DependencyGraph<DynInstPtr> dependGraph;
+      |     ^~~~~~~~~~~~~~~
+src/cpu/o3/inst_queue.hh:409:5: error: ‘SMTQueuePolicy’ does not name a type
+  409 |     SMTQueuePolicy iqPolicy;
+      |     ^~~~~~~~~~~~~~
+In file included from src/cpu/o3/iew.hh:50,
+                 from src/cpu/o3/commit.hh:51,
+                 from src/cpu/o3/cpu.hh:55,
+                 from src/cpu/o3/dyn_inst.hh:58,
+                 from src/cpu/o3/mem_dep_unit.cc:37:
+src/cpu/o3/inst_queue.hh:85:5: error: ‘cyclone’ does not name a type
+   85 |     cyclone::CountdownQueue countdownQueue;
+      |     ^~~~~~~
+src/cpu/o3/inst_queue.hh:87:5: error: ‘cyclone’ does not name a type
+   87 |     cyclone::TimingTable timingTable;
+      |     ^~~~~~~
+src/cpu/o3/inst_queue.hh:139:33: error: ‘TimeBuffer’ has not been declared
+  139 |     void setIssueToExecuteQueue(TimeBuffer<IssueStruct> *i2eQueue);
+      |                                 ^~~~~~~~~~
+src/cpu/o3/inst_queue.hh:139:43: error: expected ‘,’ or ‘...’ before ‘<’ token
+  139 |     void setIssueToExecuteQueue(TimeBuffer<IssueStruct> *i2eQueue);
+      |                                           ^
+src/cpu/o3/inst_queue.hh:142:24: error: ‘TimeBuffer’ has not been declared
+  142 |     void setTimeBuffer(TimeBuffer<TimeStruct> *tb_ptr);
+      |                        ^~~~~~~~~~
+src/cpu/o3/inst_queue.hh:142:34: error: expected ‘,’ or ‘...’ before ‘<’ token
+  142 |     void setTimeBuffer(TimeBuffer<TimeStruct> *tb_ptr);
+      |                                  ^
+src/cpu/o3/inst_queue.hh:302:5: error: ‘TimeBuffer’ does not name a type
+  302 |     TimeBuffer<IssueStruct> *issueToExecuteQueue;
+      |     ^~~~~~~~~~
+src/cpu/o3/inst_queue.hh:305:5: error: ‘TimeBuffer’ does not name a type
+  305 |     TimeBuffer<TimeStruct> *timeBuffer;
+      |     ^~~~~~~~~~
+src/cpu/o3/inst_queue.hh:308:14: error: expected nested-name-specifier before ‘TimeBuffer’
+  308 |     typename TimeBuffer<TimeStruct>::wire fromCommit;
+      |              ^~~~~~~~~~
+src/cpu/o3/inst_queue.hh:308:14: error: expected ‘;’ at end of member declaration
+  308 |     typename TimeBuffer<TimeStruct>::wire fromCommit;
+      |              ^~~~~~~~~~
+      |                        ;
+src/cpu/o3/inst_queue.hh:308:24: error: expected unqualified-id before ‘<’ token
+  308 |     typename TimeBuffer<TimeStruct>::wire fromCommit;
+      |                        ^
+src/cpu/o3/inst_queue.hh:402:5: error: ‘DependencyGraph’ does not name a type
+  402 |     DependencyGraph<DynInstPtr> dependGraph;
+      |     ^~~~~~~~~~~~~~~
+src/cpu/o3/inst_queue.hh:409:5: error: ‘SMTQueuePolicy’ does not name a type
+  409 |     SMTQueuePolicy iqPolicy;
+      |     ^~~~~~~~~~~~~~
+In file included from src/cpu/o3/iew.hh:50,
+                 from src/cpu/o3/commit.hh:51,
+                 from src/cpu/o3/cpu.hh:55,
+                 from src/cpu/o3/dyn_inst.hh:58,
+                 from src/cpu/o3/cyclone/utilities.hh:4,
+                 from src/cpu/o3/inst_queue.cc:53:
+src/cpu/o3/inst_queue.hh: At global scope:
+src/cpu/o3/inst_queue.hh:82:7: error: redefinition of ‘class gem5::o3::InstructionQueue’
+   82 | class InstructionQueue
+      |       ^~~~~~~~~~~~~~~~
+src/cpu/o3/inst_queue.hh:82:7: note: previous definition of ‘class gem5::o3::InstructionQueue’
+   82 | class InstructionQueue
+      |       ^~~~~~~~~~~~~~~~
+In file included from src/cpu/o3/iew.hh:50,
+                 from src/cpu/o3/commit.hh:51,
+                 from src/cpu/o3/cpu.hh:55,
+                 from src/cpu/o3/dyn_inst.hh:58,
+                 from src/cpu/o3/rob.cc:46:
+src/cpu/o3/inst_queue.hh:85:5: error: ‘cyclone’ does not name a type
+   85 |     cyclone::CountdownQueue countdownQueue;
+      |     ^~~~~~~
+src/cpu/o3/inst_queue.hh:87:5: error: ‘cyclone’ does not name a type
+   87 |     cyclone::TimingTable timingTable;
+      |     ^~~~~~~
+src/cpu/o3/inst_queue.hh:139:33: error: ‘TimeBuffer’ has not been declared
+  139 |     void setIssueToExecuteQueue(TimeBuffer<IssueStruct> *i2eQueue);
+      |                                 ^~~~~~~~~~
+src/cpu/o3/inst_queue.hh:139:43: error: expected ‘,’ or ‘...’ before ‘<’ token
+  139 |     void setIssueToExecuteQueue(TimeBuffer<IssueStruct> *i2eQueue);
+      |                                           ^
+src/cpu/o3/inst_queue.hh:142:24: error: ‘TimeBuffer’ has not been declared
+  142 |     void setTimeBuffer(TimeBuffer<TimeStruct> *tb_ptr);
+      |                        ^~~~~~~~~~
+src/cpu/o3/inst_queue.hh:142:34: error: expected ‘,’ or ‘...’ before ‘<’ token
+  142 |     void setTimeBuffer(TimeBuffer<TimeStruct> *tb_ptr);
+      |                                  ^
+src/cpu/o3/inst_queue.hh:297:5: error: ‘MemDepUnit’ does not name a type
+  297 |     MemDepUnit memDepUnit[MaxThreads];
+      |     ^~~~~~~~~~
+src/cpu/o3/inst_queue.hh:302:5: error: ‘TimeBuffer’ does not name a type
+  302 |     TimeBuffer<IssueStruct> *issueToExecuteQueue;
+      |     ^~~~~~~~~~
+src/cpu/o3/inst_queue.hh:305:5: error: ‘TimeBuffer’ does not name a type
+  305 |     TimeBuffer<TimeStruct> *timeBuffer;
+      |     ^~~~~~~~~~
+src/cpu/o3/inst_queue.hh:308:14: error: expected nested-name-specifier before ‘TimeBuffer’
+  308 |     typename TimeBuffer<TimeStruct>::wire fromCommit;
+      |              ^~~~~~~~~~
+src/cpu/o3/inst_queue.hh:308:14: error: expected ‘;’ at end of member declaration
+  308 |     typename TimeBuffer<TimeStruct>::wire fromCommit;
+      |              ^~~~~~~~~~
+      |                        ;
+src/cpu/o3/inst_queue.hh:308:24: error: expected unqualified-id before ‘<’ token
+  308 |     typename TimeBuffer<TimeStruct>::wire fromCommit;
+      |                        ^
+src/cpu/o3/inst_queue.hh:402:5: error: ‘DependencyGraph’ does not name a type
+  402 |     DependencyGraph<DynInstPtr> dependGraph;
+      |     ^~~~~~~~~~~~~~~
+In file included from src/cpu/o3/iew.hh:50,
+                 from src/cpu/o3/commit.hh:51,
+                 from src/cpu/o3/cpu.hh:55,
+                 from src/cpu/o3/dyn_inst.hh:58,
+                 from src/cpu/o3/probe/simple_trace.cc:41:
+src/cpu/o3/inst_queue.hh:85:5: error: ‘cyclone’ does not name a type
+   85 |     cyclone::CountdownQueue countdownQueue;
+      |     ^~~~~~~
+src/cpu/o3/inst_queue.hh:87:5: error: ‘cyclone’ does not name a type
+   87 |     cyclone::TimingTable timingTable;
+      |     ^~~~~~~
+src/cpu/o3/inst_queue.hh:139:33: error: ‘TimeBuffer’ has not been declared
+  139 |     void setIssueToExecuteQueue(TimeBuffer<IssueStruct> *i2eQueue);
+      |                                 ^~~~~~~~~~
+src/cpu/o3/inst_queue.hh:139:43: error: expected ‘,’ or ‘...’ before ‘<’ token
+  139 |     void setIssueToExecuteQueue(TimeBuffer<IssueStruct> *i2eQueue);
+      |                                           ^
+src/cpu/o3/inst_queue.hh:142:24: error: ‘TimeBuffer’ has not been declared
+  142 |     void setTimeBuffer(TimeBuffer<TimeStruct> *tb_ptr);
+      |                        ^~~~~~~~~~
+src/cpu/o3/inst_queue.hh:142:34: error: expected ‘,’ or ‘...’ before ‘<’ token
+  142 |     void setTimeBuffer(TimeBuffer<TimeStruct> *tb_ptr);
+      |                                  ^
+src/cpu/o3/inst_queue.hh:297:5: error: ‘MemDepUnit’ does not name a type
+  297 |     MemDepUnit memDepUnit[MaxThreads];
+      |     ^~~~~~~~~~
+src/cpu/o3/inst_queue.hh:302:5: error: ‘TimeBuffer’ does not name a type
+  302 |     TimeBuffer<IssueStruct> *issueToExecuteQueue;
+      |     ^~~~~~~~~~
+src/cpu/o3/inst_queue.hh:305:5: error: ‘TimeBuffer’ does not name a type
+  305 |     TimeBuffer<TimeStruct> *timeBuffer;
+      |     ^~~~~~~~~~
+src/cpu/o3/inst_queue.hh:308:14: error: expected nested-name-specifier before ‘TimeBuffer’
+  308 |     typename TimeBuffer<TimeStruct>::wire fromCommit;
+      |              ^~~~~~~~~~
+src/cpu/o3/inst_queue.hh:308:14: error: expected ‘;’ at end of member declaration
+  308 |     typename TimeBuffer<TimeStruct>::wire fromCommit;
+      |              ^~~~~~~~~~
+      |                        ;
+src/cpu/o3/inst_queue.hh:308:24: error: expected unqualified-id before ‘<’ token
+  308 |     typename TimeBuffer<TimeStruct>::wire fromCommit;
+      |                        ^
+src/cpu/o3/inst_queue.hh:402:5: error: ‘DependencyGraph’ does not name a type
+  402 |     DependencyGraph<DynInstPtr> dependGraph;
+      |     ^~~~~~~~~~~~~~~
+src/cpu/o3/inst_queue.hh:409:5: error: ‘SMTQueuePolicy’ does not name a type
+  409 |     SMTQueuePolicy iqPolicy;
+      |     ^~~~~~~~~~~~~~
+src/cpu/o3/iew.cc: In constructor ‘gem5::o3::IEW::IEW(gem5::o3::CPU*, const gem5::BaseO3CPUParams&)’:
+src/cpu/o3/iew.cc:116:38: error: invalid conversion from ‘gem5::TimeBuffer<gem5::o3::IssueStruct>*’ to ‘int’ [-fpermissive]
+  116 |     instQueue.setIssueToExecuteQueue(&issueToExecQueue);
+      |                                      ^~~~~~~~~~~~~~~~~
+      |                                      |
+      |                                      gem5::TimeBuffer<gem5::o3::IssueStruct>*
+src/cpu/o3/inst_queue.hh:139:33: note:   initializing argument 1 of ‘void gem5::o3::InstructionQueue::setIssueToExecuteQueue(int)’
+  139 |     void setIssueToExecuteQueue(TimeBuffer<IssueStruct> *i2eQueue);
+      |                                 ^~~~~~~~~~
+src/cpu/o3/iew.cc: In member function ‘void gem5::o3::IEW::setTimeBuffer(gem5::TimeBuffer<gem5::o3::TimeStruct>*)’:
+src/cpu/o3/iew.cc:290:29: error: invalid conversion from ‘gem5::TimeBuffer<gem5::o3::TimeStruct>*’ to ‘int’ [-fpermissive]
+  290 |     instQueue.setTimeBuffer(tb_ptr);
+      |                             ^~~~~~
+      |                             |
+      |                             gem5::TimeBuffer<gem5::o3::TimeStruct>*
+src/cpu/o3/inst_queue.hh:142:24: note:   initializing argument 1 of ‘void gem5::o3::InstructionQueue::setTimeBuffer(int)’
+  142 |     void setTimeBuffer(TimeBuffer<TimeStruct> *tb_ptr);
+      |                        ^~~~~~~~~~
+In file included from src/cpu/o3/inst_queue.cc:60:
+src/cpu/o3/inst_queue.hh:82:7: error: redefinition of ‘class gem5::o3::InstructionQueue’
+   82 | class InstructionQueue
+      |       ^~~~~~~~~~~~~~~~
+src/cpu/o3/inst_queue.hh:82:7: note: previous definition of ‘class gem5::o3::InstructionQueue’
+   82 | class InstructionQueue
+      |       ^~~~~~~~~~~~~~~~
+src/cpu/o3/inst_queue.cc:74:1: error: no declaration matches ‘gem5::o3::InstructionQueue::FUCompletion::FUCompletion(const gem5::o3::DynInstPtr&, int, gem5::o3::InstructionQueue*)’
+   74 | InstructionQueue::FUCompletion::FUCompletion(const DynInstPtr &_inst,
+      | ^~~~~~~~~~~~~~~~
+src/cpu/o3/inst_queue.hh:95:11: note: candidates are: ‘constexpr gem5::o3::InstructionQueue::FUCompletion::FUCompletion(gem5::o3::InstructionQueue::FUCompletion&&)’
+   95 |     class FUCompletion : public Event
+      |           ^~~~~~~~~~~~
+src/cpu/o3/inst_queue.hh:95:11: note:                 ‘constexpr gem5::o3::InstructionQueue::FUCompletion::FUCompletion(const gem5::o3::InstructionQueue::FUCompletion&)’
+src/cpu/o3/inst_queue.hh:114:9: note:                 ‘gem5::o3::InstructionQueue::FUCompletion::FUCompletion(const int&, int, gem5::o3::InstructionQueue*)’
+  114 |         FUCompletion(const DynInstPtr &_inst, int fu_idx,
+      |         ^~~~~~~~~~~~
+src/cpu/o3/inst_queue.hh:95:11: note: ‘class gem5::o3::InstructionQueue::FUCompletion’ defined here
+   95 |     class FUCompletion : public Event
+      |           ^~~~~~~~~~~~
+src/cpu/o3/inst_queue.cc: In member function ‘virtual void gem5::o3::InstructionQueue::FUCompletion::process()’:
+src/cpu/o3/inst_queue.cc:84:32: error: ‘inst’ was not declared in this scope; did you mean ‘int’?
+   84 |     iqPtr->processFUCompletion(inst, freeFU ? fuIdx : -1);
+      |                                ^~~~
+      |                                int
+src/cpu/o3/inst_queue.cc: In constructor ‘gem5::o3::InstructionQueue::InstructionQueue(gem5::o3::CPU*, gem5::o3::IEW*, const gem5::BaseO3CPUParams&)’:
+src/cpu/o3/inst_queue.cc:100:7: error: class ‘gem5::o3::InstructionQueue’ does not have any field named ‘iqPolicy’
+  100 |       iqPolicy(params.smtIQPolicy),
+      |       ^~~~~~~~
+src/cpu/o3/inst_queue.cc:101:7: error: class ‘gem5::o3::InstructionQueue’ does not have any field named ‘numThreads’
+  101 |       numThreads(params.numThreads),
+      |       ^~~~~~~~~~
+src/cpu/o3/inst_queue.cc:104:7: error: class ‘gem5::o3::InstructionQueue’ does not have any field named ‘commitToIEWDelay’
+  104 |       commitToIEWDelay(params.commitToIEWDelay),
+      |       ^~~~~~~~~~~~~~~~
+src/cpu/o3/inst_queue.cc:105:7: error: class ‘gem5::o3::InstructionQueue’ does not have any field named ‘iqStats’
+  105 |       iqStats(cpu, totalWidth),
+      |       ^~~~~~~
+src/cpu/o3/inst_queue.cc:106:7: error: class ‘gem5::o3::InstructionQueue’ does not have any field named ‘iqIOStats’
+  106 |       iqIOStats(cpu)
+      |       ^~~~~~~~~
+src/cpu/o3/inst_queue.cc:123:11: error: ‘class gem5::o3::InstructionQueue’ has no member named ‘timingTable’
+  123 |     this->timingTable = cyclone::TimingTable(numPhysRegs);
+      |           ^~~~~~~~~~~
+src/cpu/o3/inst_queue.cc:128:5: error: ‘dependGraph’ was not declared in this scope; did you mean ‘DependencyGraph’?
+  128 |     dependGraph.resize(numPhysRegs);
+      |     ^~~~~~~~~~~
+      |     DependencyGraph
+src/cpu/o3/inst_queue.cc:131:5: error: ‘regScoreboard’ was not declared in this scope; did you mean ‘Scoreboard’?
+  131 |     regScoreboard.resize(numPhysRegs);
+      |     ^~~~~~~~~~~~~
+      |     Scoreboard
+src/cpu/o3/inst_queue.cc:135:9: error: ‘memDepUnit’ was not declared in this scope; did you mean ‘MemDepUnit’?
+  135 |         memDepUnit[tid].init(params, tid, cpu_ptr);
+      |         ^~~~~~~~~~
+      |         MemDepUnit
+src/cpu/o3/inst_queue.cc:142:9: error: ‘iqPolicy’ was not declared in this scope
+  142 |     if (iqPolicy == SMTQueuePolicy::Dynamic) {
+      |         ^~~~~~~~
+src/cpu/o3/inst_queue.cc:144:38: error: ‘numThreads’ was not declared in this scope; did you mean ‘MaxThreads’?
+  144 |         for (ThreadID tid = 0; tid < numThreads; tid++) {
+      |                                      ^~~~~~~~~~
+      |                                      MaxThreads
+src/cpu/o3/inst_queue.cc:145:13: error: ‘maxEntries’ was not declared in this scope; did you mean ‘numEntries’?
+  145 |             maxEntries[tid] = numEntries;
+      |             ^~~~~~~~~~
+      |             numEntries
+In file included from src/cpu/o3/mem_dep_unit.cc:38:
+src/cpu/o3/inst_queue.hh:82:7: error: redefinition of ‘class gem5::o3::InstructionQueue’
+   82 | class InstructionQueue
+      |       ^~~~~~~~~~~~~~~~
+src/cpu/o3/inst_queue.hh:82:7: note: previous definition of ‘class gem5::o3::InstructionQueue’
+   82 | class InstructionQueue
+      |       ^~~~~~~~~~~~~~~~
+src/cpu/o3/inst_queue.cc:150:37: error: ‘numThreads’ was not declared in this scope; did you mean ‘MaxThreads’?
+  150 |         int part_amt = numEntries / numThreads;
+      |                                     ^~~~~~~~~~
+      |                                     MaxThreads
+src/cpu/o3/inst_queue.cc:154:13: error: ‘maxEntries’ was not declared in this scope; did you mean ‘numEntries’?
+  154 |             maxEntries[tid] = part_amt;
+      |             ^~~~~~~~~~
+      |             numEntries
+src/cpu/o3/inst_queue.cc:165:38: error: ‘numThreads’ was not declared in this scope; did you mean ‘MaxThreads’?
+  165 |         for (ThreadID tid = 0; tid < numThreads; tid++) {
+      |                                      ^~~~~~~~~~
+      |                                      MaxThreads
+src/cpu/o3/inst_queue.cc:166:13: error: ‘maxEntries’ was not declared in this scope; did you mean ‘numEntries’?
+  166 |             maxEntries[tid] = thresholdIQ;
+      |             ^~~~~~~~~~
+      |             numEntries
+src/cpu/o3/inst_queue.cc:172:25: error: ‘numThreads’ was not declared in this scope; did you mean ‘MaxThreads’?
+  172 |     for (ThreadID tid = numThreads; tid < MaxThreads; tid++) {
+      |                         ^~~~~~~~~~
+      |                         MaxThreads
+src/cpu/o3/inst_queue.cc:173:9: error: ‘maxEntries’ was not declared in this scope; did you mean ‘numEntries’?
+  173 |         maxEntries[tid] = 0;
+      |         ^~~~~~~~~~
+      |         numEntries
+src/cpu/o3/inst_queue.cc: In destructor ‘gem5::o3::InstructionQueue::~InstructionQueue()’:
+src/cpu/o3/inst_queue.cc:179:5: error: ‘dependGraph’ was not declared in this scope; did you mean ‘DependencyGraph’?
+  179 |     dependGraph.reset();
+      |     ^~~~~~~~~~~
+      |     DependencyGraph
+src/cpu/o3/inst_queue.cc: At global scope:
+src/cpu/o3/inst_queue.cc:187:1: error: no declaration matches ‘std::string gem5::o3::InstructionQueue::name() const’
+  187 | InstructionQueue::name() const
+      | ^~~~~~~~~~~~~~~~
+src/cpu/o3/inst_queue.cc:187:1: note: no functions named ‘std::string gem5::o3::InstructionQueue::name() const’
+src/cpu/o3/inst_queue.hh:82:7: note: ‘class gem5::o3::InstructionQueue’ defined here
+   82 | class InstructionQueue
+      |       ^~~~~~~~~~~~~~~~
+src/cpu/o3/inst_queue.cc:192:73: error: invalid use of incomplete type ‘struct gem5::o3::InstructionQueue::IQStats’
+  192 | InstructionQueue::IQStats::IQStats(CPU *cpu, const unsigned &total_width)
+      |                                                                         ^
+src/cpu/o3/inst_queue.hh:480:12: note: forward declaration of ‘struct gem5::o3::InstructionQueue::IQStats’
+  480 |     struct IQStats : public statistics::Group
+      |            ^~~~~~~
+src/cpu/o3/inst_queue.cc:192:1: error: ‘struct gem5::o3::InstructionQueue::IQStats’ is private within this context
+  192 | InstructionQueue::IQStats::IQStats(CPU *cpu, const unsigned &total_width)
+      | ^~~~~~~~~~~~~~~~
+src/cpu/o3/inst_queue.hh:480:12: note: declared private here
+  480 |     struct IQStats : public statistics::Group
+      |            ^~~~~~~
+src/cpu/o3/inst_queue.cc:340:65: error: invalid use of incomplete type ‘struct gem5::o3::InstructionQueue::IQIOStats’
+  340 | InstructionQueue::IQIOStats::IQIOStats(statistics::Group *parent)
+      |                                                                 ^
+src/cpu/o3/inst_queue.hh:544:12: note: forward declaration of ‘struct gem5::o3::InstructionQueue::IQIOStats’
+  544 |     struct IQIOStats : public statistics::Group
+      |            ^~~~~~~~~
+src/cpu/o3/inst_queue.cc: In member function ‘void gem5::o3::InstructionQueue::resetState()’:
+src/cpu/o3/inst_queue.cc:410:9: error: ‘count’ was not declared in this scope; did you mean ‘std::count’?
+  410 |         count[tid] = 0;
+      |         ^~~~~
+      |         std::count
+In file included from /usr/include/c++/13/algorithm:73,
+                 from src/sim/eventq.hh:38,
+                 from src/sim/sim_object.hh:56,
+                 from src/cpu/o3/fu_pool.hh:52,
+                 from src/cpu/o3/cyclone/timing_table.hh:5,
+                 from src/cpu/o3/inst_queue.cc:52:
+/usr/include/c++/13/pstl/glue_algorithm_defs.h:101:1: note: ‘std::count’ declared here
+  101 | count(_ExecutionPolicy&& __exec, _ForwardIterator __first, _ForwardIterator __last, const _Tp& __value);
+      | ^~~~~
+src/cpu/o3/inst_queue.cc:411:9: error: ‘instList’ was not declared in this scope; did you mean ‘insertBits’?
+  411 |         instList[tid].clear();
+      |         ^~~~~~~~
+      |         insertBits
+src/cpu/o3/inst_queue.cc:423:9: error: ‘regScoreboard’ was not declared in this scope; did you mean ‘Scoreboard’?
+  423 |         regScoreboard[i] = false;
+      |         ^~~~~~~~~~~~~
+      |         Scoreboard
+src/cpu/o3/inst_queue.cc:427:9: error: ‘squashedSeqNum’ was not declared in this scope
+  427 |         squashedSeqNum[tid] = 0;
+      |         ^~~~~~~~~~~~~~
+src/cpu/o3/inst_queue.cc:431:17: error: ‘readyInsts’ was not declared in this scope; did you mean ‘hasReadyInsts’?
+  431 |         while (!readyInsts[i].empty())
+      |                 ^~~~~~~~~~
+      |                 hasReadyInsts
+src/cpu/o3/inst_queue.cc:433:9: error: ‘queueOnList’ was not declared in this scope
+  433 |         queueOnList[i] = false;
+      |         ^~~~~~~~~~~
+src/cpu/o3/inst_queue.cc:434:9: error: ‘readyIt’ was not declared in this scope; did you mean ‘read’?
+  434 |         readyIt[i] = listOrder.end();
+      |         ^~~~~~~
+      |         read
+src/cpu/o3/inst_queue.cc:434:22: error: ‘listOrder’ was not declared in this scope
+  434 |         readyIt[i] = listOrder.end();
+      |                      ^~~~~~~~~
+src/cpu/o3/inst_queue.cc:436:5: error: ‘nonSpecInsts’ was not declared in this scope
+  436 |     nonSpecInsts.clear();
+      |     ^~~~~~~~~~~~
+src/cpu/o3/inst_queue.cc:437:5: error: ‘listOrder’ was not declared in this scope
+  437 |     listOrder.clear();
+      |     ^~~~~~~~~
+src/cpu/o3/inst_queue.cc:438:5: error: ‘deferredMemInsts’ was not declared in this scope; did you mean ‘deferMemInst’?
+  438 |     deferredMemInsts.clear();
+      |     ^~~~~~~~~~~~~~~~
+      |     deferMemInst
+src/cpu/o3/inst_queue.cc:439:5: error: ‘blockedMemInsts’ was not declared in this scope; did you mean ‘blockMemInst’?
+  439 |     blockedMemInsts.clear();
+      |     ^~~~~~~~~~~~~~~
+      |     blockMemInst
+src/cpu/o3/inst_queue.cc:440:5: error: ‘retryMemInsts’ was not declared in this scope; did you mean ‘replayMemInst’?
+  440 |     retryMemInsts.clear();
+      |     ^~~~~~~~~~~~~
+      |     replayMemInst
+src/cpu/o3/inst_queue.cc: At global scope:
+src/cpu/o3/inst_queue.cc:445:1: error: no declaration matches ‘void gem5::o3::InstructionQueue::setActiveThreads(std::__cxx11::list<short int>*)’
+  445 | InstructionQueue::setActiveThreads(list<ThreadID> *at_ptr)
+      | ^~~~~~~~~~~~~~~~
+src/cpu/o3/inst_queue.hh:136:10: note: candidate is: ‘void gem5::o3::InstructionQueue::setActiveThreads(int)’
+  136 |     void setActiveThreads(std::list<ThreadID> *at_ptr);
+      |          ^~~~~~~~~~~~~~~~
+src/cpu/o3/inst_queue.hh:82:7: note: ‘class gem5::o3::InstructionQueue’ defined here
+   82 | class InstructionQueue
+      |       ^~~~~~~~~~~~~~~~
+src/cpu/o3/inst_queue.cc:451:1: error: variable or field ‘setIssueToExecuteQueue’ declared void
+  451 | InstructionQueue::setIssueToExecuteQueue(TimeBuffer<IssueStruct> *i2e_ptr)
+      | ^~~~~~~~~~~~~~~~
+src/cpu/o3/inst_queue.cc:451:66: error: expected primary-expression before ‘*’ token
+  451 | InstructionQueue::setIssueToExecuteQueue(TimeBuffer<IssueStruct> *i2e_ptr)
+      |                                                                  ^
+src/cpu/o3/inst_queue.cc:451:67: error: ‘i2e_ptr’ was not declared in this scope
+  451 | InstructionQueue::setIssueToExecuteQueue(TimeBuffer<IssueStruct> *i2e_ptr)
+      |                                                                   ^~~~~~~
+src/cpu/o3/inst_queue.cc:457:1: error: variable or field ‘setTimeBuffer’ declared void
+  457 | InstructionQueue::setTimeBuffer(TimeBuffer<TimeStruct> *tb_ptr)
+      | ^~~~~~~~~~~~~~~~
+src/cpu/o3/inst_queue.cc:457:56: error: expected primary-expression before ‘*’ token
+  457 | InstructionQueue::setTimeBuffer(TimeBuffer<TimeStruct> *tb_ptr)
+      |                                                        ^
+src/cpu/o3/inst_queue.cc:457:57: error: ‘tb_ptr’ was not declared in this scope
+  457 | InstructionQueue::setTimeBuffer(TimeBuffer<TimeStruct> *tb_ptr)
+      |                                                         ^~~~~~
+src/cpu/o3/inst_queue.cc: In member function ‘bool gem5::o3::InstructionQueue::isDrained() const’:
+src/cpu/o3/inst_queue.cc:467:20: error: ‘dependGraph’ was not declared in this scope; did you mean ‘DependencyGraph’?
+  467 |     bool drained = dependGraph.empty() &&
+      |                    ^~~~~~~~~~~
+      |                    DependencyGraph
+src/cpu/o3/inst_queue.cc:468:20: error: ‘instsToExecute’ was not declared in this scope
+  468 |                    instsToExecute.empty() &&
+      |                    ^~~~~~~~~~~~~~
+src/cpu/o3/inst_queue.cc:470:34: error: ‘numThreads’ was not declared in this scope; did you mean ‘MaxThreads’?
+  470 |     for (ThreadID tid = 0; tid < numThreads; ++tid)
+      |                                  ^~~~~~~~~~
+      |                                  MaxThreads
+src/cpu/o3/inst_queue.cc:471:30: error: ‘memDepUnit’ was not declared in this scope; did you mean ‘MemDepUnit’?
+  471 |         drained = drained && memDepUnit[tid].isDrained();
+      |                              ^~~~~~~~~~
+      |                              MemDepUnit
+In file included from /usr/include/c++/13/cassert:44,
+                 from src/base/circular_queue.hh:41,
+                 from src/cpu/o3/lsq_unit.hh:53,
+                 from src/cpu/o3/dyn_inst.hh:60:
+src/cpu/o3/inst_queue.cc: In member function ‘void gem5::o3::InstructionQueue::drainSanityCheck() const’:
+src/cpu/o3/inst_queue.cc:479:12: error: ‘dependGraph’ was not declared in this scope; did you mean ‘DependencyGraph’?
+  479 |     assert(dependGraph.empty());
+      |            ^~~~~~~~~~~
+src/cpu/o3/inst_queue.cc:480:12: error: ‘instsToExecute’ was not declared in this scope
+  480 |     assert(instsToExecute.empty());
+      |            ^~~~~~~~~~~~~~
+src/cpu/o3/inst_queue.cc:481:34: error: ‘numThreads’ was not declared in this scope; did you mean ‘MaxThreads’?
+  481 |     for (ThreadID tid = 0; tid < numThreads; ++tid)
+      |                                  ^~~~~~~~~~
+      |                                  MaxThreads
+src/cpu/o3/inst_queue.cc:482:9: error: ‘memDepUnit’ was not declared in this scope; did you mean ‘MemDepUnit’?
+  482 |         memDepUnit[tid].drainSanityCheck();
+      |         ^~~~~~~~~~
+      |         MemDepUnit
+src/cpu/o3/inst_queue.cc: At global scope:
+src/cpu/o3/inst_queue.cc:492:1: error: no declaration matches ‘int gem5::o3::InstructionQueue::entryAmount(gem5::ThreadID)’
+  492 | InstructionQueue::entryAmount(ThreadID num_threads)
+      | ^~~~~~~~~~~~~~~~
+src/cpu/o3/inst_queue.hh:154:9: note: candidate is: ‘int gem5::o3::InstructionQueue::entryAmount(int)’
+  154 |     int entryAmount(ThreadID num_threads);
+      |         ^~~~~~~~~~~
+src/cpu/o3/inst_queue.hh:82:7: note: ‘class gem5::o3::InstructionQueue’ defined here
+   82 | class InstructionQueue
+      |       ^~~~~~~~~~~~~~~~
+src/cpu/o3/inst_queue.cc: In member function ‘void gem5::o3::InstructionQueue::resetEntries()’:
+src/cpu/o3/inst_queue.cc:505:9: error: ‘iqPolicy’ was not declared in this scope
+  505 |     if (iqPolicy != SMTQueuePolicy::Dynamic || numThreads > 1) {
+      |         ^~~~~~~~
+src/cpu/o3/inst_queue.cc:505:48: error: ‘numThreads’ was not declared in this scope; did you mean ‘MaxThreads’?
+  505 |     if (iqPolicy != SMTQueuePolicy::Dynamic || numThreads > 1) {
+      |                                                ^~~~~~~~~~
+      |                                                MaxThreads
+src/cpu/o3/inst_queue.cc:506:30: error: ‘activeThreads’ was not declared in this scope; did you mean ‘active_threads’?
+  506 |         int active_threads = activeThreads->size();
+      |                              ^~~~~~~~~~~~~
+      |                              active_threads
+src/cpu/o3/inst_queue.cc:515:17: error: ‘maxEntries’ was not declared in this scope; did you mean ‘numEntries’?
+  515 |                 maxEntries[tid] = numEntries / active_threads;
+      |                 ^~~~~~~~~~
+      |                 numEntries
+src/cpu/o3/inst_queue.cc:518:17: error: ‘maxEntries’ was not declared in this scope; did you mean ‘numEntries’?
+  518 |                 maxEntries[tid] = numEntries;
+      |                 ^~~~~~~~~~
+      |                 numEntries
+src/cpu/o3/inst_queue.cc: At global scope:
+src/cpu/o3/inst_queue.cc:531:1: error: no declaration matches ‘unsigned int gem5::o3::InstructionQueue::numFreeEntries(gem5::ThreadID)’
+  531 | InstructionQueue::numFreeEntries(ThreadID tid)
+      | ^~~~~~~~~~~~~~~~
+src/cpu/o3/inst_queue.hh:163:14: note: candidates are: ‘unsigned int gem5::o3::InstructionQueue::numFreeEntries(int)’
+  163 |     unsigned numFreeEntries(ThreadID tid);
+      |              ^~~~~~~~~~~~~~
+src/cpu/o3/inst_queue.cc:525:1: note:                 ‘unsigned int gem5::o3::InstructionQueue::numFreeEntries()’
+  525 | InstructionQueue::numFreeEntries()
+      | ^~~~~~~~~~~~~~~~
+src/cpu/o3/inst_queue.hh:82:7: note: ‘class gem5::o3::InstructionQueue’ defined here
+   82 | class InstructionQueue
+      |       ^~~~~~~~~~~~~~~~
+src/cpu/o3/inst_queue.cc:549:1: error: no declaration matches ‘bool gem5::o3::InstructionQueue::isFull(gem5::ThreadID)’
+  549 | InstructionQueue::isFull(ThreadID tid)
+      | ^~~~~~~~~~~~~~~~
+src/cpu/o3/inst_queue.hh:169:10: note: candidates are: ‘bool gem5::o3::InstructionQueue::isFull(int)’
+  169 |     bool isFull(ThreadID tid);
+      |          ^~~~~~
+src/cpu/o3/inst_queue.cc:539:1: note:                 ‘bool gem5::o3::InstructionQueue::isFull()’
+  539 | InstructionQueue::isFull()
+      | ^~~~~~~~~~~~~~~~
+src/cpu/o3/inst_queue.hh:82:7: note: ‘class gem5::o3::InstructionQueue’ defined here
+   82 | class InstructionQueue
+      |       ^~~~~~~~~~~~~~~~
+src/cpu/o3/inst_queue.cc: In member function ‘bool gem5::o3::InstructionQueue::hasReadyInsts()’:
+src/cpu/o3/inst_queue.cc:561:10: error: ‘listOrder’ was not declared in this scope
+  561 |     if (!listOrder.empty()) {
+      |          ^~~~~~~~~
+src/cpu/o3/inst_queue.cc:566:14: error: ‘readyInsts’ was not declared in this scope; did you mean ‘hasReadyInsts’?
+  566 |         if (!readyInsts[i].empty()) {
+      |              ^~~~~~~~~~
+      |              hasReadyInsts
+src/cpu/o3/inst_queue.cc: At global scope:
+src/cpu/o3/inst_queue.cc:575:1: error: no declaration matches ‘void gem5::o3::InstructionQueue::insert(const gem5::o3::DynInstPtr&)’
+  575 | InstructionQueue::insert(const DynInstPtr &new_inst)
+      | ^~~~~~~~~~~~~~~~
+src/cpu/o3/inst_queue.hh:175:10: note: candidate is: ‘void gem5::o3::InstructionQueue::insert(const int&)’
+  175 |     void insert(const DynInstPtr &new_inst);
+      |          ^~~~~~
+src/cpu/o3/inst_queue.hh:82:7: note: ‘class gem5::o3::InstructionQueue’ defined here
+   82 | class InstructionQueue
+      |       ^~~~~~~~~~~~~~~~
+src/cpu/o3/inst_queue.cc: In member function ‘void gem5::o3::InstructionQueue::processCountdownQueue()’:
+src/cpu/o3/inst_queue.cc:668:5: error: ‘countdownQueue’ was not declared in this scope; did you mean ‘processCountdownQueue’?
+  668 |     countdownQueue.tick();
+      |     ^~~~~~~~~~~~~~
+      |     processCountdownQueue
+src/cpu/o3/inst_queue.cc:695:19: error: ‘class gem5::o3::InstructionQueue’ has no member named ‘countdownQueue’; did you mean ‘processCountdownQueue’?
+  695 |             this->countdownQueue.addInstruction(readyInst, newCountdown);
+      |                   ^~~~~~~~~~~~~~
+      |                   processCountdownQueue
+src/cpu/o3/inst_queue.cc: At global scope:
+src/cpu/o3/inst_queue.cc:708:1: error: no declaration matches ‘int gem5::o3::InstructionQueue::calculateNewCountdown(const gem5::o3::DynInstPtr&)’
+  708 | InstructionQueue::calculateNewCountdown(const DynInstPtr &inst)
+      | ^~~~~~~~~~~~~~~~
+src/cpu/o3/inst_queue.hh:272:9: note: candidate is: ‘int gem5::o3::InstructionQueue::calculateNewCountdown(const int&)’
+  272 |     int calculateNewCountdown(const DynInstPtr &insts);
+      |         ^~~~~~~~~~~~~~~~~~~~~
+src/cpu/o3/inst_queue.hh:82:7: note: ‘class gem5::o3::InstructionQueue’ defined here
+   82 | class InstructionQueue
+      |       ^~~~~~~~~~~~~~~~
+src/cpu/o3/inst_queue.cc:731:1: error: no declaration matches ‘void gem5::o3::InstructionQueue::insertNonSpec(const gem5::o3::DynInstPtr&)’
+  731 | InstructionQueue::insertNonSpec(const DynInstPtr &new_inst)
+      | ^~~~~~~~~~~~~~~~
+src/cpu/o3/inst_queue.hh:178:10: note: candidate is: ‘void gem5::o3::InstructionQueue::insertNonSpec(const int&)’
+  178 |     void insertNonSpec(const DynInstPtr &new_inst);
+      |          ^~~~~~~~~~~~~
+src/cpu/o3/inst_queue.hh:82:7: note: ‘class gem5::o3::InstructionQueue’ defined here
+   82 | class InstructionQueue
+      |       ^~~~~~~~~~~~~~~~
+src/cpu/o3/inst_queue.cc:786:1: error: no declaration matches ‘void gem5::o3::InstructionQueue::insertBarrier(const gem5::o3::DynInstPtr&)’
+  786 | InstructionQueue::insertBarrier(const DynInstPtr &barr_inst)
+      | ^~~~~~~~~~~~~~~~
+src/cpu/o3/inst_queue.hh:183:10: note: candidate is: ‘void gem5::o3::InstructionQueue::insertBarrier(const int&)’
+  183 |     void insertBarrier(const DynInstPtr &barr_inst);
+      |          ^~~~~~~~~~~~~
+src/cpu/o3/inst_queue.hh:82:7: note: ‘class gem5::o3::InstructionQueue’ defined here
+   82 | class InstructionQueue
+      |       ^~~~~~~~~~~~~~~~
+src/cpu/o3/inst_queue.cc:798:1: error: no declaration matches ‘gem5::o3::DynInstPtr gem5::o3::InstructionQueue::getInstToExecute()’
+  798 | InstructionQueue::getInstToExecute()
+      | ^~~~~~~~~~~~~~~~
+src/cpu/o3/inst_queue.cc:798:1: note: no functions named ‘gem5::o3::DynInstPtr gem5::o3::InstructionQueue::getInstToExecute()’
+src/cpu/o3/inst_queue.hh:82:7: note: ‘class gem5::o3::InstructionQueue’ defined here
+   82 | class InstructionQueue
+      |       ^~~~~~~~~~~~~~~~
+src/cpu/o3/inst_queue.cc:814:1: error: no declaration matches ‘void gem5::o3::InstructionQueue::addToOrderList(gem5::enums::OpClass)’
+  814 | InstructionQueue::addToOrderList(OpClass op_class)
+      | ^~~~~~~~~~~~~~~~
+src/cpu/o3/inst_queue.hh:394:10: note: candidate is: ‘void gem5::o3::InstructionQueue::addToOrderList(int)’
+  394 |     void addToOrderList(OpClass op_class);
+      |          ^~~~~~~~~~~~~~
+src/cpu/o3/inst_queue.hh:82:7: note: ‘class gem5::o3::InstructionQueue’ defined here
+   82 | class InstructionQueue
+      |       ^~~~~~~~~~~~~~~~
+src/cpu/o3/inst_queue.cc:840:1: error: variable or field ‘moveToYoungerInst’ declared void
+  840 | InstructionQueue::moveToYoungerInst(ListOrderIt list_order_it)
+      | ^~~~~~~~~~~~~~~~
+src/cpu/o3/inst_queue.cc:840:37: error: ‘ListOrderIt’ was not declared in this scope
+  840 | InstructionQueue::moveToYoungerInst(ListOrderIt list_order_it)
+      |                                     ^~~~~~~~~~~
+src/cpu/o3/inst_queue.cc:865:1: error: no declaration matches ‘void gem5::o3::InstructionQueue::processFUCompletion(const gem5::o3::DynInstPtr&, int)’
+  865 | InstructionQueue::processFUCompletion(const DynInstPtr &inst, int fu_idx)
+      | ^~~~~~~~~~~~~~~~
+src/cpu/o3/inst_queue.hh:211:10: note: candidate is: ‘void gem5::o3::InstructionQueue::processFUCompletion(const int&, int)’
+  211 |     void processFUCompletion(const DynInstPtr &inst, int fu_idx);
+      |          ^~~~~~~~~~~~~~~~~~~
+src/cpu/o3/inst_queue.hh:82:7: note: ‘class gem5::o3::InstructionQueue’ defined here
+   82 | class InstructionQueue
+      |       ^~~~~~~~~~~~~~~~
+src/cpu/o3/inst_queue.cc: In member function ‘void gem5::o3::InstructionQueue::scheduleReadyInsts()’:
+src/cpu/o3/inst_queue.cc:893:29: error: ‘issueToExecuteQueue’ was not declared in this scope; did you mean ‘setIssueToExecuteQueue’?
+  893 |     IssueStruct *i2e_info = issueToExecuteQueue->access(0);
+      |                             ^~~~~~~~~~~~~~~~~~~
+      |                             setIssueToExecuteQueue
+src/cpu/o3/inst_queue.cc:899:24: error: ‘getDeferredMemInstToExecute’ was not declared in this scope
+  899 |     while ((mem_inst = getDeferredMemInstToExecute())) {
+      |                        ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+src/cpu/o3/inst_queue.cc:904:24: error: ‘getBlockedMemInstToExecute’ was not declared in this scope
+  904 |     while ((mem_inst = getBlockedMemInstToExecute())) {
+      |                        ^~~~~~~~~~~~~~~~~~~~~~~~~~
+src/cpu/o3/inst_queue.cc:917:5: error: ‘ListOrderIt’ was not declared in this scope; did you mean ‘ListOrderEntry’?
+  917 |     ListOrderIt order_it = listOrder.begin();
+      |     ^~~~~~~~~~~
+      |     ListOrderEntry
+src/cpu/o3/inst_queue.cc:918:16: error: expected ‘;’ before ‘order_end_it’
+  918 |     ListOrderIt order_end_it = listOrder.end();
+      |                ^~~~~~~~~~~~~
+      |                ;
+src/cpu/o3/inst_queue.cc:920:41: error: ‘order_it’ was not declared in this scope
+  920 |     while (total_issued < totalWidth && order_it != order_end_it) {
+      |                                         ^~~~~~~~
+src/cpu/o3/inst_queue.cc:920:53: error: ‘order_end_it’ was not declared in this scope
+  920 |     while (total_issued < totalWidth && order_it != order_end_it) {
+      |                                                     ^~~~~~~~~~~~
+src/cpu/o3/inst_queue.cc:923:17: error: ‘readyInsts’ was not declared in this scope; did you mean ‘hasReadyInsts’?
+  923 |         assert(!readyInsts[op_class].empty());
+      |                 ^~~~~~~~~~
+src/cpu/o3/inst_queue.cc:928:13: error: ‘iqIOStats’ was not declared in this scope; did you mean ‘IQIOStats’?
+  928 |             iqIOStats.fpInstQueueReads++;
+      |             ^~~~~~~~~
+      |             IQIOStats
+src/cpu/o3/inst_queue.cc:930:13: error: ‘iqIOStats’ was not declared in this scope; did you mean ‘IQIOStats’?
+  930 |             iqIOStats.vecInstQueueReads++;
+      |             ^~~~~~~~~
+      |             IQIOStats
+src/cpu/o3/inst_queue.cc:932:13: error: ‘iqIOStats’ was not declared in this scope; did you mean ‘IQIOStats’?
+  932 |             iqIOStats.intInstQueueReads++;
+      |             ^~~~~~~~~
+      |             IQIOStats
+src/cpu/o3/inst_queue.cc:943:17: error: ‘readyIt’ was not declared in this scope; did you mean ‘read’?
+  943 |                 readyIt[op_class] = listOrder.end();
+      |                 ^~~~~~~
+      |                 read
+src/cpu/o3/inst_queue.cc:943:37: error: ‘listOrder’ was not declared in this scope
+  943 |                 readyIt[op_class] = listOrder.end();
+      |                                     ^~~~~~~~~
+src/cpu/o3/inst_queue.cc:944:17: error: ‘queueOnList’ was not declared in this scope
+  944 |                 queueOnList[op_class] = false;
+      |                 ^~~~~~~~~~~
+src/cpu/o3/inst_queue.cc:947:13: error: ‘listOrder’ was not declared in this scope
+  947 |             listOrder.erase(order_it++);
+      |             ^~~~~~~~~
+src/cpu/o3/inst_queue.cc:949:15: error: ‘iqStats’ was not declared in this scope; did you mean ‘IQStats’?
+  949 |             ++iqStats.squashedInstsIssued;
+      |               ^~~~~~~
+      |               IQStats
+src/cpu/o3/inst_queue.cc:961:17: error: ‘iqIOStats’ was not declared in this scope; did you mean ‘IQIOStats’?
+  961 |                 iqIOStats.fpAluAccesses++;
+      |                 ^~~~~~~~~
+      |                 IQIOStats
+src/cpu/o3/inst_queue.cc:963:17: error: ‘iqIOStats’ was not declared in this scope; did you mean ‘IQIOStats’?
+  963 |                 iqIOStats.vecAluAccesses++;
+      |                 ^~~~~~~~~
+      |                 IQIOStats
+src/cpu/o3/inst_queue.cc:965:17: error: ‘iqIOStats’ was not declared in this scope; did you mean ‘IQIOStats’?
+  965 |                 iqIOStats.intAluAccesses++;
+      |                 ^~~~~~~~~
+      |                 IQIOStats
+src/cpu/o3/inst_queue.cc:977:17: error: ‘instsToExecute’ was not declared in this scope
+  977 |                 instsToExecute.push_back(issuing_inst);
+      |                 ^~~~~~~~~~~~~~
+src/cpu/o3/inst_queue.cc:990:31: error: invalid user-defined conversion from ‘gem5::o3::InstructionQueue::FUCompletion*’ to ‘gem5::Event&’ [-fpermissive]
+  990 |                 cpu->schedule(execution,
+      |                               ^~~~~~~~~
+src/sim/eventq.hh:407:5: note: candidate is: ‘gem5::Event::Event(gem5::EventBase::Priority, gem5::EventBase::Flags)’ (near match)
+  407 |     Event(Priority p = Default_Pri, Flags f = 0)
+      |     ^~~~~
+src/sim/eventq.hh:407:5: note:   conversion of argument 1 would be ill-formed:
+src/cpu/o3/inst_queue.cc:990:31: error: invalid conversion from ‘gem5::o3::InstructionQueue::FUCompletion*’ to ‘gem5::EventBase::Priority’ {aka ‘signed char’} [-fpermissive]
+  990 |                 cpu->schedule(execution,
+      |                               ^~~~~~~~~
+      |                               |
+      |                               gem5::o3::InstructionQueue::FUCompletion*
+src/cpu/o3/inst_queue.cc:990:31: error: invalid conversion from ‘gem5::o3::InstructionQueue::FUCompletion*’ to ‘gem5::EventBase::Priority’ {aka ‘signed char’} [-fpermissive]
+  990 |                 cpu->schedule(execution,
+      |                               ^~~~~~~~~
+      |                               |
+      |                               gem5::o3::InstructionQueue::FUCompletion*
+src/sim/eventq.hh:407:20: note:   initializing argument 1 of ‘gem5::Event::Event(gem5::EventBase::Priority, gem5::EventBase::Flags)’
+  407 |     Event(Priority p = Default_Pri, Flags f = 0)
+      |           ~~~~~~~~~^~~~~~~~~~~~~~~
+src/cpu/o3/inst_queue.cc:990:30: error: cannot allocate an object of abstract type ‘gem5::Event’
+  990 |                 cpu->schedule(execution,
+      |                 ~~~~~~~~~~~~~^~~~~~~~~~~
+  991 |                               cpu->clockEdge(Cycles(op_latency - 1)));
+      |                               ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+src/sim/eventq.hh:254:7: note:   because the following virtual functions are pure within ‘gem5::Event’:
+  254 | class Event : public EventBase, public Serializable
+      |       ^~~~~
+src/sim/eventq.hh:451:18: note:     ‘virtual void gem5::Event::process()’
+  451 |     virtual void process() = 0;
+      |                  ^~~~~~~
+src/sim/eventq.hh:1012:21: note:   initializing argument 1 of ‘void gem5::EventManager::schedule(gem5::Event&, gem5::Tick)’
+ 1012 |     schedule(Event &event, Tick when)
+      |              ~~~~~~~^~~~~
+src/cpu/o3/inst_queue.cc:1013:17: error: ‘readyIt’ was not declared in this scope; did you mean ‘read’?
+ 1013 |                 readyIt[op_class] = listOrder.end();
+      |                 ^~~~~~~
+      |                 read
+src/cpu/o3/inst_queue.cc:1013:37: error: ‘listOrder’ was not declared in this scope
+ 1013 |                 readyIt[op_class] = listOrder.end();
+      |                                     ^~~~~~~~~
+src/cpu/o3/inst_queue.cc:1014:17: error: ‘queueOnList’ was not declared in this scope
+ 1014 |                 queueOnList[op_class] = false;
+      |                 ^~~~~~~~~~~
+src/cpu/o3/inst_queue.cc:1031:17: error: ‘count’ was not declared in this scope; did you mean ‘std::count’?
+ 1031 |                 count[tid]--;
+      |                 ^~~~~
+      |                 std::count
+/usr/include/c++/13/pstl/glue_algorithm_defs.h:101:1: note: ‘std::count’ declared here
+  101 | count(_ExecutionPolicy&& __exec, _ForwardIterator __first, _ForwardIterator __last, const _Tp& __value);
+      | ^~~~~
+src/cpu/o3/inst_queue.cc:1034:17: error: ‘memDepUnit’ was not declared in this scope; did you mean ‘MemDepUnit’?
+ 1034 |                 memDepUnit[tid].issue(issuing_inst);
+      |                 ^~~~~~~~~~
+      |                 MemDepUnit
+src/cpu/o3/inst_queue.cc:1037:13: error: ‘listOrder’ was not declared in this scope
+ 1037 |             listOrder.erase(order_it++);
+      |             ^~~~~~~~~
+src/cpu/o3/inst_queue.cc:1038:13: error: ‘iqStats’ was not declared in this scope; did you mean ‘IQStats’?
+ 1038 |             iqStats.statIssuedInstType[tid][op_class]++;
+      |             ^~~~~~~
+      |             IQStats
+src/cpu/o3/inst_queue.cc:1046:13: error: ‘iqStats’ was not declared in this scope; did you mean ‘IQStats’?
+ 1046 |             iqStats.statFuBusy[op_class]++;
+      |             ^~~~~~~
+      |             IQStats
+src/cpu/o3/inst_queue.cc:1052:5: error: ‘iqStats’ was not declared in this scope; did you mean ‘IQStats’?
+ 1052 |     iqStats.numIssuedDist.sample(total_issued);
+      |     ^~~~~~~
+      |     IQStats
+In file included from src/cpu/o3/iew.hh:50,
+                 from src/cpu/o3/commit.hh:51,
+                 from src/cpu/o3/cpu.hh:55,
+                 from src/cpu/o3/dyn_inst.hh:58,
+                 from src/cpu/o3/probe/elastic_trace.cc:43:
+src/cpu/o3/inst_queue.hh:85:5: error: ‘cyclone’ does not name a type
+   85 |     cyclone::CountdownQueue countdownQueue;
+      |     ^~~~~~~
+src/cpu/o3/inst_queue.hh:87:5: error: ‘cyclone’ does not name a type
+   87 |     cyclone::TimingTable timingTable;
+      |     ^~~~~~~
+src/cpu/o3/inst_queue.cc:1059:26: error: ‘retryMemInsts’ was not declared in this scope; did you mean ‘replayMemInst’?
+ 1059 |     if (total_issued || !retryMemInsts.empty() || !deferredMemInsts.empty()) {
+      |                          ^~~~~~~~~~~~~
+      |                          replayMemInst
+src/cpu/o3/inst_queue.hh:139:33: error: ‘TimeBuffer’ has not been declared
+  139 |     void setIssueToExecuteQueue(TimeBuffer<IssueStruct> *i2eQueue);
+      |                                 ^~~~~~~~~~
+src/cpu/o3/inst_queue.hh:139:43: error: expected ‘,’ or ‘...’ before ‘<’ token
+  139 |     void setIssueToExecuteQueue(TimeBuffer<IssueStruct> *i2eQueue);
+      |                                           ^
+src/cpu/o3/inst_queue.hh:142:24: error: ‘TimeBuffer’ has not been declared
+  142 |     void setTimeBuffer(TimeBuffer<TimeStruct> *tb_ptr);
+      |                        ^~~~~~~~~~
+src/cpu/o3/inst_queue.hh:142:34: error: expected ‘,’ or ‘...’ before ‘<’ token
+  142 |     void setTimeBuffer(TimeBuffer<TimeStruct> *tb_ptr);
+      |                                  ^
+src/cpu/o3/inst_queue.hh:297:5: error: ‘MemDepUnit’ does not name a type
+  297 |     MemDepUnit memDepUnit[MaxThreads];
+      |     ^~~~~~~~~~
+src/cpu/o3/inst_queue.hh:302:5: error: ‘TimeBuffer’ does not name a type
+  302 |     TimeBuffer<IssueStruct> *issueToExecuteQueue;
+      |     ^~~~~~~~~~
+src/cpu/o3/inst_queue.cc:1059:52: error: ‘deferredMemInsts’ was not declared in this scope; did you mean ‘deferMemInst’?
+ 1059 |     if (total_issued || !retryMemInsts.empty() || !deferredMemInsts.empty()) {
+      |                                                    ^~~~~~~~~~~~~~~~
+      |                                                    deferMemInst
+src/cpu/o3/inst_queue.cc: At global scope:
+src/cpu/o3/inst_queue.cc:1067:1: error: no declaration matches ‘void gem5::o3::InstructionQueue::scheduleNonSpec(const gem5::InstSeqNum&)’
+ 1067 | InstructionQueue::scheduleNonSpec(const InstSeqNum &inst)
+      | ^~~~~~~~~~~~~~~~
+src/cpu/o3/inst_queue.hh:220:10: note: candidate is: ‘void gem5::o3::InstructionQueue::scheduleNonSpec(const int&)’
+  220 |     void scheduleNonSpec(const InstSeqNum &inst);
+      |          ^~~~~~~~~~~~~~~
+src/cpu/o3/inst_queue.hh:82:7: note: ‘class gem5::o3::InstructionQueue’ defined here
+   82 | class InstructionQueue
+      |       ^~~~~~~~~~~~~~~~
+src/cpu/o3/inst_queue.cc:1094:1: error: no declaration matches ‘void gem5::o3::InstructionQueue::commit(const gem5::InstSeqNum&, gem5::ThreadID)’
+ 1094 | InstructionQueue::commit(const InstSeqNum &inst, ThreadID tid)
+      | ^~~~~~~~~~~~~~~~
+src/cpu/o3/inst_queue.hh:226:10: note: candidate is: ‘void gem5::o3::InstructionQueue::commit(const int&, int)’
+  226 |     void commit(const InstSeqNum &inst, ThreadID tid = 0);
+      |          ^~~~~~
+src/cpu/o3/inst_queue.hh:82:7: note: ‘class gem5::o3::InstructionQueue’ defined here
+   82 | class InstructionQueue
+      |       ^~~~~~~~~~~~~~~~
+src/cpu/o3/inst_queue.cc:1111:1: error: no declaration matches ‘int gem5::o3::InstructionQueue::wakeDependents(const gem5::o3::DynInstPtr&)’
+ 1111 | InstructionQueue::wakeDependents(const DynInstPtr &completed_inst)
+      | ^~~~~~~~~~~~~~~~
+src/cpu/o3/inst_queue.hh:229:9: note: candidate is: ‘int gem5::o3::InstructionQueue::wakeDependents(const int&)’
+  229 |     int wakeDependents(const DynInstPtr &completed_inst);
+      |         ^~~~~~~~~~~~~~
+src/cpu/o3/inst_queue.hh:82:7: note: ‘class gem5::o3::InstructionQueue’ defined here
+   82 | class InstructionQueue
+      |       ^~~~~~~~~~~~~~~~
+src/cpu/o3/inst_queue.cc:1212:1: error: no declaration matches ‘void gem5::o3::InstructionQueue::addReadyMemInst(const gem5::o3::DynInstPtr&)’
+ 1212 | InstructionQueue::addReadyMemInst(const DynInstPtr &ready_inst)
+      | ^~~~~~~~~~~~~~~~
+src/cpu/o3/inst_queue.hh:232:10: note: candidate is: ‘void gem5::o3::InstructionQueue::addReadyMemInst(const int&)’
+  232 |     void addReadyMemInst(const DynInstPtr &ready_inst);
+      |          ^~~~~~~~~~~~~~~
+src/cpu/o3/inst_queue.hh:82:7: note: ‘class gem5::o3::InstructionQueue’ defined here
+   82 | class InstructionQueue
+      |       ^~~~~~~~~~~~~~~~
+src/cpu/o3/inst_queue.cc:1234:1: error: no declaration matches ‘void gem5::o3::InstructionQueue::rescheduleMemInst(const gem5::o3::DynInstPtr&)’
+ 1234 | InstructionQueue::rescheduleMemInst(const DynInstPtr &resched_inst)
+      | ^~~~~~~~~~~~~~~~
+src/cpu/o3/inst_queue.hh:238:10: note: candidate is: ‘void gem5::o3::InstructionQueue::rescheduleMemInst(const int&)’
+  238 |     void rescheduleMemInst(const DynInstPtr &resched_inst);
+      |          ^~~~~~~~~~~~~~~~~
+src/cpu/o3/inst_queue.hh:82:7: note: ‘class gem5::o3::InstructionQueue’ defined here
+   82 | class InstructionQueue
+      |       ^~~~~~~~~~~~~~~~
+src/cpu/o3/inst_queue.cc:1247:1: error: no declaration matches ‘void gem5::o3::InstructionQueue::replayMemInst(const gem5::o3::DynInstPtr&)’
+ 1247 | InstructionQueue::replayMemInst(const DynInstPtr &replay_inst)
+      | ^~~~~~~~~~~~~~~~
+src/cpu/o3/inst_queue.hh:241:10: note: candidate is: ‘void gem5::o3::InstructionQueue::replayMemInst(const int&)’
+  241 |     void replayMemInst(const DynInstPtr &replay_inst);
+      |          ^~~~~~~~~~~~~
+src/cpu/o3/inst_queue.hh:82:7: note: ‘class gem5::o3::InstructionQueue’ defined here
+   82 | class InstructionQueue
+      |       ^~~~~~~~~~~~~~~~
+src/cpu/o3/inst_queue.hh:305:5: error: ‘TimeBuffer’ does not name a type
+  305 |     TimeBuffer<TimeStruct> *timeBuffer;
+      |     ^~~~~~~~~~
+src/cpu/o3/inst_queue.hh:308:14: error: expected nested-name-specifier before ‘TimeBuffer’
+  308 |     typename TimeBuffer<TimeStruct>::wire fromCommit;
+      |              ^~~~~~~~~~
+src/cpu/o3/inst_queue.hh:308:14: error: expected ‘;’ at end of member declaration
+  308 |     typename TimeBuffer<TimeStruct>::wire fromCommit;
+      |              ^~~~~~~~~~
+      |                        ;
+src/cpu/o3/inst_queue.hh:308:24: error: expected unqualified-id before ‘<’ token
+  308 |     typename TimeBuffer<TimeStruct>::wire fromCommit;
+      |                        ^
+src/cpu/o3/inst_queue.cc:1253:1: error: no declaration matches ‘void gem5::o3::InstructionQueue::deferMemInst(const gem5::o3::DynInstPtr&)’
+ 1253 | InstructionQueue::deferMemInst(const DynInstPtr &deferred_inst)
+      | ^~~~~~~~~~~~~~~~
+src/cpu/o3/inst_queue.hh:247:10: note: candidate is: ‘void gem5::o3::InstructionQueue::deferMemInst(const int&)’
+  247 |     void deferMemInst(const DynInstPtr &deferred_inst);
+      |          ^~~~~~~~~~~~
+src/cpu/o3/inst_queue.hh:82:7: note: ‘class gem5::o3::InstructionQueue’ defined here
+   82 | class InstructionQueue
+      |       ^~~~~~~~~~~~~~~~
+src/cpu/o3/inst_queue.cc:1259:1: error: no declaration matches ‘void gem5::o3::InstructionQueue::blockMemInst(const gem5::o3::DynInstPtr&)’
+ 1259 | InstructionQueue::blockMemInst(const DynInstPtr &blocked_inst)
+      | ^~~~~~~~~~~~~~~~
+src/cpu/o3/inst_queue.hh:250:10: note: candidate is: ‘void gem5::o3::InstructionQueue::blockMemInst(const int&)’
+  250 |     void blockMemInst(const DynInstPtr &blocked_inst);
+      |          ^~~~~~~~~~~~
+src/cpu/o3/inst_queue.hh:82:7: note: ‘class gem5::o3::InstructionQueue’ defined here
+   82 | class InstructionQueue
+      |       ^~~~~~~~~~~~~~~~
+src/cpu/o3/inst_queue.cc: In member function ‘void gem5::o3::InstructionQueue::cacheUnblocked()’:
+src/cpu/o3/inst_queue.cc:1274:5: error: ‘retryMemInsts’ was not declared in this scope; did you mean ‘replayMemInst’?
+ 1274 |     retryMemInsts.splice(retryMemInsts.end(), blockedMemInsts);
+      |     ^~~~~~~~~~~~~
+      |     replayMemInst
+src/cpu/o3/inst_queue.hh:402:5: error: ‘DependencyGraph’ does not name a type
+  402 |     DependencyGraph<DynInstPtr> dependGraph;
+      |     ^~~~~~~~~~~~~~~
+src/cpu/o3/inst_queue.cc:1274:47: error: ‘blockedMemInsts’ was not declared in this scope; did you mean ‘blockMemInst’?
+ 1274 |     retryMemInsts.splice(retryMemInsts.end(), blockedMemInsts);
+      |                                               ^~~~~~~~~~~~~~~
+      |                                               blockMemInst
+src/cpu/o3/inst_queue.cc: At global scope:
+src/cpu/o3/inst_queue.cc:1280:1: error: no declaration matches ‘gem5::o3::DynInstPtr gem5::o3::InstructionQueue::getDeferredMemInstToExecute()’
+ 1280 | InstructionQueue::getDeferredMemInstToExecute()
+      | ^~~~~~~~~~~~~~~~
+src/cpu/o3/inst_queue.cc:1280:1: note: no functions named ‘gem5::o3::DynInstPtr gem5::o3::InstructionQueue::getDeferredMemInstToExecute()’
+src/cpu/o3/inst_queue.hh:82:7: note: ‘class gem5::o3::InstructionQueue’ defined here
+   82 | class InstructionQueue
+      |       ^~~~~~~~~~~~~~~~
+src/cpu/o3/inst_queue.cc:1294:1: error: no declaration matches ‘gem5::o3::DynInstPtr gem5::o3::InstructionQueue::getBlockedMemInstToExecute()’
+ 1294 | InstructionQueue::getBlockedMemInstToExecute()
+      | ^~~~~~~~~~~~~~~~
+src/cpu/o3/inst_queue.cc:1294:1: note: no functions named ‘gem5::o3::DynInstPtr gem5::o3::InstructionQueue::getBlockedMemInstToExecute()’
+src/cpu/o3/inst_queue.hh:82:7: note: ‘class gem5::o3::InstructionQueue’ defined here
+   82 | class InstructionQueue
+      |       ^~~~~~~~~~~~~~~~
+src/cpu/o3/inst_queue.cc:1306:1: error: no declaration matches ‘void gem5::o3::InstructionQueue::violation(const gem5::o3::DynInstPtr&, const gem5::o3::DynInstPtr&)’
+ 1306 | InstructionQueue::violation(const DynInstPtr &store,
+      | ^~~~~~~~~~~~~~~~
+src/cpu/o3/inst_queue.hh:256:10: note: candidate is: ‘void gem5::o3::InstructionQueue::violation(const int&, const int&)’
+  256 |     void violation(const DynInstPtr &store, const DynInstPtr &faulting_load);
+      |          ^~~~~~~~~
+src/cpu/o3/inst_queue.hh:82:7: note: ‘class gem5::o3::InstructionQueue’ defined here
+   82 | class InstructionQueue
+      |       ^~~~~~~~~~~~~~~~
+src/cpu/o3/inst_queue.cc:1314:1: error: no declaration matches ‘void gem5::o3::InstructionQueue::squash(gem5::ThreadID)’
+ 1314 | InstructionQueue::squash(ThreadID tid)
+      | ^~~~~~~~~~~~~~~~
+src/cpu/o3/inst_queue.hh:262:10: note: candidate is: ‘void gem5::o3::InstructionQueue::squash(int)’
+  262 |     void squash(ThreadID tid);
+      |          ^~~~~~
+src/cpu/o3/inst_queue.hh:82:7: note: ‘class gem5::o3::InstructionQueue’ defined here
+   82 | class InstructionQueue
+      |       ^~~~~~~~~~~~~~~~
+src/cpu/o3/inst_queue.cc:1337:6: error: no declaration matches ‘void gem5::o3::InstructionQueue::doSquash(gem5::ThreadID)’
+ 1337 | void InstructionQueue::doSquash(ThreadID tid)
+      |      ^~~~~~~~~~~~~~~~
+src/cpu/o3/inst_queue.hh:279:10: note: candidate is: ‘void gem5::o3::InstructionQueue::doSquash(int)’
+  279 |     void doSquash(ThreadID tid);
+      |          ^~~~~~~~
+src/cpu/o3/inst_queue.hh:82:7: note: ‘class gem5::o3::InstructionQueue’ defined here
+   82 | class InstructionQueue
+      |       ^~~~~~~~~~~~~~~~
+src/cpu/o3/inst_queue.cc:1479:1: error: no declaration matches ‘bool gem5::o3::InstructionQueue::PqCompare::operator()(const gem5::o3::DynInstPtr&, const gem5::o3::DynInstPtr&) const’
+ 1479 | InstructionQueue::PqCompare::operator()(
+      | ^~~~~~~~~~~~~~~~
+src/cpu/o3/inst_queue.hh:345:14: note: candidate is: ‘bool gem5::o3::InstructionQueue::PqCompare::operator()(const int&, const int&) const’
+  345 |         bool operator()(const DynInstPtr &lhs, const DynInstPtr &rhs) const;
+      |              ^~~~~~~~
+src/cpu/o3/inst_queue.hh:343:12: note: ‘struct gem5::o3::InstructionQueue::PqCompare’ defined here
+  343 |     struct PqCompare
+      |            ^~~~~~~~~
+src/cpu/o3/inst_queue.cc:1479:1: error: ‘struct gem5::o3::InstructionQueue::PqCompare’ is private within this context
+ 1479 | InstructionQueue::PqCompare::operator()(
+      | ^~~~~~~~~~~~~~~~
+src/cpu/o3/inst_queue.hh:343:12: note: declared private here
+  343 |     struct PqCompare
+      |            ^~~~~~~~~
+src/cpu/o3/inst_queue.cc:1486:1: error: no declaration matches ‘bool gem5::o3::InstructionQueue::addToDependents(const gem5::o3::DynInstPtr&)’
+ 1486 | InstructionQueue::addToDependents(const DynInstPtr &new_inst)
+      | ^~~~~~~~~~~~~~~~
+src/cpu/o3/inst_queue.hh:455:10: note: candidate is: ‘bool gem5::o3::InstructionQueue::addToDependents(const int&)’
+  455 |     bool addToDependents(const DynInstPtr &new_inst);
+      |          ^~~~~~~~~~~~~~~
+src/cpu/o3/inst_queue.hh:82:7: note: ‘class gem5::o3::InstructionQueue’ defined here
+   82 | class InstructionQueue
+      |       ^~~~~~~~~~~~~~~~
+src/cpu/o3/inst_queue.cc:1533:1: error: no declaration matches ‘void gem5::o3::InstructionQueue::addToProducers(const gem5::o3::DynInstPtr&)’
+ 1533 | InstructionQueue::addToProducers(const DynInstPtr &new_inst)
+      | ^~~~~~~~~~~~~~~~
+src/cpu/o3/inst_queue.hh:458:10: note: candidate is: ‘void gem5::o3::InstructionQueue::addToProducers(const int&)’
+  458 |     void addToProducers(const DynInstPtr &new_inst);
+      |          ^~~~~~~~~~~~~~
+src/cpu/o3/inst_queue.hh:82:7: note: ‘class gem5::o3::InstructionQueue’ defined here
+   82 | class InstructionQueue
+      |       ^~~~~~~~~~~~~~~~
+src/cpu/o3/inst_queue.cc:1568:1: error: no declaration matches ‘void gem5::o3::InstructionQueue::addIfReady(const gem5::o3::DynInstPtr&)’
+ 1568 | InstructionQueue::addIfReady(const DynInstPtr &inst)
+      | ^~~~~~~~~~~~~~~~
+src/cpu/o3/inst_queue.hh:461:10: note: candidate is: ‘void gem5::o3::InstructionQueue::addIfReady(const int&)’
+  461 |     void addIfReady(const DynInstPtr &inst);
+      |          ^~~~~~~~~~
+src/cpu/o3/inst_queue.hh:82:7: note: ‘class gem5::o3::InstructionQueue’ defined here
+   82 | class InstructionQueue
+      |       ^~~~~~~~~~~~~~~~
+src/cpu/o3/inst_queue.hh:409:5: error: ‘SMTQueuePolicy’ does not name a type
+  409 |     SMTQueuePolicy iqPolicy;
+      |     ^~~~~~~~~~~~~~
+src/cpu/o3/inst_queue.cc: In member function ‘void gem5::o3::InstructionQueue::dumpLists()’:
+src/cpu/o3/inst_queue.cc:1616:48: error: ‘readyInsts’ was not declared in this scope; did you mean ‘hasReadyInsts’?
+ 1616 |         cprintf("Ready list %i size: %i\n", i, readyInsts[i].size());
+      |                                                ^~~~~~~~~~
+      |                                                hasReadyInsts
+src/cpu/o3/inst_queue.cc:1621:48: error: ‘nonSpecInsts’ was not declared in this scope
+ 1621 |     cprintf("Non speculative list size: %i\n", nonSpecInsts.size());
+      |                                                ^~~~~~~~~~~~
+src/cpu/o3/inst_queue.cc:1623:5: error: ‘NonSpecMapIt’ was not declared in this scope
+ 1623 |     NonSpecMapIt non_spec_it = nonSpecInsts.begin();
+      |     ^~~~~~~~~~~~
+src/cpu/o3/inst_queue.cc:1624:17: error: expected ‘;’ before ‘non_spec_end_it’
+ 1624 |     NonSpecMapIt non_spec_end_it = nonSpecInsts.end();
+      |                 ^~~~~~~~~~~~~~~~
+      |                 ;
+src/cpu/o3/inst_queue.cc:1628:12: error: ‘non_spec_it’ was not declared in this scope
+ 1628 |     while (non_spec_it != non_spec_end_it) {
+      |            ^~~~~~~~~~~
+src/cpu/o3/inst_queue.cc:1628:27: error: ‘non_spec_end_it’ was not declared in this scope
+ 1628 |     while (non_spec_it != non_spec_end_it) {
+      |                           ^~~~~~~~~~~~~~~
+src/cpu/o3/inst_queue.cc:1636:5: error: ‘ListOrderIt’ was not declared in this scope; did you mean ‘ListOrderEntry’?
+ 1636 |     ListOrderIt list_order_it = listOrder.begin();
+      |     ^~~~~~~~~~~
+      |     ListOrderEntry
+src/cpu/o3/inst_queue.cc:1637:16: error: expected ‘;’ before ‘list_order_end_it’
+ 1637 |     ListOrderIt list_order_end_it = listOrder.end();
+      |                ^~~~~~~~~~~~~~~~~~
+      |                ;
+src/cpu/o3/inst_queue.cc:1642:12: error: ‘list_order_it’ was not declared in this scope
+ 1642 |     while (list_order_it != list_order_end_it) {
+      |            ^~~~~~~~~~~~~
+src/cpu/o3/inst_queue.cc:1642:29: error: ‘list_order_end_it’ was not declared in this scope
+ 1642 |     while (list_order_it != list_order_end_it) {
+      |                             ^~~~~~~~~~~~~~~~~
+src/cpu/o3/inst_queue.cc: In member function ‘void gem5::o3::InstructionQueue::dumpInsts()’:
+src/cpu/o3/inst_queue.cc:1657:34: error: ‘numThreads’ was not declared in this scope; did you mean ‘MaxThreads’?
+ 1657 |     for (ThreadID tid = 0; tid < numThreads; ++tid) {
+      |                                  ^~~~~~~~~~
+      |                                  MaxThreads
+src/cpu/o3/inst_queue.cc:1660:9: error: ‘ListIt’ was not declared in this scope
+ 1660 |         ListIt inst_list_it = instList[tid].begin();
+      |         ^~~~~~
+src/cpu/o3/inst_queue.cc:1662:16: error: ‘inst_list_it’ was not declared in this scope
+ 1662 |         while (inst_list_it != instList[tid].end()) {
+      |                ^~~~~~~~~~~~
+src/cpu/o3/inst_queue.cc:1662:32: error: ‘instList’ was not declared in this scope; did you mean ‘insertBits’?
+ 1662 |         while (inst_list_it != instList[tid].end()) {
+      |                                ^~~~~~~~
+      |                                insertBits
+src/cpu/o3/inst_queue.cc:1700:5: error: ‘ListIt’ was not declared in this scope
+ 1700 |     ListIt inst_list_it = instsToExecute.begin();
+      |     ^~~~~~
+src/cpu/o3/inst_queue.cc:1702:12: error: ‘inst_list_it’ was not declared in this scope
+ 1702 |     while (inst_list_it != instsToExecute.end())
+      |            ^~~~~~~~~~~~
+src/cpu/o3/inst_queue.cc:1702:28: error: ‘instsToExecute’ was not declared in this scope
+ 1702 |     while (inst_list_it != instsToExecute.end())
+      |                            ^~~~~~~~~~~~~~
+In file included from src/cpu/o3/iew.hh:50,
+                 from src/cpu/o3/commit.hh:51,
+                 from src/cpu/o3/cpu.hh:55,
+                 from src/cpu/o3/dyn_inst.hh:58,
+                 from src/cpu/o3/checker.hh:45,
+                 from build/X86/python/_m5/param_BaseO3Checker.cc:17:
+src/cpu/o3/inst_queue.hh:85:5: error: ‘cyclone’ does not name a type
+   85 |     cyclone::CountdownQueue countdownQueue;
+      |     ^~~~~~~
+src/cpu/o3/inst_queue.hh:87:5: error: ‘cyclone’ does not name a type
+   87 |     cyclone::TimingTable timingTable;
+      |     ^~~~~~~
+src/cpu/o3/inst_queue.hh:139:33: error: ‘TimeBuffer’ has not been declared
+  139 |     void setIssueToExecuteQueue(TimeBuffer<IssueStruct> *i2eQueue);
+      |                                 ^~~~~~~~~~
+src/cpu/o3/inst_queue.hh:139:43: error: expected ‘,’ or ‘...’ before ‘<’ token
+  139 |     void setIssueToExecuteQueue(TimeBuffer<IssueStruct> *i2eQueue);
+      |                                           ^
+src/cpu/o3/inst_queue.hh:142:24: error: ‘TimeBuffer’ has not been declared
+  142 |     void setTimeBuffer(TimeBuffer<TimeStruct> *tb_ptr);
+      |                        ^~~~~~~~~~
+src/cpu/o3/inst_queue.hh:142:34: error: expected ‘,’ or ‘...’ before ‘<’ token
+  142 |     void setTimeBuffer(TimeBuffer<TimeStruct> *tb_ptr);
+      |                                  ^
+src/cpu/o3/inst_queue.hh:297:5: error: ‘MemDepUnit’ does not name a type
+  297 |     MemDepUnit memDepUnit[MaxThreads];
+      |     ^~~~~~~~~~
+scons: *** [build/X86/cpu/o3/rename_map.o] Error 1
+src/cpu/o3/inst_queue.hh:302:5: error: ‘TimeBuffer’ does not name a type
+  302 |     TimeBuffer<IssueStruct> *issueToExecuteQueue;
+      |     ^~~~~~~~~~
+src/cpu/o3/inst_queue.hh:305:5: error: ‘TimeBuffer’ does not name a type
+  305 |     TimeBuffer<TimeStruct> *timeBuffer;
+      |     ^~~~~~~~~~
+src/cpu/o3/inst_queue.hh:308:14: error: expected nested-name-specifier before ‘TimeBuffer’
+  308 |     typename TimeBuffer<TimeStruct>::wire fromCommit;
+      |              ^~~~~~~~~~
+src/cpu/o3/inst_queue.hh:308:14: error: expected ‘;’ at end of member declaration
+  308 |     typename TimeBuffer<TimeStruct>::wire fromCommit;
+      |              ^~~~~~~~~~
+      |                        ;
+src/cpu/o3/inst_queue.hh:308:24: error: expected unqualified-id before ‘<’ token
+  308 |     typename TimeBuffer<TimeStruct>::wire fromCommit;
+      |                        ^
+In file included from src/cpu/o3/iew.hh:50,
+                 from src/cpu/o3/commit.hh:51,
+                 from src/cpu/o3/cpu.hh:55,
+                 from src/cpu/o3/dyn_inst.hh:58,
+                 from build/X86/python/_m5/param_BaseO3CPU.cc:17:
+src/cpu/o3/inst_queue.hh:85:5: error: ‘cyclone’ does not name a type
+   85 |     cyclone::CountdownQueue countdownQueue;
+      |     ^~~~~~~
+src/cpu/o3/inst_queue.hh:87:5: error: ‘cyclone’ does not name a type
+   87 |     cyclone::TimingTable timingTable;
+      |     ^~~~~~~
+src/cpu/o3/inst_queue.hh:139:33: error: ‘TimeBuffer’ has not been declared
+  139 |     void setIssueToExecuteQueue(TimeBuffer<IssueStruct> *i2eQueue);
+      |                                 ^~~~~~~~~~
+src/cpu/o3/inst_queue.hh:139:43: error: expected ‘,’ or ‘...’ before ‘<’ token
+  139 |     void setIssueToExecuteQueue(TimeBuffer<IssueStruct> *i2eQueue);
+      |                                           ^
+src/cpu/o3/inst_queue.hh:142:24: error: ‘TimeBuffer’ has not been declared
+  142 |     void setTimeBuffer(TimeBuffer<TimeStruct> *tb_ptr);
+      |                        ^~~~~~~~~~
+src/cpu/o3/inst_queue.hh:142:34: error: expected ‘,’ or ‘...’ before ‘<’ token
+  142 |     void setTimeBuffer(TimeBuffer<TimeStruct> *tb_ptr);
+      |                                  ^
+src/cpu/o3/inst_queue.hh:297:5: error: ‘MemDepUnit’ does not name a type
+  297 |     MemDepUnit memDepUnit[MaxThreads];
+      |     ^~~~~~~~~~
+src/cpu/o3/inst_queue.hh:302:5: error: ‘TimeBuffer’ does not name a type
+  302 |     TimeBuffer<IssueStruct> *issueToExecuteQueue;
+      |     ^~~~~~~~~~
+scons: *** [build/X86/cpu/o3/checker.o] Error 1
+scons: *** [build/X86/cpu/o3/decode.o] Error 1
+src/cpu/o3/inst_queue.hh:402:5: error: ‘DependencyGraph’ does not name a type
+  402 |     DependencyGraph<DynInstPtr> dependGraph;
+      |     ^~~~~~~~~~~~~~~
+src/cpu/o3/inst_queue.hh:305:5: error: ‘TimeBuffer’ does not name a type
+  305 |     TimeBuffer<TimeStruct> *timeBuffer;
+      |     ^~~~~~~~~~
+src/cpu/o3/inst_queue.hh:308:14: error: expected nested-name-specifier before ‘TimeBuffer’
+  308 |     typename TimeBuffer<TimeStruct>::wire fromCommit;
+      |              ^~~~~~~~~~
+src/cpu/o3/inst_queue.hh:308:14: error: expected ‘;’ at end of member declaration
+  308 |     typename TimeBuffer<TimeStruct>::wire fromCommit;
+      |              ^~~~~~~~~~
+      |                        ;
+src/cpu/o3/inst_queue.hh:308:24: error: expected unqualified-id before ‘<’ token
+  308 |     typename TimeBuffer<TimeStruct>::wire fromCommit;
+      |                        ^
+src/cpu/o3/inst_queue.hh:409:5: error: ‘SMTQueuePolicy’ does not name a type
+  409 |     SMTQueuePolicy iqPolicy;
+      |     ^~~~~~~~~~~~~~
+scons: *** [build/X86/cpu/o3/thread_context.o] Error 1
+src/cpu/o3/inst_queue.hh:402:5: error: ‘DependencyGraph’ does not name a type
+  402 |     DependencyGraph<DynInstPtr> dependGraph;
+      |     ^~~~~~~~~~~~~~~
+scons: *** [build/X86/cpu/o3/thread_state.o] Error 1
+scons: *** [build/X86/cpu/o3/lsq.o] Error 1
+scons: *** [build/X86/cpu/o3/commit.o] Error 1
+scons: *** [build/X86/cpu/o3/rename.o] Error 1
+scons: *** [build/X86/cpu/o3/mem_dep_unit.o] Error 1
+scons: *** [build/X86/cpu/o3/dyn_inst.o] Error 1
+scons: *** [build/X86/cpu/o3/fetch.o] Error 1
+scons: *** [build/X86/cpu/o3/lsq_unit.o] Error 1
+scons: *** [build/X86/cpu/o3/rob.o] Error 1
+scons: *** [build/X86/cpu/o3/probe/simple_trace.o] Error 1
+scons: *** [build/X86/cpu/o3/iew.o] Error 1
+scons: *** [build/X86/cpu/o3/cpu.o] Error 1
+scons: *** [build/X86/cpu/o3/probe/elastic_trace.o] Error 1
+scons: *** [build/X86/cpu/o3/inst_queue.o] Error 1
+scons: *** [build/X86/python/_m5/param_BaseO3Checker.o] Error 1
+scons: *** [build/X86/python/_m5/param_BaseO3CPU.o] Error 1
+scons: building terminated because of errors.
+
+Change-Id: Icc034bc0d13df7e1d7906fcece4c949208dcaa25
