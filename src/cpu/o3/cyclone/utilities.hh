@@ -12,9 +12,7 @@ namespace cyclone {
 /**
  * Get opname of a instruction
  */
-std::string getInstName(const DynInstPtr &inst) {
-  return inst->staticInst->getName();
-}
+std::string getInstName(const DynInstPtr &inst);
 
 } // namespace cyclone
 } // namespace o3

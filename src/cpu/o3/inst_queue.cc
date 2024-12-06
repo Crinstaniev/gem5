@@ -49,19 +49,17 @@
 #include <unordered_set>
 
 #include "base/logging.hh"
+#include "cpu/o3/cyclone/timing_table.hh"
+#include "cpu/o3/cyclone/utilities.hh"
 #include "cpu/o3/dyn_inst.hh"
 #include "cpu/o3/fu_pool.hh"
 #include "cpu/o3/limits.hh"
+#include "debug/Cyclone.hh"
 #include "debug/IQ.hh"
 #include "enums/OpClass.hh"
+#include "inst_queue.hh"
 #include "params/BaseO3CPU.hh"
 #include "sim/core.hh"
-#include "debug/Cyclone.hh"
-#include "cpu/o3/cyclone/utilities.hh"
-#include "inst_queue.hh"
-
-
-
 
 // clang complains about std::set being overloaded with Packet::set if
 // we open up the entire namespace std
@@ -589,16 +587,22 @@ InstructionQueue::insert(const DynInstPtr &new_inst)
     DPRINTF(IQ, "Adding instruction [sn:%llu] PC %s to the IQ.\n",
             new_inst->seqNum, new_inst->pcState());
 
-    /////////////////delete for cyclone//////////////
-    // assert(freeEntries != 0);
+    assert(freeEntries != 0);
 
-    // instList[new_inst->threadNumber].push_back(new_inst);
+    instList[new_inst->threadNumber].push_back(new_inst);
 
-    // --freeEntries;
-    ////////////////////////end delete///////////////
+    --freeEntries;
+
     ///////////////insert to countdown cyclone///////////
-    int countdown_value = calculateNewCountdown(new_inst);
+
+    this->timingTable.calculateOperandLatency(new_inst);
+
+    int countdown_value = new_inst->getOperandLatency();
+
+    this->timingTable.calculateDelayAndSetReadyTime(new_inst, this->fuPool);
+
     this->countdownQueue.addInstruction(new_inst, countdown_value);
+
     /////////////////////countdown_value???////////////////prescheduler///////
     ///////////////////end insert/////////////////////////
 

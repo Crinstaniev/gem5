@@ -39,32 +39,8 @@
  * OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-#ifndef __CPU_O3_INST_QUEUE_HH__
-#define __CPU_O3_INST_QUEUE_HH__
 
-#include <list>
-#include <map>
-#include <queue>
-#include <vector>
 
-#include "base/statistics.hh"
-#include "base/types.hh"
-#include "cpu/inst_seq.hh"
-#include "cpu/o3/comm.hh"
-#include "cpu/o3/dep_graph.hh"
-#include "cpu/o3/dyn_inst_ptr.hh"
-#include "cpu/o3/limits.hh"
-#include "cpu/o3/mem_dep_unit.hh"
-#include "cpu/o3/store_set.hh"
-#include "cpu/op_class.hh"
-#include "cpu/timebuf.hh"
-#include "enums/SMTQueuePolicy.hh"
-#include "sim/eventq.hh"
-#include "cpu/o3/cyclone/timing_table.hh"
-
-// CYCLONE
-#include "cpu/o3/cyclone/countdown_queue.hh"
-// END CYCLONE
 
 
 
@@ -587,4 +563,4 @@ class InstructionQueue
 } // namespace o3
 } // namespace gem5
 
-#endif //__CPU_O3_INST_QUEUE_HH__
+Change-Id: I58741fbb0b3dbcc00e2875ea4ea45be1f818a6b3
