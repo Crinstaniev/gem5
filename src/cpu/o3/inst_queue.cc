@@ -597,8 +597,26 @@ InstructionQueue::insert(const DynInstPtr &new_inst)
     // --freeEntries;
     ////////////////////////end delete///////////////
     ///////////////insert to countdown cyclone///////////
-    int countdown_value = calculateNewCountdown(new_inst);
+   
+
+    new_inst->calculateOperandLatency(timingTable);
+
+
+    int countdown_value = new_inst->getOperandLatency();
+
+
+
+
+
+    new_inst->calculateDelayAndSetTimingTable(timingTable, fuPool);
+    
+    
     this->countdownQueue.addInstruction(new_inst, countdown_value);
+
+
+
+
+
     /////////////////////countdown_value???////////////////prescheduler///////
     ///////////////////end insert/////////////////////////
 
@@ -681,13 +699,17 @@ InstructionQueue::processCountdownQueue()
         } else {
             // 操作数未准备好，需要重新计算倒计时
             //---暂时实现但或许应该在prescheduler实现
-            int newCountdown = calculateNewCountdown(readyInst);
+            timingTable.reset();
+            readyInst->calculateOperandLatency(timingTable);
+
+            int newCountdown = readyInst->getOperandLatency();
 
             DPRINTF(IQ, "CountdownQueue: Instruction PC %s [sn:%llu] operands not ready. "
                         "Recomputing countdown: %d cycles.\n",
                     readyInst->pcState(), readyInst->seqNum, newCountdown);
 
             // 将指令重新插入 Countdown Queue
+            readyInst->calculateDelayAndSetTimingTable(timingTable, fuPool);
             this->countdownQueue.addInstruction(readyInst, newCountdown);
         }
     }

@@ -165,6 +165,30 @@ class DynInst : public ExecContext, public RefCounted
     }
 
 
+    ///////////////////////modify2 cyclone////////////////
+    void DynInst::calculateDelayAndSetTimingTable(
+    TimingTable &timingTable, FUPool &fuPool) 
+{
+    // Get the operation class of the current instruction
+    OpClass capability = this->opClass();
+
+    // Get the functional unit's operation execution latency
+    Cycles opLatency = fuPool.getOpLatency(capability);
+
+    // Get the countdown value (this value should already be set)
+    int countdownValue = getOperandLatency();
+
+    // Calculate the total delay
+    int totalDelay = countdownValue + opLatency;
+
+    // Write the delay to the TimingTable for the destination register
+    for (size_t i = 0; i < numDestRegs(); ++i) {
+        int regIdx = renamedDestIdx(i)->index(); // Physical register index
+        timingTable.setReadyTime(regIdx, totalDelay);
+    }
+}
+    ///////////////////////end modify2 cyclone////////////////
+
 ////////////////end cyclone prescheduler/////////////
 
 
