@@ -60,11 +60,16 @@
 #include "cpu/timebuf.hh"
 #include "enums/SMTQueuePolicy.hh"
 #include "sim/eventq.hh"
-#include "cpu/o3/cyclone/timing_table.hh"
+
 
 // CYCLONE
 #include "cpu/o3/cyclone/countdown_queue.hh"
+#include "cpu/o3/cyclone/timing_table.hh"  
+#include "cpu/o3/cyclone/utilities.hh"  
+#include "cpu/o3/fu_pool.hh"              
+#include "cpu/o3/dyn_inst.hh"     
 // END CYCLONE
+
 
 
 

@@ -22,7 +22,39 @@ void TimingTable::setReadyTime(int regIdx, int readyTime) {
 void TimingTable::reset() {
   std::fill(regReadyTime.begin(), regReadyTime.end(), 0);
 }
+void TimingTable::calculateDelayAndSetReadyTime(const DynInstPtr &inst,
+                                                const FUPool &fuPool) {
 
+    OpClass opClass = inst->opClass();
+
+
+    Cycles opLatency = fuPool.getOpLatency(opClass);
+
+
+    int operandLatency = inst->getOperandLatency();
+
+
+    int totalDelay = operandLatency + opLatency;
+
+
+    for (size_t i = 0; i < inst->numDestRegs(); ++i) {
+        int regIdx = inst->renamedDestIdx(i)->index(); 
+        setReadyTime(regIdx, totalDelay);
+    }
+}
+
+void TimingTable::calculateOperandLatency(const DynInstPtr &inst) {
+    int operandLatency = 0;
+
+   
+    for (int i = 0; i < inst->numSrcRegs(); ++i) {
+        int regReadyTime = getReadyTime(inst->renamedSrcIdx(i)->index());
+        operandLatency = std::max(operandLatency, regReadyTime);
+    }
+
+
+    inst->setOperandLatency(operandLatency);
+}
 } // namespace cyclone
 } // namespace o3
 } // namespace gem5
